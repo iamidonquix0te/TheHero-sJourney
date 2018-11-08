@@ -230,6 +230,7 @@ story.skillcheck = function(attribute, difficulty) {
         }
     }
 }
+story.currentpage;
 story.aeronaRom = 0;
 story.rhainRom = 0;
 story.emrysRom =0;
@@ -337,4 +338,15 @@ window.onkeyup = function(event) {
     }
 }
 story.opmemory1 =false;
-//do openjournal, check the dedalys files for currentpageid
+story.openjournal = function() {
+    story.currentpage = story.getCurrentPageId()
+    console.log(story.currentpage)
+    story.turnTo("journal")
+    console.log(story.getCurrentPageId())
+}
+story.closejournal = function() {
+    console.log(story.currentpage)
+    console.log(story.getCurrentPageId())
+    story.turnTo(story.currentpage)
+    console.log(story.getCurrentPageId())
+}
