@@ -1,0 +1,98 @@
+.choice {
+    font-weight: bold;
+    text-align: left;
+}
+.choice:hover {
+    color: darksalmon;
+}
+
+.combat {}
+.next {
+    text-align: right;
+    font-weight: bold;
+}
+.next:hover {
+    color: darksalmon;
+}
+.story {}
+#header {
+    width          : 700px;
+    height : 50%;
+    margin-left : 100px;
+    margin-right   : 0px;
+    padding-top    : 100px;
+    border-color : black;
+    border-style : solid;
+    border-width: thin;
+}
+#main {
+    width          : 680px;
+    height : 50%;
+    padding-right : 10px;
+    padding-left : 10px;
+    padding-top    : 10px;
+    padding-bottom : 10px;
+    border-color : black;
+    border-style : solid;
+    border-width: thin;
+}
+#options {
+    margin-top : 15px;
+    width          : 680px;
+    padding-top    : 10px;
+    padding-left : 10px;
+    padding-bottom : 10px;
+    padding-right : 10px;
+    border-color : black;
+    border-style : solid;
+    border-width: thin;
+}
+#dialogue {
+    width          : 680px;
+    height : 50%;
+    padding-right : 10px;
+    padding-left : 10px;
+    padding-top    : 100px;
+    padding-bottom : 50px;
+    border-color : black;
+    border-style : solid;
+    border-width: thin;
+    background-repeat: no-repeat;
+        
+}
+#balloon {
+    position: relative;
+    background: #f0cbc1;
+    margin-left: 270px;
+	border-radius: .4em;
+    padding-right : 10px;
+    padding-left : 10px;
+    padding-top    : 10px;
+    padding-bottom : 10px;
+}
+#balloon:after {
+    content: '';
+	position: absolute;
+	left: 0;
+	top: 50%;
+	width: 0;
+	height: 0;
+	border: 11px solid transparent;
+	border-right-color: #f0cbc1;
+	border-left: 0;
+	border-top: 0;
+	margin-top: -5.5px;
+	margin-left: -11px;
+    
+}
+#journal {
+    width          : 680px;
+    height : 50%;
+    padding-right : 10px;
+    padding-left : 10px;
+    padding-top    : 10px;
+    padding-bottom : 10px;
+    border-color : black;
+    border-style : solid;
+    border-width: thin;
+}

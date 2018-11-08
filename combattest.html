@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>The Hero's Journey</title>
+    <script type='text/javascript' src='story.js'></script>
+    <script src="story.js"></script>
+    <script src="https://olado.github.io/doT/doT.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script src="dedalus.js"></script>
+    <script src="dedalus-web.js"></script>
+    
+    <link rel="stylesheet" href="themes/plain/story.css">
+    <link rel="stylesheet" href="story.css">
+    </head>
+    <body>
+    <div class="story">
+        <div id="story">
+        <initscript>
+        </initscript>
+        <page id= "intro">
+            <div class="combat">
+           Choose your enemy.
+            <div class = 'choice' onclick ="story.setenemyname('sbire'), story.startcombat(30, 30, 5, 20, 'special', 5), story.setHeroDefense(), story.setenemyDefense(), story.setHeroAttribute('strength', 25), story.setHeroAttribute('agility', 15), story.setHeroAttribute('resolve', 5)">First enemy of the game, henchman of the antagonist (special options and non-melee attacks are locked, not all companions are available. This is meant to introduce the combat system to the player but also make them feel very weak ; this fight can't be won)</div>
+            <div class ='choice' onclick="story.setenemyname('testenemy'), story.turnTo('second')">Test enemy. This isn't a real enemy and will have mostly placeholder writing, but it has all the mechanics of the combat system</div>
+            <div class = "choice" onclick ="story.openjournal()">Open journal</div>
+            </div>
+            </page>
+        <page id="Firstpage" class ="first">
+                </page>
+        <page id="second">
+            <div class="combat">
+            Choose your class. This limits your attack and special options, and you'll be attributed stats that fit your class (this is for testing purposes and stats are less limited in the actual game)
+            <br><br>Quick tutorial : strength determines melee success rates, agility ranged, intelligence magic. Charisma doesn't do combat stuff (yet), resolve lets you "defend" for a bonus to AC next turn and gives a bonus to HP. Specials can only be used once per encounter. Each companion can do an action once per encounter. Distance matters (melee needs close range, ranged more distance, magic doesn't care). Standard d20 stuff, click on options to try and kill your opponent, don't get killed.<br><br>
+            <div class ="choice" onclick="story.setheroclass('Meagan'), story.startcombat(25, 20, 5, 10, 'special', 5), story.setHeroDefense(), story.setenemyDefense(), story.setHeroAttribute('strength', 25), story.setHeroAttribute('agility', 15), story.setHeroAttribute('resolve', 5)">Follower of Meagan, goddess of war. 25 Strength, 15 Agility, 5 Resolve. Melee attack only. Special : "Charge"</div>
+            <div class="choice" onclick="story.setheroclass('Maeri'), story.startcombat(25, 20, 5, 10, 'special', 5), story.setHeroDefense(), story.setenemyDefense(), story.setHeroAttribute('agility', 25), story.setHeroAttribute('strength', 15), story.setHeroAttribute('charisma', 5)">Follower of Maeri, goddess of flesh. 25 Agility, 15 Strength, 5 Charisma. Melee and ranged attacks. Special : "Poison kiss"</div>
+            <div class="choice" onclick="story.setheroclass('Daere'), story.startcombat(25, 20, 5, 10, 'special', 5), story.setHeroDefense(), story.setenemyDefense(), story.setHeroAttribute('intelligence', 25), story.setHeroAttribute('agility', 15), story.setHeroAttribute('charisma', 5)">Follower of Daere, goddess of horror. 25 Intelligence, 15 Agility, 5 Charisma. Magic and ranged attacks. Special : "Nightmare"</div>
+            <div class="choice" onclick="story.setheroclass('Tamwen'), story.startcombat(25, 20, 5, 10, 'special', 5), story.setHeroDefense(), story.setenemyDefense(), story.setHeroAttribute('intelligence', 25), story.setHeroAttribute('strength', 15), story.setHeroAttribute('resolve', 5)">Follower of Tamwen, goddess of fire. 25 Intelligence, 15 Strength, 5 Resolve. Melee and magic attacks. Special : "Fire breath"</div>
+            <div class="choice" onclick="story.setheroclass('Briar'), story.startcombat(25, 20, 5, 10, 'special', 5), story.setHeroDefense(), story.setenemyDefense(), story.setHeroAttribute('intelligence', 25), story.setHeroAttribute('resolve', 15), story.setHeroAttribute('charisma', 5)">Follower of Briar, goddess of nature. 25 Intelligence, 15 Resolve, 5 Charisma. Magic attack only. Special : "Earthquake"</div>
+            <div class="choice" onclick="story.setheroclass('Aneira'), story.startcombat(25, 20, 5, 10, 'special', 5), story.setHeroDefense(), story.setenemyDefense(), story.setHeroAttribute('agility', 25), story.setHeroAttribute('strength', 15), story.setHeroAttribute('intelligence', 5)">Follower of Aneira, goddess of monsters. 25 Agility, 15 Strength, 5 Intelligence. Melee and ranged attacks. Special : "Drop caltrops"</div>
+            <div class="choice" onclick="story.setheroclass('Gorawen'), story.startcombat(25, 20, 5, 10, 'special', 5), story.setHeroDefense(), story.setenemyDefense(), story.setHeroAttribute('agility', 25), story.setHeroAttribute('intelligence', 15), story.setHeroAttribute('resolve', 5)">Follower of Gorawen, goddess of logic. 25 Agility, 15 Intelligence, 5 Resolve. Ranged attack only. Special : "Use automaton"</div>
+            <div class="choice" onclick="story.setheroclass('Trystin'), story.startcombat(25, 20, 5, 10, 'special', 5), story.setHeroDefense(), story.setenemyDefense(), story.setHeroAttribute('intelligence', 25), story.setHeroAttribute('strength', 15), story.setHeroAttribute('charisma', 5)">Follower of Trystin, goddess of love. 25 Intelligence, 15 Strength, 5 Charisma. Melee and magic attacks. Special : "Heal self"</div>
+            </div>
+            </page>
+        </div>
+            <div id="wrapper">
+        <div id="title">The Hero's Journey</div>
+
+        <div id="host"></div>
+    </div>
+</div>
+    <div id="interactionHost"></div>
+
+    <div id="undoStageHost"></div>
+
+    <div id="footer">
+        <a id="saveHost" href="#">Save</a> &bull; <a id="restoreHost" href="#">Restore</a> &bull; <a id="reseteHost" href="#">Reset</a>
+    </div>
+
+    <script>
+        $(function () {
+            new DedalusWeb({
+                domSource         : $('#story'),
+                domTarget         : $('#host'),
+                titleTarget       : $('#title'),
+                inventoryTarget   : $('#inventoryHost'),
+                interactionTarget : $('#interactionHost'),
+                undoTarget        : $('#undoHost'),
+                undoStageTarget   : $('#undoStageHost'),
+                saveTarget        : $('#saveHost'),
+                restoreTarget     : $('#restoreHost'),
+                resetTarget       : $('#reseteHost'),
+            });
+        });
+
+    </script>
+    </body>
+</html>
