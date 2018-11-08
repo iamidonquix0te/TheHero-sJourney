@@ -337,4 +337,4 @@ window.onkeyup = function(event) {
     }
 }
 story.opmemory1 =false;
-//this doesn't work, story doesn't seem to empty plus getcurrentpage isn't recognised
+//do openjournal, check the dedalys files for currentpageid
