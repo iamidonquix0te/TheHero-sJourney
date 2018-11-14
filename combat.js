@@ -345,7 +345,7 @@ story.attack= function(attribute, attacker) {
     if (attacker == "Hero") {
         story.turnaction+=1
         story.lastroll = story.diceroll(20, 1)
-        if (story.lastroll + attribute >= story.enemyDefense) {
+        if (story.lastroll + attribute >= story.enemyDefense && story.lastroll < 20) {
             console.log("successful hit")
             $(".combat").empty()
             story.hitdamage = story.diceroll(6, story.heroLevel)
@@ -443,7 +443,7 @@ story.attack= function(attribute, attacker) {
     if (attacker == "enemy") {
         if (story.enemyname == "sbire") {
             story.lastroll = story.diceroll(20, 1)
-            if (story.lastroll + attribute >= story.heroDefense) {
+            if (story.lastroll + attribute >= story.heroDefense && story.lastroll < 20) {
                 story.hitdamage = story.diceroll(8, story.heroLevel)
                 story.heroHP -= story.hitdamage
                 console.log(story.heroHP)

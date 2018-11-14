@@ -338,6 +338,7 @@ window.onkeyup = function(event) {
     }
 }
 story.opmemory1 =false;
+story.date = "day 1"
 story.openjournal = function() {
     story.currentpage = story.getCurrentPageId()
     console.log(story.currentpage)
@@ -350,3 +351,28 @@ story.closejournal = function() {
     story.turnTo(story.currentpage)
     console.log(story.getCurrentPageId())
 }
+story.checkpoint = function() {
+    localStorage.setItem("currentpage", story.getCurrentPageId())
+    console.log(story.getCurrentPageId())
+}
+story.loadcheckpoint = function() {
+    if (localStorage.currentpage != undefined) {
+    story.turnTo(localStorage.currentpage)
+    console.log(story.getCurrentPageId())
+        }
+    if (localStorage.currentpage == undefined) {
+        window.alert('No checkpoint found')
+    }
+}
+story.newgame = function() {
+    var txt;
+    var n = confirm('This will delete any saved checkpoint. Do you want to proceed anyway ?')
+        console.log(n)
+    if (n == true) {
+        story.turnTo("intro1")
+        story.changecss('night')
+            }
+    else {
+        console.log(n)
+}
+} //set all variables to 0

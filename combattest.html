@@ -19,6 +19,7 @@
         <initscript>
         </initscript>
         <page id= "intro">
+            <div class="choice" onclick="story.loadcheckpoint()">Load</div>
             </page>
         <page id="Firstpage" class ="first">
             <div class="combat">
@@ -30,6 +31,7 @@
                 </page>
         <page id="second">
             <div class="combat">
+            <div class="choice" onclick ="story.checkpoint(), story.turnTo('third')">Save</div>
             Choose your class. This limits your attack and special options, and you'll be attributed stats that fit your class (this is for testing purposes and stats are less limited in the actual game)
             <br><br>Quick tutorial : strength determines melee success rates, agility ranged, intelligence magic. Charisma doesn't do combat stuff (yet), resolve lets you "defend" for a bonus to AC next turn and gives a bonus to HP. Specials can only be used once per encounter. Each companion can do an action once per encounter. Distance matters (melee needs close range, ranged more distance, magic doesn't care). Standard d20 stuff, click on options to try and kill your opponent, don't get killed.<br><br>
             <div class ="choice" onclick="story.setheroclass('Meagan'), story.startcombat(25, 20, 5, 10, 'special', 5), story.setHeroDefense(), story.setenemyDefense(), story.setHeroAttribute('strength', 25), story.setHeroAttribute('agility', 15), story.setHeroAttribute('resolve', 5)">Follower of Meagan, goddess of war. 25 Strength, 15 Agility, 5 Resolve. Melee attack only. Special : "Charge"</div>
@@ -44,6 +46,9 @@
             </page>
         <page id="journal">this is the journal
             <div class= "choice" onclick="story.closejournal()">Close the journal</div>
+            </page>
+        <page id="third">
+            <div class="choice" onclick="story.loadcheckpoint()">Load</div>
             </page>
         </div>
             <div id="wrapper">

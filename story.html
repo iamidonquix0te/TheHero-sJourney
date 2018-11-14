@@ -32,8 +32,11 @@
             Playing instructions :<br><br>
             Click “Next” or press “Enter” to turn pages.<br> Click an option or press the corresponding number to make a choice.<br>Click high-lighted words for more information.<br><br>
             Failure won't end your adventure but might make you wish it had. Make your choices carefully and embrace their consequences : there is no turning back.
-            <div class="choice, next" id="next" onclick ="story.turnTo('intro1'), story.changecss('night')">Begin</div>
                     </div>
+            <div id="options">
+            <div class="choice" id="choice1" onclick="story.loadcheckpoint()">1. Continue</div>
+            <div class="choice" id="choice2" onclick ="story.newgame()">2. Start a new adventure</div>
+            </div>
         </page>
         <page id ="intro1">
             <div id="main">
@@ -427,7 +430,10 @@
         <div class="choice" id="choice1" onclick="story.turnTo('leave3')"> 1. Continue down the trail.</div>
         <div class="choice" id="choice2" onclick="story.turnTo('mountains1')"> 2. Go back up.</div></page>
         <page id="leave3">Minutes pass like this. At times one of you seems to want to speak, but nothing comes. Only steps in the dirt. <br><br> It lets you hear them before you see them.
-        <div class="next" id="next" onclick="story.turnTo('eighteen')">Next</div>
+        <div class="next" id="next" onclick="story.turnTo('firstcheckpoint'), story.checkpoint()">Next</div>
+        </page>
+        <page id="firstcheckpoint"><div id="main">(You've reached a checkpoint. You will return here if you close the game, re-open it and choose "continue" in the starting menu.)
+            <div class="next" id="next" onclick="story.turnTo('eighteen')">Next</div></div>
         </page>
         <page id="eighteen"> Loud voices and heavy steps sound downhill, further than your eyes can see. They may be friends or foes ; not that you'd know one from the other, with how much you've forgotten. With only a minute to spare before your paths cross, you...
             <div class="choice" id="choice1" onclick="story.turnTo('nineteen1'), story.advantage18 = true"> 1. Draw your sword and signal to your party to do the same. </div>
@@ -541,7 +547,13 @@
             <div class="choice" id="choice3" onclick="story.turnTo('24')">3. "Will you all fuck off with the "hero" thing ? I don't remember any of this."</div>
             <div class="choice" id="choice4" onclick="story.turnTo('24')">4. "I've lost my memory, please spare me !"</div>
         </page>
-        <page id="23">placeholder skip fight</page>
+        <page id="23"><div id="main">
+            You duck beneath his raised sword, knowing exactly where to hit. With your own, two-handed blade, you reach for the wound on his left thigh.<br><br>
+            He swears when the point of your blade cuts through bandages and buries itself in the wound. His own weapon finds you as you struggle to move away from him, your sword too heavy, your limbs too awkward.<br><br> His hits at the gaps in your armour draw blood ; too much blood. You don't have the strength to resist the man's next push.
+            <div class="next" id="next" onclick="story.turnTo('22')">Next</div>
+            </div>
+            
+            </page>
         <page id='24'>He stares at you for a moment, his eyes wide. Perhaps unconsciously, he lowers his sword.<br><br>"How come you don't remember ?", he whispers, mostly to himself. His eyes have left you now, focusing on the ground, as if searching for something. A few seconds pass like this, strangely silent admist the battle your companions are still in.<br><br>"You're coming with me", he finally declares, roughly pulling you up by your arm.<br> If you protest, he doesn't hear it ; the man leads you down the trail in a hurry.<br><br>
             <div class="choice" id="choice1" onclick="story.turnTo('25-1')">1. "Will you tell me about this hero deal if I follow you ?"</div>
             <div class="choice" id="choice2" onclick="story.turnTo('25-2')">2. "Do we know each other ? You mentioned a plan."</div>
@@ -644,7 +656,7 @@
             <div class="next" id="next" onclick="story.turnTo('33')">Next</div>
             </div> </page>
         <page id="33"><div id="main">Your party begins moving again as the sun begins to set. Your pace has slowed considerably, your companions taking care not to rush your wounded body. The few hours of travel -first through pink-tinted mountain trails, then dark paths lit by flames cast by Rhain- are mostly silent, dialogue limiting itself to enquiries about your health and tiredness, or comments about the gradual loss of light.<br><br>
-            The village's gate only enters your sight long after night has fallen, and the gate has closed. A single guard stands near it, using his spear to support him in his half-sleep.
+            The village's gate only enters your sight long after night has fallen, and the gate has closed. A single guard stands near it, using his spear to support himself in his half-sleep.
             <div class="next" id="next" onclick="story.turnTo('34')">Next</div>
             </div></page>
         <page id="34"><div id="dialogue">The goatman gently nudges the man's shoulder and throws you a quick look. He points to you then raises a finger to his lips.
@@ -673,7 +685,7 @@
         <page id="37"><div id="main">"O-of course !" the guard stammers. "Should I take you to the inn ? There's a messenger there I need to warn-"<br><br> He reaches for a heavy keyring and begins to fumble with the gate's lock.<br><br>"I won't tell him you're here, but he needs to know you beat Ikemma so he can run to the next village and tell them." He turns to you slightly, not quite meeting your gaze. "N-not that we didn't trust you'd do it. We were just waiting for your return."
              <div class="next" id="next" onclick="story.turnTo('38')">Next</div>
             </div></page>
-        <page id="38"><div main="id">The guard pushes the gate open.<br><br>"Here you go, hero. We'll enter the inn through the kitchens so nobody notices you."<br><br> Your companions thank the man and follow him through the small, empty village. Few windows are even lit by the flames of candles, only the inn -which you quickly reach- casts light on the dusty ground.<br><br>As promised, the man takes you to back of the inn and pushes open the kitchen doors.
+        <page id="38"><div id="main">The guard pushes the gate open.<br><br>"Here you go, hero. We'll enter the inn through the kitchens so nobody notices you."<br><br> Your companions thank the man and follow him through the small, empty village. Few windows are even lit by the flames of candles, only the inn -which you quickly reach- casts light on the dusty ground.<br><br>As promised, the man takes you to back of the inn and pushes open the kitchen doors.
             <div class="next" id="next" onclick="story.turnTo('39')">Next</div>
             </div>
         </page>
@@ -700,12 +712,12 @@
              <div class="next" id="next" onclick="story.turnTo('41-1')">Next</div>
             </div></page>
         <page id="41-1"><div id="main">Your companions motion for you to follow them upstairs, but the guard interrupts. "Hero, if you don't mind... Is it really over ? Did you really defeat the Villain ?"</div>
-           <div id="options"></div>
+           <div id="options">
             <div class="choice" id="choice1" onclick="story.turnTo('41-2')">1. "Of course. It's over now."</div>
             <div class="choice" id="choice2" onclick="story.turnTo('41-3')">2. "It might not be. There's something strange going on."</div>
             <div class="choice" id="choice3" onclick="story.turnTo('41-4)">3. "Honestly, I don't have a clue."</div>
             <div class="choice" id="choice4" onclick="story.turnTo('41-5)">4. Ignore the man and go upstairs to your room.</div>
-        
+        </div>
         </page>
         <page id="41-2"><div id="main">The guard smiles, seeming to trust your statement completely. <br><br>"Thank you, hero. We owe you everything."
              <div class="next" id="next" onclick="story.turnTo('41-5')">Next</div>
@@ -809,15 +821,42 @@
             You lay down on the unfamiliar bed in your unfamiliar clothes. You suspect the mattress is little more than hay in a sheet, but in your current state it feels exquisite.<br><br>
             Sleep hits you quickly and with no warning. Before it takes you entirely, you have one last thought :</div>
             <div id="options">
-                <div class="choice" id="choice1" onclick="story.turnTo('45')">1. This "hero" thing terrifies me. What have I gotten myself into ?</div>
-                <div class="choice" id="choice2" onclick="story.turnTo('45')">2. Everyone knows who I am and admires me. I like that. </div>
-                <div class="choice" id="choice3" onclick="story.turnTo('45')">3. I don't know what to think about all of this.</div>
-                <div class="choice" id="choice4" onclick="story.turnTo('45')">4. I just want to sleep.</div>
+                <div class="choice" id="choice1" onclick="story.turnTo('45-1')">1. This "hero" thing terrifies me. What have I gotten myself into ?</div>
+                <div class="choice" id="choice2" onclick="story.turnTo('45-2')">2. Everyone knows who I am and admires me. I like that. </div>
+                <div class="choice" id="choice3" onclick="story.turnTo('45-3')">3. I don't know what to think about all of this.</div>
+                <div class="choice" id="choice4" onclick="story.turnTo('45-4')">4. I just want to sleep.</div>
             
             </div>
         </page>
-        <page id="45">
-        <div id="main"></div>
+        <page id="45-1">
+        <div id="main">
+            
+            <div class="next" id="next" onclick="story.turnTo('46')">Next</div>
+            </div>
+        </page>
+        <page id="45-2">
+        <div id="main">
+            
+            <div class="next" id="next" onclick="story.turnTo('46')">Next</div>
+            </div>
+        </page>
+        <page id="45-3">
+        <div id="main">
+            
+            <div class="next" id="next" onclick="story.turnTo('46')">Next</div>
+            </div>
+        </page>
+        <page id="45-4">
+        <div id="main">
+            
+            <div class="next" id="next" onclick="story.turnTo('46')">Next</div>
+            </div>
+        </page>
+        <page id="46">
+        <div id="main">
+            
+            <div class="next" id="next" onclick="story.turnTo('46')">Next</div>
+            </div>
         </page>
 
 

@@ -24,6 +24,7 @@
     border-color : black;
     border-style : solid;
     border-width: thin;
+    background-image: url("./images/mountainheader..png");
 }
 #main {
     width          : 680px;
