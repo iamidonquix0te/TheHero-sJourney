@@ -8,6 +8,7 @@
 
 .combat {}
 .next {
+    padding-top: 5px;
     text-align: right;
     font-weight: bold;
 }
@@ -24,18 +25,18 @@
     border-color : black;
     border-style : solid;
     border-width: thin;
-    background-image: url("./images/mountainheader..png");
+    background-image: url("./images/titleheader.png");
 }
 #main {
-    width          : 680px;
-    height : 50%;
-    padding-right : 10px;
-    padding-left : 10px;
-    padding-top    : 10px;
-    padding-bottom : 10px;
+    width          : 640px;
+    padding-right : 30px;
+    padding-left : 30px;
+    padding-top    : 40px;
+    padding-bottom : 20px;
     border-color : black;
     border-style : solid;
     border-width: thin;
+    text-align: center;
 }
 #options {
     margin-top : 15px;
@@ -50,10 +51,10 @@
 }
 #dialogue {
     width          : 680px;
-    height : 50%;
+    height : 110px;
     padding-right : 10px;
-    padding-left : 10px;
-    padding-top    : 100px;
+    padding-left : 0px;
+    padding-top    : 145px;
     padding-bottom : 50px;
     border-color : black;
     border-style : solid;

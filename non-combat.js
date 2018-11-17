@@ -234,6 +234,7 @@ story.currentpage;
 story.aeronaRom = 0;
 story.rhainRom = 0;
 story.emrysRom =0;
+story.ikemmaRom =false;
 story.villainousPath = 0;
 story.redeemedPath = 0;
 story.advantage18 = false;
@@ -296,24 +297,75 @@ story.removecompanion = function(companion){
     console.log(party)
 }
 story.changecss = function(type) {
-    if (type == "night") {
+    if (type == "sleep") {
+        $("body").css({"background-color":"black", "color":"floralwhite"})
+        $("#header").css({"border-color":"white"})
+        $("#header").css("backgroundImage", "url(images/sleepheader.png)")
+        $("#main").css({"border-color":"white"})
+        $("#options").css({"border-color":"white"})
+        $('#balloon').css({"background":"493A78"})
+        $('#balloon:after').css({"border-right-color":"493A78"})
+        
+    }
+    if (type=="combat") {
+        $("#header").css("backgroundImage", "url(images/combatheader.png)")
+        $("body").css({"background-color":"floralwhite", "color":"black"})
+        $("#header").css({"border-color":"black"})
+    }
+    if (type == "mountains") {
+        $("#header").css("backgroundImage", "url(images/mountainheader..png)")
+        $("body").css({"background-color":"floralwhite", "color":"black"})
+        $("#header").css({"border-color":"black"})
+    }
+    if (type == "title") {
+        $("#header").css("backgroundImage", "url(images/titleheader.png)")
+        $("body").css({"background-color":"floralwhite", "color":"black"})
+        $("#header").css({"border-color":"black"})
+    }
+    if (type=="memory") {
+        $("#header").css("backgroundImage", "url(images/memoryheader..png)")
+        $("body").css({"background-color":"floralwhite", "color":"black"})
+        $("#header").css({"border-color":"black"})
+    }
+    if (type=="nightsky") {
+         $("body").css({"background-color":"black", "color":"floralwhite"})
+        $("#header").css({"border-color":"white"})
+        $("#header").css("backgroundImage", "url(images/nightskyheader.png)")
+        $("#main").css({"border-color":"white"})
+        $("#options").css({"border-color":"white"})
+        $('#balloon').css({"background":"#493A78"})
+        $('#balloon:after').css({"border-right-color":"#493A78"})
+        $('#dialog').css({"border-color":"white"})
+    }
+    if (type=="innnight") {
+        $("#header").css("backgroundImage", "url(images/innheader.png)")
         $("body").css({"background-color":"black", "color":"floralwhite"})
         $("#header").css({"border-color":"white"})
         $("#main").css({"border-color":"white"})
         $("#options").css({"border-color":"white"})
-        
+        $('#balloon').css({"background":"#493A78"})
+        $('#balloon:after').css({"border-right-color":"#493A78"})
+        $('#dialog').css({"border-color":"white"})
     }
-    if (type == "clouds") {
-        $("#header").css("backgroundImage", "url(themes/plain/cloudsframe.png)")
+    if (type=="bedroomnight") {
+         $("#header").css("backgroundImage", "url(images/bedroomNightheader.png)")
+        $("body").css({"background-color":"black", "color":"floralwhite"})
+        $("#header").css({"border-color":"white"})
+        $("#main").css({"border-color":"white"})
+        $("#options").css({"border-color":"white"})
+        $('#balloon').css({"background":"#493A78"})
+        $('#balloon:after').css({"border-right-color":"#493A78"})
+    }
+    if (type=="bedroomday") {
+        $("#header").css("backgroundImage", "url(images/bedroomDayheader.png)")
         $("body").css({"background-color":"floralwhite", "color":"black"})
         $("#header").css({"border-color":"black"})
+        $('#dialog').css({"border-color":"white"})
     }
 }
 story.changeportrait = function(name) {
-    if (name === "Aerona") {
-         $("#dialogue").css("backgroundImage", "url(themes/plain/Rhainp.png)")
+         $("#dialogue").css("backgroundImage", "url(/images/" + name +".png")
     }
-}
 window.onkeyup = function(event) {
     if(event.which ==49 || event.which ==97) {
         document.getElementById("choice1").click();
@@ -338,6 +390,7 @@ window.onkeyup = function(event) {
     }
 }
 story.opmemory1 =false;
+story.firstdreamkey = false;
 story.date = "day 1"
 story.openjournal = function() {
     story.currentpage = story.getCurrentPageId()
@@ -353,26 +406,79 @@ story.closejournal = function() {
 }
 story.checkpoint = function() {
     localStorage.setItem("currentpage", story.getCurrentPageId())
+    story.changecss('title')
     console.log(story.getCurrentPageId())
+    localStorage.setItem("name", story.name)
+    localStorage.setItem("gender", story.gender)
+    localStorage.setItem("HeroLevel", story.heroLevel)
+    localStorage.setItem("strength", story.strength)
+    localStorage.setItem("agility", story.agility)
+    localStorage.setItem("charisma", story.charisma)
+    localStorage.setItem("intelligence", story.intelligence)
+    localStorage.setItem("resolve", story.resolve)
+    localStorage.setItem("villainP", story.villainousPath)
+    localStorage.setItem("redeemP", story.redeemedPath)
+    localStorage.setItem("heroClass", story.heroclass)
+    localStorage.setItem("aeronaRom", story.aeronaRom)
+    localStorage.setItem("rhainRom", story.rhainRom)
+    localStorage.setItem("emrysRom", story.emrysRom)
+    localStorage.setItem("ikemmaRom", story.ikemmaRom)
+    localStorage.setItem("date", story.date)
+    localStorage.setItem("opMem1", story.opmemory1)
 }
 story.loadcheckpoint = function() {
     if (localStorage.currentpage != undefined) {
     story.turnTo(localStorage.currentpage)
     console.log(story.getCurrentPageId())
+    story.name = localStorage.name
+    story.gender = localStorage.gender
+    story.HeroLevel = localStorage.HeroLevel
+    story.strength = localStorage.strength
+    story.agility = localStorage.agility
+    story.charisma = localStorage.charisma
+    story.intelligence = localStorage.intelligence
+    story.resolve = localStorage.resolve
+    story.villainousPath = localStorage.villainP
+    story.redeemedPath = localStorage.redeemP
+    story.heroclass = localStorage.heroClass
+    story.aeronaRom = localStorage.aeronaRom
+    story.rhainRom = localStorage.rhainRom
+    story.emrysRom = localStorage.emrysRom
+    story.ikemmaRom = localStorage.ikemmaRom
+    story.date = localStorage.date
+    story.opmemory1 = localStorage.opMem1
         }
     if (localStorage.currentpage == undefined) {
         window.alert('No checkpoint found')
     }
-}
+} //remember not to put a checkpoint in the middle of a section with a change in your party ; put it right before you choose the party
 story.newgame = function() {
     var txt;
     var n = confirm('This will delete any saved checkpoint. Do you want to proceed anyway ?')
         console.log(n)
     if (n == true) {
         story.turnTo("intro1")
-        story.changecss('night')
+        story.changecss('sleep')
+        console.log(story.getCurrentPageId())
+        story.name;
+        story.heroLevel = 1;
+        story.strength = 0;
+        story.agility = 0;
+        story.charisma = 0;
+        story.intelligence = 0;
+        story.resolve = 0;
+        story.aeronaRom = 0;
+        story.rhainRom = 0;
+        story.emrysRom =0;
+        story.ikemmaRom =false;
+        story.villainousPath = 0;
+        story.redeemedPath = 0;
+        story.advantage18 = false;
+        story.heroclass = 'no-class';
+        story.opmemory1 =false;
+        story.date = "day 1"
             }
     else {
         console.log(n)
 }
-} //set all variables to 0
+}

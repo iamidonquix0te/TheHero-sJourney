@@ -3,12 +3,12 @@ story.defenseBonus = 0;
 story.initialheroHP;
 story.heroHP;
 story.setheroHP = function() {
-    story.heroHP = story.heroLevel*25 + story.resolve
+    story.heroHP = story.heroLevel*25 + parseInt(story.resolve)
     story.initialheroHP = story.heroHP;
     console.log(story.heroHP)
 }
 story.setHeroDefense = function() {
-    story.heroDefense = 10 + story.agility + story.heroLevel + story.defenseBonus
+    story.heroDefense = 10 + parseInt(story.agility) + parseInt(story.heroLevel) + parseInt(story.defenseBonus)
     console.log(story.heroDefense);
 }
 story.enemyname;
@@ -25,7 +25,7 @@ story.enemyHP;
 story.enemyDefense;
 story.enemyDefenseBonus = 0;
 story.setenemyDefense = function() {
-    story.enemyDefense = 10 + story.enemyagility + story.heroLevel + story.enemyDefenseBonus
+    story.enemyDefense = 10 + parseInt(story.enemyagility) + parseInt(story.heroLevel) + parseInt(story.enemyDefenseBonus)
     console.log(story.enemyDefense);
 }
 story.hitdamage = 0;
@@ -50,6 +50,7 @@ story.herospecialMeagan = function() {
         story.enemyHP -= story.diceroll(6, story.heroLevel)
         story.combatdistance = 2
         $('.combat').empty()
+        story.changecss('combat')
         $('.combat').append("You've used your special")
     }
     story.specialuse =1
@@ -67,6 +68,7 @@ story.herospecialMaeri = function() {
         effects["poison"]=4
         story.specialuse =1
         $('.combat').empty
+        story.changecss('combat')
         $('.combat').append("You've used your special")
     }
     if (story.turnaction ==2) {
@@ -82,6 +84,7 @@ story.herospecialTamwen = function() {
         story.enemyHP -= total
         effects["burn"] =4
         $('.combat').empty
+        story.changecss('combat')
         $('.combat').append("You've used your special")
     }
     story.specialuse = 1
@@ -97,6 +100,7 @@ story.herospecialBriar = function() {
         effects["fallen"] =2
         story.enemyDefense -=10
         $('.combat').empty
+        story.changecss('combat')
         $('.combat').append("You've used your special")
     }
     story.specialuse =1
@@ -113,6 +117,7 @@ story.herospecialTrystin = function() {
         story.diceroll(10, story.heroLevel)
         story.heroHP += total
         $('.combat').empty
+        story.changecss('combat')
         $('.combat').append("You've used your special")
     }
     story.specialuse =1
@@ -127,6 +132,7 @@ story.herospecialDaere = function() {
     if (story.enemyname == "testenemy") {
         effects["nightmare"] = 2
         $('.combat').empty
+        story.changecss('combat')
         $('.combat').append("You've used your special")
     }
     story.specialuse =1
@@ -141,6 +147,7 @@ story.herospecialGorawen = function() {
     if (story.enemyname == "testenemy") {
         effects["robot"] = 5
         $('.combat').empty
+        story.changecss('combat')
         $('.combat').append("You've used your special")
     }
     story.specialuse =1
@@ -156,6 +163,7 @@ story.herospecialAneira = function() {
     if (story.enemyname == "testenemy") {
         effects["caltrops"] =4
         $('.combat').empty
+        story.changecss('combat')
         $('.combat').append("You've used your special")
     }
     if (story.turnaction ==2) {
@@ -168,12 +176,14 @@ story.herospecialAneira = function() {
 story.companionactionRhain = function() {
     if (story.enemyname == "sbire") {
         $('.combat').empty()
+        story.changecss('combat')
         $('.combat').append("<p>Rhain is quick to respond to your call for help. A small bolt of fire appears in his right palm and shoots towards the rough man, who seems too focused on fighting you to see the approaching threat. The blacksmith smiles as the bolt reaches his target, setting the fabric of his clothes on fire.</p>")
         story.enemyHP -= story.heroLevel * 5
         effects["burn"] = 4
     }
     if (story.enemyname =="testenemy") {
         $('.combat').empty()
+        story.changecss('combat')
         $('.combat').append("<p>Rhain attacks the enemy</p>")
         story.enemyHP -= story.heroLevel * 5
         effects["burn"] = 4
@@ -191,11 +201,13 @@ story.companionactionRhain = function() {
 story.companionactionAerona = function() {
     if (story.enemyname == "sbire") {
         $('.combat').empty()
+        story.changecss('combat')
         story.enemyHP -= story.heroLevel * 10
         $('.combat').append("<p>Aerona nods gravely upon hearing her name called. Her heavy sword raised, she rushes towards your opponent and swings her blade. The wounded man is unable to dodge and takes a painful-looking blow to his right flank.</p>")
     }
     if (story.enemyname =="testenemy") {
         $('.combat').empty()
+        story.changecss('combat')
         story.enemyHP -= story.heroLevel * 10
         $('.combat').append("<p>Aerona attacks the enemy</p>")
     }
@@ -214,11 +226,13 @@ story.companionactionMabyn = function() {
     if (story.enemyname == "sbire") {
         effects["thorns"] = 4
         $('.combat').empty()
+        story.changecss('combat')
         $('.combat').append("<p>The old woman grumbles somewhat as you call her name, but raises her staff nonetheless. Thorny plant stems emerge from the ground between you and the man, forming a circle around you ; you are both imprisoned and protected by it. Crossing the circle wouldn't be impossible, but it would be painful.</p>")
     }
     if (story.enemyname == "testenemy") {
         effects["thorns"] = 4
         $('.combat').empty()
+        story.changecss('combat')
         $('.combat').append("<p>Mabyn has attacked the enemy</p>")
     }
     story.companionactionuseM =1
@@ -233,6 +247,7 @@ story.companionactionMabyn = function() {
 story.companionactionWooly = function() {
     story.turnaction+=1
     $('.combat').empty()
+    story.changecss('combat')
     if (story.enemyname == "sbire") {
         $('.combat').append("<p>The goat-like creature snaps his head towards you. He then makes his way towards your opponent, seeming casual. You're not sure he understood your need for help until he grapples the rough man, who has no choice but to try and wrestle himself free.</p>")
         story.enemyHP -= story.heroLevel * 5
@@ -257,6 +272,7 @@ story.companionactionWooly = function() {
 };
 story.companionactionBeca = function() {
     $('.combat').empty()
+    story.changecss('combat')
     if (story.enemy == "testenemy") {
         story.enemyHP -= story.heroLevel * 5
         story.companionactionuseB =1
@@ -277,6 +293,8 @@ story.companionactionBeca = function() {
 story.companionactionEmrys = function() {
     if (story.enemy == "testenemy") {
         $('.combat').empty()
+        story.changecss('combat')
+        
         $('.combat').append("Emrys has attacked the enemy")
         if (Math.round(story.combatdistance/20)>10) {
         story.enemyHP -= story.heroLevel * 5 + 10
@@ -302,6 +320,7 @@ story.companionactionEmrys = function() {
 story.companionactionThisbe = function() {
     story.turnaction +=1
     $('.combat').empty()
+    story.changecss('combat')
     if (story.enemyname == "testenemy") {
         if (Math.round(story.combatdistance/20)>10) {
         story.enemyHP -= story.heroLevel * 5 + 10
@@ -330,6 +349,7 @@ story.companionactionSamset = function() {
     story.companionactionuseS = 1
     story.heroHP += story.heroLevel * 10
     $('.combat').empty()
+    story.changecss('combat')
     $('.combat').append("Samset has healed you")
     if (story.turnaction ==2) {
         $('.combat').append('<div class="choice, next" id="next" onclick="story.enemyturn()">Finish your turn</div>')
@@ -348,6 +368,7 @@ story.attack= function(attribute, attacker) {
         if (story.lastroll + attribute >= story.enemyDefense && story.lastroll < 20) {
             console.log("successful hit")
             $(".combat").empty()
+            story.changecss('combat')
             story.hitdamage = story.diceroll(6, story.heroLevel)
             story.enemyHP -= story.hitdamage
             console.log(story.enemyHP)
@@ -403,11 +424,13 @@ story.attack= function(attribute, attacker) {
             console.log("crit")
             if (story.enemyname =="sbire") {
             $('.combat').empty()
+                story.changecss('combat')
             story.enemyHP -= story.diceroll(6, 2*story.heroLevel)
             $('.combat').append("<p>You swing your sword laboriously and feel it connect with the man's torso. Vibrations travel through your forearms as he's pushed back, and you must grip your sword harder to avoid dropping it. That was a good hit.</p>")
         }
             if (story.enemyname =="testenemy") {
                 $(".combat").empty();
+                story.changecss('combat')
                 story.enemyHP -= story.diceroll(6, story.heroLevel*2)
                 $(".combat").append("<p>Critical hit placeholder</p>")
             }
@@ -416,6 +439,7 @@ story.attack= function(attribute, attacker) {
             console.log("failure to hit")
             if (story.enemyname == "sbire") {
                 $(".combat").empty()
+                story.changecss('combat')
                 story.lastroll = story.diceroll(3,1)
                 if (story.lastroll == 1) {
                    $(".combat").append("<p>You swing your sword towards the man with too much strength, and you tumble forward. You regain your balance, but not your dignity.</p>") 
@@ -429,6 +453,7 @@ story.attack= function(attribute, attacker) {
             }
             if (story.enemyname =="testenemy") {
                 $(".combat").empty()
+                story.changecss('combat')
                 $('.combat').append('<p>Failure placeholder</p>')
             }
         }
@@ -458,7 +483,7 @@ story.attack= function(attribute, attacker) {
                 }
                 
         }
-            if (story.lastroll + attribute < story.heroDefense) {
+            if (story.lastroll + story.enemystrength < story.heroDefense) {
                    $(".combat").append("<p>The man prepares a large swing, his arm reaching behind his body. Suddenly he interrupts the movement and grimaces, holding his wounded flank. The blow never comes.</p>")
                 console.log("enemy fails")
             }
@@ -500,13 +525,14 @@ story.attack= function(attribute, attacker) {
                 $('.combat').append("<p>Enemy critical hit placeholder</p>")
             }
         }
-    } // when enemy attacks it appends "take another action" ?
+    }
 }
 story.defend = function(user){
     story.turnaction +=1
     if (user == "hero") {
         story.defenseBonus = story.resolve
         $('.combat').empty()
+        story.changecss('combat')
         $('.combat').append("<p>You widen your stance, making sure you're grounded and well-balanced. This should make you better prepared for the strikes to come, at least for a short while.</p>")
     }
         if (story.turnaction ==2) {
@@ -530,10 +556,10 @@ story.diceroll = function(dice, numberOfTimes) {
     var total =0;
     for(var i = numberOfTimes; i >0; i--) {
         var roll = Math.floor((Math.random() * dice) + 1)
-        console.log("dice =" + dice + "times =" + numberOfTimes + "roll=" +roll)
+        console.log("dice type=" + dice + "times rolled=" + numberOfTimes + "roll=" +roll)
         total += roll
     }
-    console.log("total="+total)
+    console.log("total rolled="+total)
    return total
 }
 story.setdistance = function(number, user) {
@@ -546,6 +572,7 @@ story.setdistance = function(number, user) {
     console.log(story.combatdistance)
     if (user =='hero') {
         $(".combat").empty()
+        story.changecss('combat')
         if (number >0) {
             $('.combat').append("<p>You put some distance between you and your opponent.</p>")
         }
@@ -593,6 +620,7 @@ story.setdistance = function(number, user) {
 } // Might need some variations in encounters with particular terrain or conditions.
 story.showattacks = function() {
     $(".combat").empty()
+    story.changecss('combat')
     story.optioncounter = 1;
     if (story.heroclass == "no-class") {
     if (story.combatdistance <=2) {
@@ -733,6 +761,7 @@ story.showattacks = function() {
 }
 story.showcompanionactions = function(user) {
     $(".combat").empty();
+    story.changecss('combat')
     story.optioncounter = 1;
     if (party[0] == 'Rhain') {
         if (story.companionactionuseR == 0) {
@@ -883,7 +912,7 @@ story.showeffects = function(user) {
     if (user == 'hero') {
         if (story.enemyname == "sbire") {
             if(effects['wrestle'] ==1) {
-         $(".combat").append("<p>The rugged man finally pushes Wooly away, kicking the goat-man in the stomach. A bleet escapes your companion's mouth before your opponent faces you again. 'Back to us, then.'</p>")
+         $(".combat").append("<p>The rugged man finally pushes Wooly away, kicking the goat-man in the stomach. A bleat escapes your companion's mouth before your opponent faces you again. 'Back to us, then.'</p>")
         effects['wrestle']-=1 
             story.enemyDefense +=10
     }
@@ -1054,21 +1083,17 @@ story.showalloptions = function() {
 story.enemyturn = function() {
     story.enemyDefenseBonus =0;
     $('.combat').empty()
+    story.changecss('combat')
     story.showeffects('hero')
     if (story.combatdistance <=2 && effects['wrestle'] <1) {
         story.attack(story.enemystrength, "enemy")
         story.lastroll = story.diceroll(3,1)
-        if (story.lastroll <3) {
-            story.attack(story.enemystrength, "enemy")
+        story.attack(story.enemystrength, "enemy")
         }
-        if (story.lastroll ==3) {
-            story.defend("enemy")
-        }
-    }
     if (story.combatdistance >2 && effects['wrestle'] <1) {
         story.setdistance(-10, "enemy")
         if (story.combatdistance >2) {
-            story.combatdistance =+10
+            story.combatdistance =-10
         }
         if (story.combatdistance <=2) {
             story.attack(story.enemystrength, "sbire")
@@ -1079,6 +1104,7 @@ story.enemyturn = function() {
 }//done
 story.heroturn = function() {
 $(".combat").empty()
+    story.changecss('combat')
 story.defenseBonus =0;
 if (story.enemyHP <=0) {
     $(".combat").append("enemy is dead")
@@ -1086,6 +1112,7 @@ if (story.enemyHP <=0) {
 if (story.heroHP <=0) {
     if (story.enemyname == "sbire") {
         story.turnTo('22')
+        story.changecss('mountains')
     }
     if (story.enemyname == "testenemy") {
         $(".combat").append("<p>You have died.</p>")
@@ -1105,9 +1132,12 @@ if (story.enemyHP >0 && story.heroHP >0) {
 }//done
 story.startcombat = function(n1, n2, n3, n4, special, distance) {
     $(".combat").empty()
+    $("#options").remove()
     console.log("Combat started")
+    story.changecss('combat')
     story.setheroHP();
     story.setHeroDefense();
+    console.log(story.agility)
     story.specialuse =0;
     story.companionactionuseR =0;
     story.companionactionuseA =0;
@@ -1176,11 +1206,6 @@ story.startcombat = function(n1, n2, n3, n4, special, distance) {
 
 
 //to do after that : 
-//after combat and village scene 
-//Draw the portraits and iterations for the four OG companions
-//Fix cloud frame
-//Combat frame
-//Village frame
 //Make the page for the journal and write a first entry.
 
 // for new enemies: You need to make a new storyname value and corresponding if blocks in attacks (both for Hero variations and enemy attacks), a single line in defend, one line for each movement in setdistance (and check for thorns and caltrops when you do move), lines for each health state in showhealth, effect descriptions for the enemy in showeffects, a line for each hero special (except heal), and a line for each companion special (except Samset, plus if a companion is guaranteed to be unavailable. You'll have to be careful with this when writing things for the R and V paths). You might have to make new lines for the hero's setdistance if the setting is special.

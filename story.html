@@ -41,44 +41,39 @@
         <page id ="intro1">
             <div id="main">
         Your senses awaken one by one.
-            <div class="next" id="next" onclick ="story.turnTo('intro2'), story.changecss('night')">Next</div>
+            <div class="next" id="next" onclick ="story.turnTo('intro2'), story.changecss('sleep')">Next</div>
                 </div>
         </page>
         <page id="intro2">
             <div id="main">
                 Touch: you feel the hard ground against your body and something warm dripping from your forehead. It pools beneath your head, warm and thin.
-        <div class="next" id="next" onclick ="story.turnTo('intro3'), story.changecss('night')">Next</div>
+        <div class="next" id="next" onclick ="story.turnTo('intro3'), story.changecss('sleep')">Next</div>
             </div>
         </page>
         <page id="intro3">
             <div id="main">
             Taste: blood in your mouth and smoke in your lungs. You cough and the two mix on your tongue.
-        <div class="next" id="next" onclick ="story.turnTo('intro4'), story.changecss('night')">Next</div>
+        <div class="next" id="next" onclick ="story.turnTo('intro4'), story.changecss('sleep')">Next</div>
             </div>
         </page>
         <page id="intro4">
             <div id="main">Smell: burnt wood. Burnt cloth. Burnt flesh. Your flesh ? Another's ?
-        <div class="next" id="next" onclick ="story.turnTo('intro5'), story.changecss('night')">Next</div>
+        <div class="next" id="next" onclick ="story.turnTo('intro5'), story.changecss('sleep')">Next</div>
             </div>
         </page>
         <page id="intro5">
             <div id="main">
             Hearing: "Hero", voices call. And a name, and desperate pleas. The name is repeated over and over in your left ear, the intonation rising and falling in turn, a question as well as an order.
-        <div class="next" id="next" onclick ="story.turnTo('intro6'), story.changecss('clouds')">Next</div>
+        <div class="next" id="next" onclick ="story.turnTo('intro6'), story.changecss('mountains')">Next</div>
                 </div>
         </page>
         <page id="intro6">
-            <div id="main">Finally, sight: you open your eyes to see an unfamiliar face. A woman kneels by your side, clean trails of tears washing ashes and blood from her cheeks. She repeats the name once more, a hopeful look on her face.
-        <div class="next" id="next" onclick ="story.turnTo('intro7')">Next</div>
-                </div>
-        </page>
-        <page id="intro7">
-            <div id="main">What name is she calling ?</div>
+            <div id="main">Finally, sight: you open your eyes to see an unfamiliar face. A woman kneels by your side, clean trails of tears washing ashes and blood from her cheeks. She repeats the name once more, a hopeful look on her face.<br><br>What name is she calling ?</div>
             <div id="options">
-            <div class = "choice" id="choice1" onclick="story.setHeroName('Mair'),story.turnTo('second'), story.changeportrait('Aerona')">1. Mair</div>
-            <div class ='choice' id="choice2" onclick="story.setHeroName('Andreas'),story.turnTo('second'), story.changeportrait('Aerona')">2. Andreas</div>
-            <div class='choice' id="choice3" onclick="story.setHeroName('Morgan'),story.turnTo('second'), story.addToInventory('Name : Morgan'), story.changeportrait('Aerona')"> 3. Morgan</div>
-            <div class='choice' id="choice4" onclick="story.inputName(),story.turnTo('second'), story.changeportrait('Aerona')"> 4. It's another name.
+            <div class = "choice" id="choice1" onclick="story.setHeroName('Mair'),story.turnTo('second'), story.changeportrait('Aeronasmile1')">1. Mair</div>
+            <div class ='choice' id="choice2" onclick="story.setHeroName('Andreas'),story.turnTo('second'), story.changeportrait('Aeronasmile1')">2. Andreas</div>
+            <div class='choice' id="choice3" onclick="story.setHeroName('Morgan'),story.turnTo('second'), story.addToInventory('Name : Morgan'), story.changeportrait('Aeronasmile1')"> 3. Morgan</div>
+            <div class='choice' id="choice4" onclick="story.inputName(),story.turnTo('second'), story.changeportrait('Aeronasmile1')"> 4. It's another name.
                 </div>
             </div>
         </page>
@@ -97,219 +92,349 @@
         </page>
         <page id="second2">
             <div id="main">
-            The woman lifts you up into a sitting position with ease. You realise now that you are wearing heavy, metal armour. The unfamiliar woman is similarly armoured; she seems to be a warrior of some kind. You might well be the same.
-            <div class="next" id="next" onclick="story.turnTo('second3')">Next</div>
-                </div>
-        </page>
-        <page id="second3">
-            <div id="main">
+            The woman lifts you up into a sitting position with ease. You realise now that you are wearing heavy, metal armour. The unfamiliar woman is similarly armoured; she seems to be a warrior of some kind. You might well be the same.<br><br>
             You don't know, in fact. You don't know how you got here, why, who this woman is, and you're not even entirely sure who you are. Like an old machine suddenly put to work again, your mind is slowly coming out of sleep and trying to catch up.
-        <div class="next" id="next" onclick="story.turnTo('second4')">Next</div>
+        <div class="next" id="next" onclick="story.turnTo('second4'), story.changeportrait('Aeronasmile1')">Next</div>
                 </div>
 
         </page>
         <page id="second4">
+            <div id="dialogue">
+                <div id="balloon">
             "{{=story.getHeroName()}}, sweetheart. The others will find us. Then we'll finally get home." She chuckles tiredly. "We'll go home. You did it."
-            <div class="next" id="next" onclick="story.turnTo('second5')">Next</div>
-
-        </page>
-        <page id="second5">
-            <div id="main">
-        She looks at you expectantly. You must answer.</div>
+                    </div>
+                </div>
             <div id="options">
-        <div class='choice' id="choice1" onclick="story.turnTo('three')"> 1. "What exactly did I do ?"</div>
-        <div class='choice' id="choice2" onclick="story.turnTo('three2')"> 2. "I don't know who you are. I don't know why I'm here."</div>
-        <div class='choice' id="choice3" onclick="story.turnTo('three3')"> 3. "Ah, yes. I did it. That thing I was supposed to do."</div>
+        <div class='choice' id="choice1" onclick="story.turnTo('three'), story.changeportrait('Aeronasurprised')"> 1. "What exactly did I do ?"</div>
+        <div class='choice' id="choice2" onclick="story.turnTo('three2, story.changeportrait('Aeronasurprised')"> 2. "I don't know who you are. I don't know why I'm here."</div>
+        <div class='choice' id="choice3" onclick="story.turnTo('three3'), story.changeportrait('Aeronaneutral')"> 3. "Ah, yes. I did it. That thing I was supposed to do."</div>
                 </div>
         </page>
-        <page id="continues">The question rings in your mind like an painful explosion. You're not sure if you ask for help or if the armoured woman holds you of her own accord, nor do you register her voice begging the deities to save you. All you focus on is making sense of your mind.<br><br>
+        <page id="continues">
+            <div id="main">
+            The question rings in your mind like an painful explosion. You're not sure if you ask for help or if the armoured woman holds you of her own accord, nor do you register her voice begging the deities to save you. All you focus on is making sense of your mind.<br><br>
             Can you remember who you are, {{=story.getHeroName()}} ? Can you weave the fragments in your mind into your story ?
             <div class="next" id="next" onclick="story.turnTo('four')">Next</div> 
+            </div>
         </page>
-        <page id= "three"> The next few seconds are silent, and the blond woman stares at you in confusion.<br><br>
-              "A-are you feeling okay ? Did you hit your head ?"<br>
+        <page id= "three"> 
+            <div id="dialogue">
+                <div id="balloon">
+            The next few seconds are silent, and the blond woman stares at you in confusion.<br><br>
+              "A-are you feeling okay ? Did you hit your head ?"
+                    </div>
         <div class="next" id="next" onclick="story.turnTo('three4')">Next</div>
+            </div>
 
         </page>
-        <page id= "three2"> Her eyes widen and her face falls. She opens her mouth and closes it, seemingly searching for her words.<br>
+        <page id= "three2"> 
+            <div id="dialogue">
+                <div id="balloon">
+            Her eyes widen and her face falls. She opens her mouth and closes it, seemingly searching for her words.<br>
             "You... you must have hit your head. It'll come back to you."<br>
             Her voice breaks on the last sentence.<br>
- <div class="next" id="next" onclick="story.turnTo('three4')">Next</div>        </page>
-        <page id= "three3"> She tilts her head slightly, staring into your eyes.
-            "Are you okay ? You're acting strange."<br>
- <div class="next" id="next" onclick="story.turnTo('three4')">Next</div>        </page>
-        <page id="three4"><p> Her voice enters your ears and digs a painful way to your mind. You reflexively take your head into your hands, pressing on its sides as if trying to keep something in. <br><br> There's an emptiness in there. Something feels like it's been swept under a rug, lost to you. It remains like a word on the tip of your tongue : you can guess its outline, its texture, a sound or two. But the object itself is desperately out of reach. <br><br>From this void, a question emerges. <br><br>Do you know this woman ?
-            </p>
-        <div class="next" id="next" onclick="story.turnTo('continues')">Next</div> 
+                    </div>
+ <div class="next" id="next" onclick="story.turnTo('three4')">Next</div>        
+                </div>
+                </page>
+        <page id= "three3"> 
+            <div id="dialogue">
+                <div id="balloon">
+            She tilts her head slightly, staring into your eyes.
+            "Are you okay ? You're acting strange."
+                    </div>
+ <div class="next" id="next" onclick="story.turnTo('three4')">Next</div>        
+        </div>
         </page>
-        <page id= "four"> You start at the beginning, with the very first, tangled threads. Mental knots stretch out before you : large bundles of faded past events and rewritten perspectives. You have no choice but to select a few to save, and discard the others.<br><br> What will be your first memory ?<br><br>
-        <div class='choice' id="choice1" onclick="story.turnTo('five'), story.setHeroAttribute('strength', 25)" > 1. I remember that my parents were warriors and raised me to be the same. </div>
-        <div class='choice' id="choice2" onclick="story.turnTo('five2'), story.setHeroAttribute('charisma', 25)" > 2. I remember the day my parents didn't come home after battle and how alone I was.</div>
-        <div class='choice' id="choice3" onclick="story.turnTo('five3'), story.setHeroAttribute('intelligence', 25)")> 3. I remember the general who sat with me and explained what "death" means.</div>
-        <div class='choice' id="choice4" onclick="story.turnTo('five4'), story.setHeroAttribute('agility', 25)" > 4. I remember being an orphan, barely surviving in the streets of the city.</div>
-        <div class='choice' id="choice5" onclick="story.turnTo('five5'), story.setHeroAttribute('resolve', 25)">5. I remember not losing hope, and training to join the cult of the Lady of War.</div>         
+        <page id="three4">
+            <div id="main">
+            Her voice enters your ears and digs a painful way to your mind. You reflexively take your head into your hands, pressing on its sides as if trying to keep something in. <br><br> There's an emptiness in there. Something feels like it's been swept under a rug, lost to you. It remains like a word on the tip of your tongue : you can guess its outline, its texture, a sound or two. But the object itself is desperately out of reach. <br><br>From this void, a question emerges. <br><br>Do you know this woman ?
+        <div class="next" id="next" onclick="story.turnTo('continues'), story.changecss('memory')">Next</div>
+                </div>
+        </page>
+        <page id= "four"> 
+            <div id="main">
+            You start at the beginning, with the very first, tangled threads. Mental knots stretch out before you : large bundles of faded past events and rewritten perspectives. You have no choice but to select a few to save, and discard the others.<br><br> What will be your first memory ?</div>
+            <div id="options">
+        <div class='choice' id="choice1" onclick="story.turnTo('five'), story.setHeroAttribute('strength', 25), story.changecss('memory')" > 1. I remember that my parents were warriors and raised me to be the same. </div>
+        <div class='choice' id="choice2" onclick="story.turnTo('five2'), story.setHeroAttribute('charisma', 25), story.changecss('memory')" > 2. I remember the day my parents didn't come home after battle and how alone I was.</div>
+        <div class='choice' id="choice3" onclick="story.turnTo('five3'), story.setHeroAttribute('intelligence', 25), story.changecss('memory')")> 3. I remember the general who sat with me and explained what "death" means.</div>
+        <div class='choice' id="choice4" onclick="story.turnTo('five4'), story.setHeroAttribute('agility', 25), story.changecss('memory')" > 4. I remember being an orphan, barely surviving in the streets of the city.</div>
+        <div class='choice' id="choice5" onclick="story.turnTo('five5'), story.setHeroAttribute('resolve', 25), story.changecss('memory')">5. I remember not losing hope, and training to join the cult of the Lady of War.</div> 
+                </div>
 </page> 
-        <page id="five"> Both were soldiers of Meagan, the Lady of War ; your childhood was spent in war camps, and your education given by soldiers and their families. War was all you knew and it shaped you into a disciplined, resilient adult.<br><br>
+        <page id="five">
+            <div id="main">
+            Both were soldiers of Meagan, the Lady of War ; your childhood was spent in war camps, and your education given by soldiers and their families. War was all you knew and it shaped you into a disciplined, resilient adult.<br><br>
             (You've gained major Strength)
             <br><br> You cut the other threads, and only this memory remains. The second knot awaits.
-            <div class="next" id="next" onclick="story.turnTo('six')">Next</div> 
+            <div class="next" id="next" onclick="story.turnTo('six'), story.changecss('memory')">Next</div>
+                </div>
         </page>
-        <page id="five2"> You waited an hour. Then two. Then the entire night. The war camp was in such chaos that no one came to find you until morning. No matter how much attention you were given afterwards, you would never forget the terror you felt when alone. You'd make sure to never be alone again.<br><br>
+        <page id="five2"> 
+            <div id="main">
+            You waited an hour. Then two. Then the entire night. The war camp was in such chaos that no one came to find you until morning. No matter how much attention you were given afterwards, you would never forget the terror you felt when alone. You'd make sure to never be alone again.<br><br>
         (You've gained major Charisma)
             <br><br> You cut the other threads, and only this memory remains. The second knot awaits.
-            <div class="next" id="next" onclick="story.turnTo('six')">Next</div> 
+            <div class="next" id="next" onclick="story.turnTo('six'), story.changecss('memory')">Next</div> 
+                </div>
         </page>
-        <page id="five3"> He came the following day. You knew him, of course ; he was your parents' superior. A responsible man. Giving you the news was his responsibility, too. On that day you learned that life has an end, sometimes premature, sometimes unfair. You'd never forget this lesson.<br><br>
+        <page id="five3"> 
+            <div id="main">
+            He came the following day. You knew him, of course ; he was your parents' superior. A responsible man. Giving you the news was his responsibility, too. On that day you learned that life has an end, sometimes premature, sometimes unfair. You'd never forget this lesson.<br><br>
             (You've gained major Intelligence)
             <br><br> You cut the other threads, and only this memory remains. The second knot awaits.
-            <div class="next" id="next" onclick="story.turnTo('six')">Next</div> 
+            <div class="next" id="next" onclick="story.turnTo('six'), story.changecss('memory')">Next</div>
+                </div>
         </page>
-        <page id="five4"> The war camp's resources were too tight and the orphans too many. The ones without other family were brought to a city one night. "We'll just be gone a second," the soldiers said. You lived for years in the streets after that, thieving and cheating your way to survival.<br><br>
+        <page id="five4"> 
+            <div id="main">
+            The war camp's resources were too tight and the orphans too many. The ones without other family were brought to a city one night. "We'll just be gone a second," the soldiers said. You lived for years in the streets after that, thieving and cheating your way to survival.<br><br>
             (You've gained major Agility)
             <br><br> You cut the other threads, and only this memory remains. The second knot awaits.
-            <div class="next" id="next" onclick="story.turnTo('six')">Next</div> 
+            <div class="next" id="next" onclick="story.turnTo('six'), story.changecss('memory')">Next</div> 
+                </div>
         </page>
-        <page id="five5"> You had nothing left to lose ; no family, no home, no status. So you trained. Up every morning at dawn, sword in hand, which you held until the darkest hours of the night. You conjured your parents' faded faces in your mind when you fought. You'd be as good a warrior as they were.<br><br>
+        <page id="five5"> 
+            <div id="main">
+            You had nothing left to lose ; no family, no home, no status. So you trained. Up every morning at dawn, sword in hand, which you held until the darkest hours of the night. You conjured your parents' faded faces in your mind when you fought. You'd be as good a warrior as they were.<br><br>
         (You've gained major Resolve)
         <br><br> You cut the other threads, and only this memory remains. The second knot awaits.
-            <div class="next" id="next" onclick="story.turnTo('six')">Next</div> </page>
-        <page id="six"> You were accepted into the cult of the Lady of War during your teenage years. Yet your life didn't get easier.<br><br>
-            <div class="choice" id="choice1" onclick="story.turnTo('seven'), story.setHeroAttribute('agility', 15)">1. A street kid like me could never get the respect of the noblemen's sons.</div>
-            <div class="choice" id="choice2" onclick="story.turnTo('seven2'), story.setHeroAttribute('resolve', 15)">2. I expected fighting and honour, only to get kitchen duty and endless chores.</div>
-            <div class="choice" id="choice3"onclick="story.turnTo('seven3'), story.setHeroAttribute('strength', 15)">3. The training almost broke me many times.</div>
-            <div class="choice" id="choice4"onclick="story.turnTo('seven4'), story.setHeroAttribute('intelligence', 15)">4. War wasn't the noble thing I imagined as a child.</div>
-            <div class="choice" id="choice5"onclick="story.turnTo('seven5'), story.setHeroAttribute('charisma', 15)">5. I lived in the shadow of my parents' glory.</div>
+            <div class="next" id="next" onclick="story.turnTo('six'), story.changecss('memory')">Next</div> 
+                </div>
+                </page>
+        <page id="six"> 
+            <div id="main">
+            You were accepted into the cult of the Lady of War during your teenage years. Yet your life didn't get easier.
+            </div>
+            <div id="options">
+            <div class="choice" id="choice1" onclick="story.turnTo('seven'), story.setHeroAttribute('agility', 15), story.changecss('memory')">1. A street kid like me could never get the respect of the noblemen's sons.</div>
+            <div class="choice" id="choice2" onclick="story.turnTo('seven2'), story.setHeroAttribute('resolve', 15), story.changecss('memory')">2. I expected fighting and honour, only to get kitchen duty and endless chores.</div>
+            <div class="choice" id="choice3"onclick="story.turnTo('seven3'), story.setHeroAttribute('strength', 15), story.changecss('memory')">3. The training almost broke me many times.</div>
+            <div class="choice" id="choice4"onclick="story.turnTo('seven4'), story.setHeroAttribute('intelligence', 15), story.changecss('memory')">4. War wasn't the noble thing I imagined as a child.</div>
+            <div class="choice" id="choice5"onclick="story.turnTo('seven5'), story.setHeroAttribute('charisma', 15), story.changecss('memory')">5. I lived in the shadow of my parents' glory.
+            </div>
+                </div>
         </page>
-        <page id="seven"> They had no love for you. "Street rat", some called you, something they'd heard from their parents and the officers. You weren't the only child from the streets, but you certainly were the one they noticed the most. You spent days dodging blows, paper balls and insults. It was laughable, in hindsight. You're almost grateful for the training.<br><br>
+        <page id="seven"> 
+            <div id="main">
+            They had no love for you. "Street rat", some called you, something they'd heard from their parents and the officers. You weren't the only child from the streets, but you certainly were the one they noticed the most. You spent days dodging blows, paper balls and insults. It was laughable, in hindsight. You're almost grateful for the training.<br><br>
         (You've gained significant Agility)
             <br><br> You cut through the knot, saving this memory and weaving it with the first thread. The others vanish. One last knot and you'll have woven your past.
-            <div class="next" id="next" onclick="story.turnTo('eight')">Next</div>
+            <div class="next" id="next" onclick="story.turnTo('eight'), story.changecss('memory')">Next</div>
+                </div>
         </page>
-        <page id="seven2"> All new recruits went through it -though the noble ones could skip their duties with few consequences- and none were happy about it. You were disappointed, at first, but long hours spent cleaning and scrubbing taught you discipline and diligence. You'd like to believe that was your superiors' intention.<br><br>
+        <page id="seven2">
+            <div id="main">
+            All new recruits went through it -though the noble ones could skip their duties with few consequences- and none were happy about it. You were disappointed, at first, but long hours spent cleaning and scrubbing taught you discipline and diligence. You'd like to believe that was your superiors' intention.<br><br>
         (You've gained significant Resolve)
         <br><br> You cut through the knot, saving this memory and weaving it with the first thread. The others vanish. One last knot and you'll have woven your past.
-            <div class="next" id="next" onclick="story.turnTo('eight')">Next</div>
+            <div class="next" id="next" onclick="story.turnTo('eight'), story.changecss('memory')">Next</div>
+                </div>
         
         </page>
-        <page id="seven3">It was harder than anything you'd ever put yourself through. Up before dawn along with the others, your entire day scheduled down to the minute. The sleep deprivation, the repetitive exercises and never-ending chores broke many others, and you saw them fall and fail. Somehow you kept strong.<br><br>
+        <page id="seven3">
+            <div id="main">
+            It was harder than anything you'd ever put yourself through. Up before dawn along with the others, your entire day scheduled down to the minute. The sleep deprivation, the repetitive exercises and never-ending chores broke many others, and you saw them fail and fall. Somehow you kept strong.<br><br>
         (You've gained significant Strength)<br><br> <br><br> You cut through the knot, saving this memory and weaving it with the first thread. The others vanish. One last knot and you'll have woven your past.
-            <div class="next" id="next" onclick="story.turnTo('eight')">Next</div>
+            <div class="next" id="next" onclick="story.turnTo('eight'), story.changecss('memory')">Next</div>
+                </div>
         </page>
-        <page id="seven4">As a child, all you saw of war was what the adults let you see : the celebrations after victory, the grave gatherings after defeat, the memorials for those gone. Never the comrades screaming in pain, begging for more life as theirs comes to a close. Never the deaths that don't make sense, that don't get last words or a glorious end. Never the friends that drank your drinks and slept in your tent before turning against you.<br>
+        <page id="seven4">
+            <div id="main">
+            As a child, all you saw of war was what the adults let you see : the celebrations after victory, the grave gatherings after defeat, the memorials for those gone. Never the comrades screaming in pain, begging for more life as theirs comes to a close. Never the deaths that don't make sense, that don't get last words or a glorious end. Never the friends that drank your drinks and slept in your tent before turning against you.<br>
             But you've learned this. It stays with you now.<br><br>
         (You've gained significant Intelligence)<br><br> <br><br> You cut through the knot, saving this memory and weaving it with the first thread. The others vanish. One last knot and you'll have woven your past.
-            <div class="next" id="next" onclick="story.turnTo('eight')">Next</div></page>
-        <page id="seven5">Their names were on the lips of your officers and comrades. Everything you did was judged by their light. Bad, you were nothing like your parents ; good, they'd raised you well. Nothing your own labour, your being barely your own. You had to work harder than anyone else to make your worth be seen. At least it taught you a social skill or two.<br><br>
+            <div class="next" id="next" onclick="story.turnTo('eight'), story.changecss('memory')">Next</div>
+                </div>
+                </page>
+        <page id="seven5">
+            <div id="main">
+            Their names were always on the lips of your officers and comrades. Everything you did was judged by their light. Bad, you were nothing like your parents ; good, they'd raised you well. Nothing your own labour, your being barely your own. You had to work harder than anyone else to make your worth be seen. At least it taught you a social skill or two.<br><br>
         (You've gained significant Charisma)<br><br> <br><br> You cut through the knot, saving this memory and weaving it with the first thread. The others vanish. One last knot and you'll have woven your past.
-            <div class="next" id="next" onclick="story.turnTo('eight')">Next</div>
+            <div class="next" id="next" onclick="story.turnTo('eight'), story.changecss('memory')">Next</div>
+                </div>
         </page>
-        <page id='eight'>You spent five years in that school. With adulthood -an early one at eighteen ; you didn't have the luxury of long teenagehood- came a post. But you didn't get to be a valiant soldier fighting in the name of your deity.<br><br>
-            <div class="choice" id="choice1" onclick="story.turnTo('nine'), story.setHeroAttribute('intelligence', 5)"> 1. The endless wars had stopped. The eight deities of our world had signed an unexpected peace treaty, and my cult no longer had a purpose.</div>
-            <div class="choice" id="choice2"onclick="story.turnTo('nine2'), story.setHeroAttribute('resolve', 5)"> 2. The jobs were few and without glory. Guarding the town, private security, teaching : all of them things I'd never wanted. So I left.</div>
-            <div class="choice" id="choice3"onclick="story.turnTo('nine3'), story.setHeroAttribute('agility', 5)">3. They tried to keep me and others from leaving. They threatened to brand us deserters, locked us in our barracks. But it didn't stop me.</div>
-            <div class="choice" id="choice4"onclick="story.turnTo('nine4'), story.setHeroAttribute('strength', 5)">4. I became a mercenary, lending my sword to whoever offered me enough coin.</div>
-            <div class="choice" id="choice5"onclick="story.turnTo('nine5'), story.setHeroAttribute('charisma', 5)">5. Mercenary work was profitable but sparse, so I began to trade weapons on the side.</div>
+        <page id='eight'>
+            <div id="main">
+            You spent five years in that school. With adulthood -an early one at eighteen ; you didn't have the luxury of long teenagehood- came a post. But you didn't get to be a valiant soldier fighting in the name of your deity.
+                </div>
+            <div id="options">
+            <div class="choice" id="choice1" onclick="story.turnTo('nine'), story.setHeroAttribute('intelligence', 5), story.changecss('memory')"> 1. The endless wars had stopped. The eight deities of our world had signed an unexpected peace treaty, and my cult no longer had a purpose.</div>
+            <div class="choice" id="choice2"onclick="story.turnTo('nine2'), story.setHeroAttribute('resolve', 5), story.changecss('memory')"> 2. The jobs were few and without glory. Guarding the town, private security, teaching : all of them things I'd never wanted. So I left.</div>
+            <div class="choice" id="choice3"onclick="story.turnTo('nine3'), story.setHeroAttribute('agility', 5), story.changecss('memory')">3. They tried to keep me and others from leaving. They threatened to brand us deserters, locked us in our barracks. But it didn't stop me.</div>
+            <div class="choice" id="choice4"onclick="story.turnTo('nine4'), story.setHeroAttribute('strength', 5), story.changecss('memory')">4. I became a mercenary, lending my sword to whoever offered me enough coin.</div>
+            <div class="choice" id="choice5"onclick="story.turnTo('nine5'), story.setHeroAttribute('charisma', 5), story.changecss('memory')">5. Mercenary work was profitable but sparse, so I began to trade weapons on the side.</div>
+                </div>
         </page>
-        <page id='nine'>There was no warning. You were three days away from graduation -already assigned to join the fight to the north of the region- when the news arrived : "we are at peace". The war you'd trained for was taken from you.<br><br> The Lady of war never gave reason for the armistice, and your cult could never shake off the feeling of betrayal. Distrust became your norm.<br><br>(You've gained minor Intelligence)<br><br> 
+        <page id='nine'>
+            <div id="main">
+            There was no warning. You were three days away from graduation -already assigned to join the fight to the north of the region- when the news arrived : "we are at peace". The war you'd trained for was taken from you.<br><br> The Lady of war never gave reason for the armistice, and your cult could never shake off the feeling of betrayal. Distrust became your norm.<br><br>(You've gained minor Intelligence)<br><br> 
             The last knot is cut. A tapestry assembles within you, memories, sensations and thoughts woven together. You've found yourself again, and your mind calms.
-            <div class="next" id="next" onclick="story.turnTo('ten')">Next</div>
+            <div class="next" id="next" onclick="story.turnTo('ten'), story.changecss('mountains')">Next</div>
+                </div>
         
         </page>
-        <page id='nine2'> It wasn't an easy choice to make : you'd admired them as a child, and they molded you into the adult you became. But it was over : the world was at peace and had no use for the cult's soldiers. You weren't going to sink with them.<br><br>(You've gained minor Resolve)<br><br> The last knot is cut. A tapestry assembles within you, memories, sensations and thoughts woven together. You've found yourself again, and your mind calms.
-            <div class="next" id="next" onclick="story.turnTo('ten')">Next</div>
+        <page id='nine2'> 
+            <div id="main">
+            It wasn't an easy choice to make : you'd admired them as a child, and they molded you into the adult you became. But it was over : the world was at peace and had no use for the cult's soldiers. You weren't going to sink with them.<br><br>(You've gained minor Resolve)<br><br> The last knot is cut. A tapestry assembles within you, memories, sensations and thoughts woven together. You've found yourself again, and your mind calms.
+            <div class="next" id="next" onclick="story.turnTo('ten'), story.changecss('mountains')">Next</div>
+                </div>
         
         </page>
-        <page id='nine3'> "You owed them", they pretexted. You disagreed. Perhaps they didn't realise how well they'd trained you: you made short work of the lock they installed on your barracks' door, avoided the guard patrols with ease, and slipped away into the night. You never knew just how discreet you could be.<br><br> (You've gained minor Agility)<br><br> The last knot is cut. A tapestry assembles within you, memories, sensations and thoughts woven together. You've found yourself again, and your mind calms.
-            <div class="next" id="next" onclick="story.turnTo('ten')">Next</div>
+        <page id='nine3'>
+            <div id="main">
+            "You owed them", they pretexted. You disagreed. Perhaps they didn't realise how well they'd trained you: you made short work of the lock they installed on your barracks' door, avoided the guard patrols with ease, and slipped away into the night. You never knew just how discreet you could be.<br><br> (You've gained minor Agility)<br><br> The last knot is cut. A tapestry assembles within you, memories, sensations and thoughts woven together. You've found yourself again, and your mind calms.
+            <div class="next" id="next" onclick="story.turnTo('ten'), story.changecss('mountains')">Next</div>
+                </div>
         
         </page>
-        <page id='nine4'>It wasn't as stable as being a soldier, but you had the skill for it ; or so you thought. You were barely eighteen and competing with seasoned veterans and men of few morals. Others might have broken entirely, but you only came close to it. Each defeat made you a little tougher.<br><br> (You've gained minor Strength)<br><br> The last knot is cut. A tapestry assembles within you, memories, sensations and thoughts woven together. You've found yourself again, and your mind calms.
-            <div class="next" id="next" onclick="story.turnTo('ten')">Next</div>
+        <page id='nine4'>
+            <div id="main">
+            It wasn't as stable as being a soldier, but you had the skill for it ; or so you thought. You were barely eighteen and competing with seasoned veterans and men of few morals. Others might have broken entirely, but you only came close to it. Each defeat made you a little tougher.<br><br> (You've gained minor Strength)<br><br> The last knot is cut. A tapestry assembles within you, memories, sensations and thoughts woven together. You've found yourself again, and your mind calms.
+            <div class="next" id="next" onclick="story.turnTo('ten'), story.changecss('mountains')">Next</div>
+                </div>
         
         </page>
-        <page id='nine5'>Weapons trading was a boring but safe job. Days went by slowly, with little excitement. You didn't trade enough to entirely support yourself -who buys weapons in times of peace ?-, but it was enough to last you until the next mercenary job.<br><br>Even with little business, you learned about interacting with customers, bartering and convincing.<br><br> (You've gained minor Charisma)<br><br> The last knot is cut. A tapestry assembles within you, memories, sensations and thoughts woven together. You've found yourself again, and your mind calms.
-            <div class="next" id="next" onclick="story.turnTo('ten')">Next</div>
+        <page id='nine5'>
+            <div id="main">
+            Weapons trading was a boring but safe job. Days went by slowly, with little excitement. You didn't trade enough to entirely support yourself -who buys weapons in times of peace ?-, but it was enough to last you until the next mercenary job.<br><br>Even with little business, you learned about interacting with customers, bartering and convincing.<br><br> (You've gained minor Charisma)<br><br> The last knot is cut. A tapestry assembles within you, memories, sensations and thoughts woven together. You've found yourself again, and your mind calms.
+            <div class="next" id="next" onclick="story.turnTo('ten'), story.changecss('mountains')">Next</div>
+                </div>
         
         </page>
-        <page id='ten'>You regain awareness of your surroundings.<br><br>
-            A circle of four people has closed around you. <turn to= "Aerona">The woman from earlier</turn> still holds you up, desperately calling your name as she seems to have been doing since you woke up. <turn to = "Mabyn">An older woman with greying hair</turn> has her hand on your forehead, and you realise by the soothing coldness of her skin that yours is burning.<br><br> You turn your head to the left and catch a glimpse of a large, bipedal <turn to = "Wooly">wooly creature</turn>. The monster -the word seems to be the most apt- has human and animal characteristics : a human posture but a goat-like face, hands laid in its lap but hooves. Your eyes meet and you feel that it glares at you, though you're unsure why.
-
-<br><br>
-            "{{=story.getHeroName()}} ? We're here. You'll be fine."<br><br>
+        <page id='ten'>
+            <div id="main">
+            You regain awareness of your surroundings.<br><br>
+            A circle of four people has closed around you. The woman from earlier still holds you up, desperately calling your name as she seems to have been doing since you woke up. An older woman with greying hair has her hand on your forehead, and you realise by the soothing coldness of her skin that yours is burning.<br><br> You turn your head to the left and catch a glimpse of a large, bipedal wooly creature. The monster -the word seems to be the most apt- has human and animal characteristics : a human posture but a goat-like face, hands laid in its lap but hooves. Your eyes meet and you feel that it glares at you, though you're unsure why.
             <div class="next" id="next" onclick="story.turnTo('eleven')">Next</div>
+                </div>
             </page>
-        <page id='Aerona'>
-        placeholder Aerona portrait
-        <div class="next" id="next" onclick="story.turnTo('ten')">Return</div></page>
-        <page id='Mabyn'>
-         <div class="next" id="next" onclick="story.turnTo('ten')">Return</div>
-        </page>
-        <page id='Wooly'>
-         <div class="next" id="next" onclick="story.turnTo('ten')">Return</div>
-        </page>
-        <page id='eleven'> He stands at the back, a reassuring smile on his face : Rhain, your best friend and only support since you left the cult. <br><br>You met when you began the weapons trading ; he was the apprentice to the blacksmith you got a majority of your goods from. You usually bartered with him rather than the smith himself and he'd help you carry the merchandise back to your stall, hang around when business was slow. Perhaps because you were both lonely young people, a friendship formed.<br><br> The pain in your head has almost completely disappeared. Your mind suddenly feels clearer, and you're able to address him :<br><br>
+        <page id='eleven'> 
+            <div id="main">
+            He stands at the back, a reassuring smile on his face : Rhain, your best friend and only support since you left the cult. <br><br>You met when you began the weapons trading ; he was the apprentice to the blacksmith you got a majority of your goods from. You usually bartered with him rather than the smith himself and he'd help you carry the merchandise back to your stall, hang around when business was slow. Perhaps because you were both lonely young people, a friendship formed.<br><br> The pain in your head has almost completely disappeared. Your mind suddenly feels clearer, and you're able to address him :</div>
+            <div id="options">
             <div class="choice" id="choice1"onclick="story.turnTo('twelve')"> 1. "I'm so glad to see you, Rhain. I really need your help."</div>
-            <div class="choice" id="choice2"onclick="story.turnTo('twelve2')"> 2. "How the hell did I get here ?"</div>
-            <div class="choice" id="choice3"onclick="story.turnTo('twelve3')"> 3. "Sorry, I'm not in the best state right now. My memories are pretty hazy."</div>
+            <div class="choice" id="choice2"onclick="story.turnTo('twelve2'), story.changeportrait('Rhainsmile1')"> 2. "How the hell did I get here ?"</div>
+            <div class="choice" id="choice3"onclick="story.turnTo('twelve3'), story.changeportrait('Rhainsmile1')"> 3. "Sorry, I'm not in the best state right now. My memories are pretty hazy."</div>
+                </div>
         </page>
-        <page id='twelve'> Rhain smiles in return and extends his hand, helping you up. The other three step back and you notice a sour expression on the blond woman's face.
-             <div class="next" id="next" onclick="story.turnTo('twelve4')">Next</div>
+        <page id='twelve'> 
+            <div id="main">
+            Rhain smiles in return and extends his hand, helping you up. The other three step back and you notice a sour expression on the blond woman's face.
+             <div class="next" id="next" onclick="story.turnTo('twelve4'), story.changeportrait('Rhainsmiling1')">Next</div>
+                </div>
        
         </page>
         <page id="twelve4">
-        "I'm here for you, {{=story.getHeroName()}}. How do you feel ? Are you wounded anywhere ?"
+            <div id="dialogue">
+                <div id="balloon">
+        "I'm here for you, {{=story.getHeroName()}}. How do you feel ? Are you wounded at all ?"
+                    </div>
             <div class="next" id="next" onclick="story.turnTo('thirteen')">Next</div>
+                </div>
         </page>
-        <page id="twelve2"> Rhain extends his hand and helps you up as he begins to respond. "You fought Ikemma, remember ? You beat him. Your quest is done."<br><br>None of this rings a bell. The blacksmith must notice your confused expression, because he continues : "But don't worry about it. How are you feeling ? Are you wounded anywhere ?"
+        <page id="twelve2"> 
+            <div id="dialogue">
+                <div id="balloon">
+            Rhain extends his hand and helps you up as he begins to respond. "You fought Ikemma, remember ? You beat him. Your quest is done."<br><br>None of this rings a bell. The blacksmith must notice your confused expression, because he continues : "But don't worry about it. How are you feeling ? Are you wounded anywhere ?"
+                    </div>
             <div class="next" id="next" onclick="story.turnTo('thirteen')">Next</div>
+                </div>
         
         </page>
-        <page id="twelve3"> Rhain extends his hand and slowly helps you up. "Don't worry about it. The shock must have confused things for you a bit."<br> He makes sure you're stable before letting you go and continuing : "How are you feeling ? Are you wounded anywhere ?"
+        <page id="twelve3"> 
+            <div id="dialogue">
+                <div id="balloon">
+            Rhain extends his hand and slowly helps you up. "Don't worry about it. The shock must have confused things for you a bit."<br> He makes sure you're stable before letting you go and continuing : "How are you feeling ? Are you wounded anywhere ?"
+                    </div>
             <div class="next" id="next" onclick="story.turnTo('thirteen')">Next</div>
+                </div>
         
         </page>
-        <page id="thirteen"> You lightly stretch out your limbs, searching for any sort of pain. Nothing ; your headache has stopped, too. Your hand reaches to your forehead and comes back with clean fingers ; what you'd thought to be blood dripping from your head had only been sweat. You tell Rhain this and he nods slowly. 
-             <div class="next" id="next" onclick="story.turnTo('thirteen2')">Next</div>
+        <page id="thirteen"> 
+            <div id="main">
+            You lightly stretch out your limbs, searching for any sort of pain. Nothing ; your headache has stopped, too. Your hand reaches to your forehead and comes back with clean fingers ; what you'd thought to be blood dripping from your head had only been sweat. You tell Rhain this and he nods slowly. 
+             <div class="next" id="next" onclick="story.turnTo('thirteen2'), story.changeportrait('Rhainsmiling1')">Next</div>
+                </div>
         </page>
-        <page id="thirteen2">"It's impressive that you beat Ikemma without getting wounded at all. But if anyone could do it, it'd be you."
+        <page id="thirteen2">
+            <div id="dialogue">
+                <div id="balloon">
+            "It's impressive that you beat Ikemma without getting wounded at all. But if anyone could do it, it'd be you."
+                </div>
         <div class="next" id="next" onclick="story.turnTo('thirteen3')">Next</div>
+                </div>
         </page>
         <page id="thirteen3">
+            <div id="main">
              That name again. Hearing it causes a tight feeling in your chest, as if a hand was holding and squeezing your heart. Yet you have no idea who the name might belong to.<br><br> Your friend's hand falls on your shoulder -or it would if you weren't wearing armour- and his voice commands to your group : 
-        <div class="choice" id="choice1"onclick="story.turnTo('fourteen'), story.setHeroGender('female')"> 1. "She'll be all right. Let's leave this place and get her home. "</div>
-        <div class="choice" id="choice2" onclick="story.turnTo('fourteen', story.setHeroGender('male')"> 2. "He'll be all right. Let's leave this place and get him home."</div>
+                </div>
+            <div id="options">
+        <div class="choice" id="choice1"onclick="story.turnTo('fourteen'), story.setHeroGender('female'), story.changeportrait('Mabynsmile')"> 1. "She'll be all right. Let's leave this place and get her home. "</div>
+        <div class="choice" id="choice2" onclick="story.turnTo('fourteen', story.setHeroGender('male'), story.changeportrait('Mabynsmile')"> 2. "He'll be all right. Let's leave this place and get him home."</div>
+                </div>
 
         </page>
-        <page id="fourteen"> The grey-haired woman sighs in response. "It's done, then." She turns to you, a smile on her face. "You managed to keep us all alive after all, Hero."
+        <page id="fourteen"> 
+            <div id="dialogue">
+                <div id="balloon">
+            The grey-haired woman sighs in response. "It's done, then." She turns to you, a smile on her face. "You managed to keep us all alive after all, Hero."
+                    </div>
              <div class="next" id="next" onclick="story.turnTo('fourteen2')">Next</div>
+                </div>
             </page>
         <page id="fourteen2">
-        Something is definitely wrong here. The blond woman, that old one, both speak as if they know you. A chill runs down your spine as a realisation comes to your mind : you've forgotten more than you know. But just how much ?<br><br>
+            <div id="main">
+        Something is definitely wrong here. The blond woman, that old one, both speak as if they know you. A chill runs down your spine as a realisation comes to your mind : you've forgotten more than you know. But just how much ?
+                </div>
+            <div id="options">
         <div class="choice" id="choice1" onclick="story.turnTo('fifteen')"> 1. Turn to Rhain. "Who are these people ?"</div>
-        <div class="choice" id="choice2" onclick="story.turnTo('fifteen2')"> 2. "I really have no idea what's going on."</div>
+        <div class="choice" id="choice2" onclick="story.turnTo('fifteen2'), story.changeportrait('Mabynneutral')"> 2. "I really have no idea what's going on."</div>
         <div class="choice" id="choice3" onclick="story.turnTo('fifteen3')"> 3. Stay quiet and focus. Something might come back to you.</div>
+                </div>
         </page>
         <page id ="fifteen1">
+            <div id="main">
             You can only nod. You can feel something wrong within you. You've made sense of your past, yet even your most recent memories feel distant, aged. <br>Looking at Rhain and feeling your own body, you realise that both of you are older than you remember : his face is leaner, his silhouette stronger. Your own body feels somehow too large for you.
-            <div class="next" id="next" onclick="story.turnTo('fifteen4')">Next</div>
+            <div class="next" id="next" onclick="story.turnTo('fifteen4'), story.changeportrait('Rhainsad')">Next</div>
+                </div>
         </page>
         <page id="fifteen4">
+            <div id="dialogue">
+                <div id="balloon">
         "Do you remember that we've all been adventuring together for a year and a half ?"
+                    </div>
             <div class="next" id="next" onclick="story.turnTo('fifteen5')">Next</div>
+                </div>
         </page>
-        <page id="fifteen5">You don't. You can only answer with a question : "What year is it ?"
-        <div class="next" id="next" onclick="story.turnTo('fifteen6')">Next</div>
-        
+        <page id="fifteen5">
+            <div id="main">
+            You don't. You can only answer with a question : "What year is it ?"
+        <div class="next" id="next" onclick="story.turnTo('fifteen6'), story.changeportrait('Aeronasad')">Next</div>
+            </div>
         </page>
-        <page id="fifteen6">The blond woman answers before Rhain can. "Year 6 since the end of the great war.
+        <page id="fifteen6">
+            <div id="dialogue">
+                <div id="balloon">
+            The blond woman answers before Rhain can : "Year 6 since the end of the great war.
+                    </div>
             <div class="next" id="next" onclick="story.turnTo('sixteen')">Next</div>
+                </div>
         </page>
-        <page id="fifteen"> Your four companions seem stunned into silence. Rhain hesitates, looking into your eyes as if searching them. Whatever he finds in there, it's enough for him to ask:
-        <div class="next" id="next" onclick="story.turnTo('hazy')">Next</div>
+        <page id="fifteen"> 
+            <div id="main">
+            Your four companions seem stunned into silence. Rhain hesitates, looking into your eyes as if searching them. Whatever he finds in there, it's enough for him to ask:
+        <div class="next" id="next" onclick="story.turnTo('hazy'), story.changeportrait('Rhainneutral')">Next</div>
+                </div>
         </page>
         <page id="hazy">
+            <div id="dialogue">
+                <div id="balloon">
             "You're not just hazy from the shock, are you ? There's something wrong."
+                    </div>
             <div class="next" id="next" onclick="story.turnTo('fifteen1')">Next</div>
+                </div>
             </page>
         <page id="fifteen2">The grey-haired woman narrows her eyes at you. "Are you sure you're well, {{=story.getHeroName()}} ? Do you still have a fever ?"<br><br>You have no time to reply before Rhain interrupts.
             <div class="next" id="next" onclick="story.turnTo('hazy')">Next</div>
@@ -319,163 +444,323 @@
         But there are no threads. No memories for you to weave into the secure walls of your mind. You open your eyes and look at Rhain ; perhaps you seem lost, or scared. Whatever it is, it makes your best friend ask:
             <div class="next" id="next" onclick="story.turnTo('hazy')">Next</div>
         </page>
-        <page id="sixteen"> Five years. You've lost five years' worth of memories, and you have no idea why. "Why ?" sounds in your mind over and over. How much have you lost ? How much have you changed ? What now ?<br><br>
+        <page id="sixteen"> 
+            <div id="main">
+            Five years. You've lost five years' worth of memories, and you have no idea why. "Why ?" sounds in your mind over and over. How much have you lost ? How much have you changed ? What now ?
+                </div>
+            <div id="options">
             <div class="choice" id="choice1"onclick="story.turnTo('seventeen')"> 1. There's no sense in losing your mind. Breathe in, straighten your back, and learn what you can.</div>
         <div class="choice" id="choice2"onclick="story.turnTo('seventeen2')"> 2. Your legs suddenly feel weak. You sit down on the ground, trying to keep yourself steady.</div>
-        <div class="choice" id="choice3"onclick="story.turnTo('seventeen3')"> 3. You grab onto Rhain's arm. At least you remember him. You're not alone as long as your best friend is here.</div></page>
-        <page id="seventeen">"Give me a rundown of everything that's happened, then."<br><br>
+        <div class="choice" id="choice3"onclick="story.turnTo('seventeen3'), story.changeportrait('Rhainneutral')"> 3. You grab onto Rhain's arm. At least you remember him. You're not alone as long as your best friend is here.</div>
+                </div>
+        </page>
+        <page id="seventeen">
+            <div id="main">
+            "Give me a rundown of everything that's happened, then."<br><br>
             The two women look at one another, at the blacksmith, at you. Laying a hand on the blonde's shoulder, the older woman speaks first :
-             <div class="next" id="next" onclick="story.turnTo('seventeen4')">Next</div>
+             <div class="next" id="next" onclick="story.turnTo('seventeen4'), story.changeportrait('Mabynneutral')">Next</div>
+                </div>
         </page>
         <page id="seventeen4">
-            "We all joined you when you decided to stop <turn to="Ikemma">Ikemma</turn>'s tyranny. I am Mabyn, a follower of Briar." She then points to the goat-faced monster : "this is Wooly. He's been a friend to me for some time, and he's helped you in your quest." Mabyn looks at the armoured woman, seeming to expect her to introduce herself. When she doesn't, she starts : "This is <turn to="fiancée">Aerona</turn>, warrior of Meagan. She's-" Her voices suddenly dies.
+            <div id="dialogue">
+                <div id="balloon">
+            "We all joined you when you decided to stop <turn to="Ikemma">Ikemma</turn>. I am Mabyn." She then points to the monster : "this is Wooly." She looks at the armoured woman, seeming to expect her to introduce herself. When she doesn't, she starts : "This is <turn to="fiancée">Aerona</turn>. She's-" Her voices suddenly dies.
+                    </div>
+                </div>
         </page>
-        <page id="seventeen2">Sitting on the ground, you take your head in your hands. How can you be expected to handle all of this ? Five years of your life gone. These people call you "hero", but you only remember being eighteen, without a cult or family.<br><br> Someone sits down next to you, and you realise that it's the blond woman. She reaches for one of your hands, but as both of you are wearing plate gauntlets, you receive no soothing contact. Her hand falls back to her side awkwardly. After a few seconds, she speaks:
-        <div class="next" id="next" onclick="story.turnTo('seventeen5')">Next</div>
+        <page id="seventeen2">
+            <div id="main">
+            Sitting on the ground, you take your head in your hands. How can you be expected to handle all of this ? Five years of your life gone. These people call you "hero", but you only remember being eighteen, without a cult or family.<br><br> Someone sits down next to you, and you realise that it's the blond woman. She reaches for one of your hands, but as both of you are wearing plate gauntlets, you receive no soothing contact. Her hand falls back to her side awkwardly. After a few seconds, she speaks:
+        <div class="next" id="next" onclick="story.turnTo('seventeen5'), story.changeportrait('Aeronasad')">Next</div>
+    </div>
         </page>
         <page id="seventeen5">
-            "This is Mabyn" -pointing to the woman- "and this is Wooly. I'm <turn to = "fiancée">Aerona</turn>."<br> Without a response on your part, she continues : "We all joined you to fight <turn to ="Ikemma"> Ikemma</turn>. I-" She pauses, then stops talking entirely. Looking at her, you can see that something in her expression is dark, painful.    
+            <div id="dialogue">
+                <div id="balloon">
+            "This is Mabyn" -pointing to the woman- "and this is Wooly. I'm <turn to = "fiancée">Aerona</turn>."<br> Without a response from you, she continues : "We all joined you to fight <turn to ="Ikemma">Ikemma</turn>. I-" She pauses, then stops talking entirely. Something in her expression seems dark, painful. 
+                </div>
+            </div>
         </page>
-        <page id="seventeen3"> Rhain puts his hand on your own in response. "It's okay. We can take this slowly." <br>He points to the older woman : "this is Mabyn, a follower of Briar." He continues, poiting to the creature : "this is Wooly." He finally points to the blond woman : "this is <turn to ="fiancée">Aerona</turn>, a warrior of Meagan. She's-" He interrupts himself, a sombre look on his face. "They joined us when you decided to put an end to <turn to="Ikemma">Ikemma</turn>. Smiling lightly, he concludes : "I was already with you before that, of course."
+        <page id="seventeen3"> 
+            <div id="dialogue">
+                <div id="balloon">
+            Rhain puts his hand on yours in response. "It's okay. We can take this slowly." He points to the older woman : "this is Mabyn." He continues, poiting to the creature : "this is Wooly." He finally points to the blond woman : "this is <turn to ="fiancée">Aerona</turn>. She's-" He interrupts himself, a sombre look on his face. "They joined us when you decided to put an end to <turn to="Ikemma">Ikemma</turn>.
+                </div>
+            </div>
             
         </page>
-        <page id="Ikemma"> "Who is Ikemma ?" you finally ask.<br><br>You see Rhain grimace in response. None of your companions seem thrilled with the question, but Mabyn at least answers : 
-         <div class="next" id="next" onclick="story.turnTo('Ikemma2')">Next</div>
+        <page id="Ikemma"> 
+            <div id="main">
+            "Who is Ikemma ?" you finally ask.<br><br>You see Rhain grimace in response. None of your companions seem thrilled with the question, but Mabyn at least answers : 
+         <div class="next" id="next" onclick="story.turnTo('Ikemma2'), story.changeportrait('Mabynneutral')">Next</div>
+                </div>
         </page>
-        <page id ="Ikemma2">"It's hard to explain in just a few words. Some people like to call him "the villain", which, as childish as it sounds, is fitting. He's put the land into chaos for the past few years, but you arose to stop him."
+        <page id ="Ikemma2">
+            <div id="dialogue">
+                <div id="balloon">
+            "It's hard to explain in just a few words. Some people like to call him "the villain", which, as childish as it sounds, is fitting. He's put the land into chaos for the past few years, but you arose to stop him."
             <div class="next" id="next" onclick="story.turnTo('Ikemma3')">Next</div>
-        <page id ="Ikemma3"><turn to ="fiancée">Aerona</turn> nods approvingly, not meeting your gaze. This story -that's what it is to you ; nothing more tangible than a tale- seems overly simplistic, but you might learn more of it and the role you played after you <turn to= "leave">leave this place</turn>.
-            
+                </div>
+                </div>
             </page>
-
-        
+        <page id ="Ikemma3">
+            <div id="main">
+            <turn to ="fiancée">Aerona</turn> nods approvingly, not meeting your gaze. This story -that's what it is to you ; nothing more tangible than a tale- seems overly simplistic, but you might learn more of it and the role you played after you <turn to= "leave">leave this place</turn>.
+        </div>
         </page>
-        <page id="fiancée"> Nevermind <turn to="Ikemma">Ikemma</turn>, there's something about Aerona that no one is telling you. You ask her what that interruption means, and she lowers her gaze.
-            <div class="next" id="next" onclick="story.turnTo('Aerona2')">Next</div>
+        <page id="fiancée"> 
+            <div id="main">
+            Nevermind <turn to="Ikemma">Ikemma</turn>, there's something about Aerona that no one is telling you. You ask her what that interruption means, and she lowers her gaze.
+            <div class="next" id="next" onclick="story.turnTo('Aerona2'), story.changeportrait('Aeronasad')">Next</div>
+                </div>
         </page>
         <page id="Aerona2">
+            <div id="dialogue">
+                <div id="balloon">
              "We can discuss this later. It's- it'll take time."
              <div class="next" id="next" onclick="story.turnTo('Aerona3')">Next</div>
+                    </div>
+                </div>
         </page>
         <page id="Aerona3">
-        {{? story.skillcheck('intelligence', 'hard')}}
+            <div id="main">
+        {{? story.skillcheck('intelligence', 'average')}}
             You're discerning enough to guess what is going on here, what with her calling you "sweetheart" when you awoke. That will be a difficult discussion to have - but only later, after you <turn to="leave">leave this place</turn>.
     {{??}}
          It isn't clear to you what is going on. You have no choice but to ask again later, after you <turn to="leave">leave this place</turn>.
     {{?}}
+                </div>
         </page>
-        <page id="mountainswait3">A few more minutes pass. Wooly's hoof taps faster now. Tap. Tap. TAP. The sound stirs something within you.<br><br>Once more you feel pressure within your head, as if something was attempting to escape your skull. This time, it does.
-        <div class="next" id="next" onclick="story.turnTo('opmemory1')">Next</div>
+        <page id="mountainswait3">
+            <div id="main">
+            A few more minutes pass. Wooly's hoof taps faster now. Tap. Tap. TAP. The sound stirs something within you.<br><br>Once more you feel pressure within your head, as if something was attempting to escape your skull. This time, it does.
+        <div class="next" id="next" onclick="story.turnTo('opmemory1'), story.changecss('memory')">Next</div>
+                </div>
         
         </page>
-        <page id="opmemory1">Tap.<br><br>Tap.<br><br>Tap.<br><br> Blood dripping onto the grass, somehow loud enough to reach your ears. It slowly flows from a cut on the man's thigh and drips from your sword. The sound gets replaced with the shuffling of feet when he and the others flee laboriously, their bodies beaten and weak.<br><br> Everything is going as planned, your path to the mountain peak unobstructed and clear. You resume your ascension.<br><br>
+        <page id="opmemory1">
+            <div id="main">
+            Tap.<br><br>Tap.<br><br>Tap.<br><br> Blood dripping onto the grass, somehow loud enough to reach your ears. It slowly flows from a cut on the man's thigh and drips from your sword. The sound gets replaced with the shuffling of feet when he and the others flee laboriously, their bodies beaten and weak.<br><br> Everything is going as planned, your path to the mountain peak unobstructed and clear. You resume your ascension.<br><br>
         (You've regained an optional memory. It'll open up new opportunities.)<br><br>
         Your eyes suddenly open -when did you close them ?- and you see your companions' worried faces.
             {{story.opmemory1 = true;}}
-             <div class="next" id="next" onclick="story.turnTo('mountainsmemoryfinal')">Next</div>
+             <div class="next" id="next" onclick="story.turnTo('mountainsmemoryfinal'), story.changecss('mountains'), story.changeportrait('Aeronaneutral')">Next</div>
+                </div>
         </page>
         <page id="mountainsmemoryfinal">
+            <div id="dialogue">
+                <div id="balloon">
         "Are you okay ?" Aerona asks. She's taken a step towards you, her left hand raised but not daring to touch you.
+                    </div>
+                </div>
+            <div id="options">
         <div class="choice" id="choice1" onclick="story.turnTo('leave')">1. "I'm fine, thank you. Let's go back down.</div>
         <div class="choice" id="choice2" onclick="story.turnTo('leave')">2. Say nothing and begin to make your way down.</div>
-        <div class="choice" id="choice3" onclick="story.turnTo('remember')">3. "I just remembered something. Wounded men further down the trail. I think we fought them."</div>
+        <div class="choice" id="choice3" onclick="story.turnTo('remember', story.changeportrait('Aeronasmile1')">3. "I just remembered something. Wounded men further down the trail. I think we fought them."</div>
+                </div>
              </page>
-        <page id="remember">Aerona's face lights up.<br><br>
+        <page id="remember">
+            <div id="dialogue">
+                <div id="balloon">
+            Aerona's face lights up.
         "We did fight a group of men on our way here. Do you remember anything else ? Any older memories ?"
-        <div class="choice" id="choice1" onclick="story.turnTo('remember2')">1. "It's all I remembered, sorry."</div>
-        <div class="choice" id="choice2" onclick="story.turnTo('remember3')">2. "I might remember more if you give me some hints."</div>
-        <div class="choice" id="choice3" onclick="story.turnTo('remember4'), story.villainousPath+=1">3. "Don't get so hopeful. You weren't in the memory."</div>
+                </div>
+                   </div>
+            <div id="options">
+        <div class="choice" id="choice1" onclick="story.turnTo('remember2'), story.changeportrait('Aeronasad')">1. "It's all I remembered, sorry."</div>
+        <div class="choice" id="choice2" onclick="story.turnTo('remember3'), story.changeportrait('Aeronasad')">2. "I might remember more if you give me some hints."</div>
+        <div class="choice" id="choice3" onclick="story.turnTo('remember4'), story.villainousPath+=1, story.changeportrait('Aeronasad')">3. "Don't get so hopeful. You weren't in the memory."</div>
+                </div>
 </page>
-        <page id="remember2">She stretches her lips into a sad smile, lowering her gaze.<br><br>
+        <page id="remember2">
+            <div id="dialogue">
+                <div id="balloon">
+            Her smiles vanishes as quickly as it appeared and she lowers her gaze
         "Well, we should go. There's no sense in staying here."<br><br>
         As you turn to leave, you see Mabyn's hand fall on Aerona's shoulder.
          <div class="next" id="next" onclick="story.turnTo('leave')">Next</div>
+            </div>
+                </div>
         </page>
-        <page id="remember3">The blonde shakes her head.<br><br>
-        "I promise we'll talk later. Right now I- I wouldn't be able." Her upper lip quivers just a little before she turns away.<br><br>
-        "We should go."<br><br>
+        <page id="remember3">
+            <div id="dialogue">
+                <div id="balloon">
+            The blonde shakes her head.
+        "I promise we'll talk later. Right now I- I wouldn't be able." Her upper lip quivers just a little before she turns away.
+        "We should go."
         <div class="next" id="next" onclick="story.turnTo('leave')">Next</div>
+                </div>
+                </div>
         </page>
-        <page id="remember4">Her eyes widen and for a second you think she might start crying. She instead turns away, beginning to make her way down the trail.<br><br>"We should leave. There's nothing here."
+        <page id="remember4">
+            <div id="dialogue">
+                <div id="balloon">
+            Her eyes widen and for a second you think she might start crying. She instead turns away, beginning to make her way down the trail."We should leave. There's nothing here."
             <div class="next" id="next" onclick="story.turnTo('leave')">Next</div>
+                </div>
+                </div>
         
         </page>
-        <page id="mountainswait2">For some reason you remain standing here. For another, so do your companions. They say nothing, waiting for you in a way that reminds you of a dog you once had. Only the monster, Wooly, has crossed his arms and began to impatiently tap the ground with his left hoof. 
+        <page id="mountainswait2">
+            <div id="main">
+            For some reason you remain standing here. For another, so do your companions. They say nothing, waiting for you in a way that reminds you of a dog you once had. Only the monster, Wooly, has crossed his arms and began to impatiently tap the ground with his left hoof. 
+                </div>
+            <div id="options">
         <div class="choice" id="choice1" onclick="story.turnTo('leave')"> 1. Go down the trail.</div>
         <div class="choice" id="choice2" onclick="story.turnTo('mountainswait3')"> 2. Wait.</div>
+                </div>
         </page>
-        <page id="mountainswait">You wait for a few a seconds, standing still. From the corner of your eye you see your four companions looking at one another, seeming to hesitate.<br><br>
+        <page id="mountainswait">
+            <div id="main">
+            You wait for a few a seconds, standing still. From the corner of your eye you see your four companions looking at one another, seeming to hesitate.
+                </div>
+            <div id="options">
         <div class="choice" id="choice1" onclick="story.turnTo('leave')"> 1. Go down the trail.</div>
-        <div class="choice" id="choice2" onclick="story.turnTo('mountainswait2')"> 2. Wait.</div></page>
-        <page id="mountains3">You find your way back to where you started, higher up in the mountains. Though you're not quite at the peak, there doesn't seem to be another trail to lead you further up.<br><br>
-            "What are we doing, {{=story.getHeroName()}} ?" Rhain asks.
+        <div class="choice" id="choice2" onclick="story.turnTo('mountainswait2')"> 2. Wait.</div>
+            </div>
+                </page>
+        <page id="mountains3">
+            <div id="main">
+            You find your way back to where you started, higher up in the mountains. Though you're not quite at the peak, there doesn't seem to be another trail to lead you further up.
+                </div>
+            <div id="options">
         <div class="choice" id="choice1"onclick="story.turnTo('leave')"> 1. Go down the trail.</div>
-        <div class="choice" id="choice2"onclick="story.turnTo('mountainswait')"> 2. Wait.</div></page>
-        <page id="mountains2">Mabyn clicks her tongue but says nothing. She seems annoyed by the direction you're taking, but unwilling to say so. 
-        <div class="choice" id="choice1"onclick="story.turnTo('leave1')"> 1. Continue down the trail.</div>
+        <div class="choice" id="choice2"onclick="story.turnTo('mountainswait')"> 2. Wait.</div>
+                </div>
+                </page>
+        <page id="mountains2">
+            <div id="main">
+            Mabyn clicks her tongue but says nothing. She seems annoyed by the direction you're taking, but unwilling to say so. 
+                </div>
+            <div id="options">
+        <div class="choice" id="choice1"onclick="story.turnTo('leave1'), story.changeportrait('Mabynneutral')"> 1. Continue down the trail.</div>
         <div class="choice" id="choice2"onclick="story.turnTo('mountains3')"> 2. Go back up.</div>
+                </div>
         </page>
-        <page id="mountains1"> "Did you forget something up in the mountains ?" Rhain asks. "We should turn back as soon as we can. We don't want to be travelling after dark.<br><br>
+        <page id="mountains1"> 
+            <div id="dialogue">
+                <div id="balloon">
+            "Did you forget something up in the mountains ?" Rhain asks. "We should turn back as soon as we can. We don't want to be travelling after dark.
+            </div>
+                </div>
         <div class="choice" id="choice1"onclick="story.turnTo('leave2')"> 1. Continue down the trail.</div>
         <div class="choice" id="choice2"onclick="story.turnTo('mountains2')"> 2. Go back up.</div>
         </page>
-        <page id="leave">There is nothing for you in this place ; only barren lands and mountains over-head. Your party starts to slowly move down the trail, feet shuffling, gazes to the ground.<br><br>
-        <div class="choice" id="choice1"onclick="story.turnTo('leave1')"> 1. Continue down the trail.</div>
+        <page id="leave">
+            <div id="main">
+            There is nothing for you in this place ; only barren lands and mountains over-head. Your party starts to slowly move down the trail, feet shuffling, gazes to the ground.</div>
+            <div id="options">
+        <div class="choice" id="choice1"onclick="story.turnTo('leave1'), story.changeportrait('Mabynneutral')"> 1. Continue down the trail.</div>
         <div class="choice" id="choice2"onclick="story.turnTo('mountains3')"> 2. Go back up.</div>
+                </div>
         </page>
-        <page id="leave1">"We'll reach the road soon, and it'll take us to a small settlement," Mabyn begins. "We'll rest there."<br> She falls silent and only the sound of your feet in the dirt remain.<br><br>
+        <page id="leave1">
+            <div id="dialogue">
+                <div id="balloon">
+            "We'll reach the road soon, and it'll take us to a small settlement," Mabyn begins. "We'll rest there."<br> She falls silent and only the sound of your feet in the dirt remain.
+                </div>
+                </div>
+            <div id="options">
         <div class="choice" id="choice1" onclick="story.turnTo('leave2')"> 1. Continue down the trail.</div>
-        <div class="choice" id="choice2" onclick="story.turnTo('mountains2')"> 2. Go back up.</div></page>
-        <page id="leave2">You continue on your monotonous path. <br><br>
+        <div class="choice" id="choice2" onclick="story.turnTo('mountains2')"> 2. Go back up.</div>
+                </div>
+        </page>
+        <page id="leave2">
+            <div id="main">
+            You continue on your monotonous path.
+                </div>
+            <div id="options">
         <div class="choice" id="choice1" onclick="story.turnTo('leave3')"> 1. Continue down the trail.</div>
-        <div class="choice" id="choice2" onclick="story.turnTo('mountains1')"> 2. Go back up.</div></page>
-        <page id="leave3">Minutes pass like this. At times one of you seems to want to speak, but nothing comes. Only steps in the dirt. <br><br> It lets you hear them before you see them.
+        <div class="choice" id="choice2" onclick="story.turnTo('mountains1'), story.changeportrait('Rhainneutral')"> 2. Go back up.</div>
+                </div>
+                </page>
+        <page id="leave3">
+            <div id="main">
+            Minutes pass like this. At times one of you seems to want to speak, but nothing comes. Only steps in the dirt. <br><br> It lets you hear them before you see them.
         <div class="next" id="next" onclick="story.turnTo('firstcheckpoint'), story.checkpoint()">Next</div>
+                </div>
         </page>
-        <page id="firstcheckpoint"><div id="main">(You've reached a checkpoint. You will return here if you close the game, re-open it and choose "continue" in the starting menu.)
-            <div class="next" id="next" onclick="story.turnTo('eighteen')">Next</div></div>
+        <page id="firstcheckpoint">
+            <div id="main">(You've reached a checkpoint. You will return here if you close the game, re-open it and choose "continue" in the starting menu.)
+            <div class="next" id="next" onclick="story.turnTo('eighteen'), story.changecss('mountains')">Next</div></div>
         </page>
-        <page id="eighteen"> Loud voices and heavy steps sound downhill, further than your eyes can see. They may be friends or foes ; not that you'd know one from the other, with how much you've forgotten. With only a minute to spare before your paths cross, you...
+        <page id="eighteen"> 
+            <div id="main">
+            Loud voices and heavy steps sound downhill, further than your eyes can see. They may be friends or foes ; not that you'd know one from the other, with how much you've forgotten. With only a minute to spare before your paths cross, you...
+                </div>
+            <div id="options">
             <div class="choice" id="choice1" onclick="story.turnTo('nineteen1'), story.advantage18 = true"> 1. Draw your sword and signal to your party to do the same. </div>
             <div class="choice" id="choice2" onclick="story.turnTo('nineteen2')"> 2. Continue walking down the mountain.</div>
             <div class="choice" id="choice3" onclick="story.turnTo('nineteen3'), story.advantage18 = true"> 3. Call out to the strangers.</div>
             <div class="choice" id="choice4" onclick="story.turnTo('nineteen4')"> 4. Turn to your party members, hoping they'll know what to do.</div>
+                </div>
         
         </page>
-        <page id="nineteen">They stop when they finally get in your field of vision, and you in theirs. You count half a dozen armoured men downhill ; by the look of them, they've been in a fight already. Some sport busted lips and bleeding head wounds, others hold their side or limp. From the corner of your eye, you see Rhain move closer to you.
-            <div class="next" id="next" onclick="story.turnTo('nineteen5')">Next</div>
+        <page id="nineteen">
+            <div id="main">
+            They stop when they finally get in your field of vision, and you in theirs. You count half a dozen armoured men downhill ; by the look of them, they've been in a fight already. Some sport busted lips and bleeding head wounds, others hold their side or limp. From the corner of your eye, you see Rhain move closer to you.
+            <div class="next" id="next" onclick="story.turnTo('nineteen5'), story.changeportrait('Rhainsmiling1')">Next</div>
+                </div>
         </page>
         <page id="nineteen5">
+            <div id="dialogue">
+                <div id="balloon">
             "These are the guys we had to face to get up here. Didn't imagine they'd ask for more." He chuckles lightly, his posture relaxing. "We'll make short work of them."
-             <div class="next" id="next" onclick="story.turnTo('nineteen6')">Next</div>
+             <div class="next" id="next" onclick="story.turnTo('nineteen6'), story.changeportrait('Aeronaneutral')">Next</div>
+                    </div>
+            </div>
         </page>
-        <page id="nineteen6"> On your other side, Aerona clears her throat. "This is strange. Ikemma's minions usually give up after the first defeat." For the first time in a while, her eyes meet yours. "Let's not be overconfident. Something is different from usual."
+        <page id="nineteen6"> 
+            <div id="dialogue">
+                <div id="balloon">
+            On your other side, Aerona clears her throat. "This is strange. Ikemma's minions usually give up after the first defeat." For the first time in a while, her eyes meet yours. "Let's not be overconfident. Something is different from usual."
+                    </div>
             <div class="next" id="next" onclick="story.turnTo('nineteen7')">Next</div>
+                </div>
            
         </page>    
-        <page id="nineteen7">You have no time to respond to either of them ; one of the men calls out to you.
+        <page id="nineteen7">
+            <div id="main">
+            You have no time to respond to either of them ; one of the men calls out to you.
         <div class="next" id="next" onclick="story.turnTo('twenty')">Next</div>
+                </div>
 
         </page>
-        <page id="nineteen1">You seize the hilt of the large sword with both hands, taking a wide, strong stance. As the voices come closer, your companions do the same : a small ball of flame swirls in Rhain's left hand and Aerona holds a sword and shield. Mabyn moves at the back of your group, as if needing protection ; Wooly seems to be willing to offer it, his naked fists raised almost up to his shoulders.<br><br> When you finally see them, you are ready.
+        <page id="nineteen1">
+            <div id="main">
+            You seize the hilt of the large sword with both hands, taking a wide, strong stance. As the voices come closer, your companions do the same : a small ball of flame swirls in Rhain's left hand and Aerona holds a sword and shield. Mabyn moves at the back of your group, as if needing protection ; Wooly seems to be willing to offer it, his naked fists raised almost up to his shoulders.<br><br> When you finally see them, you are ready.
             <div class="next" id="next" onclick="story.turnTo('nineteen')">Next</div>
+                </div>
         
         </page>
-        <page id="nineteen2">Your companions hesitate but follow you nonetheless. Either confident or reckless, you make your way to the other group, your weapon sheathed. When you reach them, you are, in appearance, unprepared.
+        <page id="nineteen2">
+            <div id="main">
+            Your companions hesitate but follow you nonetheless. Either confident or reckless, you make your way to the other group, your weapon sheathed. When you reach them, you are, in appearance, unprepared.
         <div class="next" id="next" onclick="story.turnTo('nineteen')">Next</div> 
+                </div>
         </page>
-        <page id="nineteen3">"Who goes there ?" echoes for long seconds, unanswered. The shuffling of feet has stopped on both sides, and your companions begin to raise weapons. The steps suddenly resume on the other side, and they draw near. At least your companions are ready.
+        <page id="nineteen3">
+            <div id="main">
+            "Who goes there ?" echoes for long seconds, unanswered. The shuffling of feet has stopped on both sides, and your companions begin to raise weapons. The steps suddenly resume on the other side, and they draw near. At least your companions are ready.
         <div class="next" id="next" onclick="story.turnTo('nineteen')">Next</div>  
+                </div>
         </page>
-        <page id="nineteen4">You look onto each of them as the steps draw near. They only give you raised shoulders and shaken heads. Something in their eyes -surprise ? disappointment ?- tells you that the normal order of things is you leading, them following ; better get used to that quickly.<br><br> Your moment of hesitation lets the other group find you unprepared.
+        <page id="nineteen4">
+            <div id="main">
+            You look onto each of them as the steps draw near. They only give you raised shoulders and shaken heads. Something in their eyes -surprise ? disappointment ?- tells you that the normal order of things is you leading, them following ; better get used to that quickly.<br><br> Your moment of hesitation lets the other group find you unprepared.
         <div class="next" id="next" onclick="story.turnTo('nineteen')">Next</div>
+                </div>
         </page>
-        <page id="twenty">"Hero," he calls. "Is Ikemma gone ?"<br><br>
+        <page id="twenty">
+            <div id="main">
+            "Hero," he calls. "Is Ikemma gone ?"<br><br>
     {{? story.skillcheck('intelligence', 'hard')}}
             "Gone", rather than "dead". The euphemism seems unusual for such a man ; the harshness of his voice and feral quality of his appearance clash with it.<br><br>
     {{??}}
     {{?}} 
         Your companions look over to you. The burden of choice weighing on your shoulders, you...
+                </div>
+            <div id="options">
             <div class="choice" id="choice1" onclick="story.turnTo('twenty1')"> 1. Reply : "He is. It's over." </div>
             <div class="choice" id="choice2" onclick="story.turnTo('twenty2')"> 2. Ask : "Are you aching for another fight ?"</div>
             {{? story.advantage18 ==true}}
@@ -487,25 +772,38 @@
             <div class="choice" id="choice4" onclick="story.turnTo('twenty5')"> 4. Ask : "What do you mean "gone" ?"</div>
             {{??}}
             {{?}} 
-            
+            </div>
         </page>
-        <page id ="twenty1"> The man's face barely moves. He only nods, not breaking eye contact. <br> "Then let's go." <br><br> He begins to walk towards you and his companions follow, unsheathing weapons. <br> Aerona reacts before you do, jumping in front of you and towards the enemy.
+        <page id ="twenty1"> 
+            <div id="main">
+            The man's face barely moves. He only nods, not breaking eye contact. <br> "Then let's go." <br><br> He begins to walk towards you and his companions follow, unsheathing weapons. <br> Aerona reacts before you do, jumping in front of you and towards the enemy.
         <div class="next" id="next" onclick="story.turnTo('21')">Next</div>
-
+                </div>
         </page>
-        <page id ="twenty2"> He tilts his head, his expression unchanging. <br> "That's not what I'm aching for, no. An answer is what I want.
+        <page id ="twenty2"> 
+            <div id="main">
+            He tilts his head, his expression unchanging. <br><br> "That's not what I'm aching for, no. An answer is what I want."
+                </div>
+            <div id="options">
             <div class="choice" id="choice1"onclick="story.turnTo('twenty1')"> 1. Reply : "He is. It's over." </div>
             {{? story.advantage18 ==true}}
             <div class="choice" id="choice2" onclick="story.turnTo('21')"> 2. Motion for your party to attack.</div>
             {{??}}
             <div class="choice" id="choice2"onclick="story.turnTo('twenty4')"> 3. Draw your weapon and get ready to attack.</div>
             {{?}}
+                </div>
         </page>
         <page id ="twenty4">
+            <div id="main">
             The man notices you reaching for your sword and quickly unsheathes his own, followed by his companions. <br><br> "So we're doing this, yeah ?" he asks, strangely calm. <br>Aerona reacts before you do, jumping in front of you and towards the enemy.
         <div class="next" id="next" onclick="story.turnTo('21')">Next</div>
+                </div>
         </page>
-        <page id ="twenty5"> He frowns slightly. <br> "I mean exactly what that implies, don't I ?"<br> Some of his companions nod in response while you're not any less confused. The man crosses his arms, still waiting for his answer.
+        <page id ="twenty5"> 
+            <div id="main">
+            He frowns slightly. <br> "I mean exactly what that implies, don't I ?"<br> Some of his companions nod in response while you're not any less confused. The man crosses his arms, still waiting for his answer.
+                </div>
+            <div id="options">
             <div class="choice" id="choice1"onclick="story.turnTo('twenty1')"> 1. Reply : "He is. It's over." </div>
             <div class="choice" id="choice2"onclick="story.turnTo('twenty2')"> 2. Ask : "Are you aching for another fight ?"</div>
             {{? story.advantage18 ==true}}
@@ -513,59 +811,89 @@
             {{??}}
             <div class="choice" id="choice3"onclick="story.turnTo('twenty4')"> 4. Draw your weapon and get ready to attack.</div>
             {{?}}
+                </div>
         </page>
         <page id="21">
+            <div id="main">
             Your companions move swiftly at your order, passing you by without a word, like following a routine. Each one finds an opponent and placement on the makeshift battlefield, quickly engaging the men with their weapons.<br><br> You remain standing. Your body feels heavy, warm, and your mind blank. What is this feeling ?
+                </div>
+            <div id="options">
             <div class="choice" id="choice1" onclick="story.turnTo('21-1')">1. I’m afraid. I didn’t sign up for this.</div>
             <div class="choice" id="choice2" onclick="story.turnTo('21-2')">2. I’m terribly excited. My hands grip around the hilt of my sword, ready to put it to use.</div>
             <div class="choice" id="choice3" onclick="story.turnTo('21-3')">3. I’m still very confused. What the fuck is all of this ?</div>
+                </div>
         </page>
-        <page id="21-1">But you did. They told you of your battle against Ikemma, your heroism ; but you remember nothing. Only {{=story.getHeroName()}} the weapons merchant, {{=story.getHeroName()}} the mercenary. Not {{=story.getHeroName()}} the hero. Can you live up to this past ? Can you escape it ? Can-
+        <page id="21-1">
+            <div id="main">
+            But you did. They told you of your battle against Ikemma, your heroism ; but you remember nothing. Only {{=story.getHeroName()}} the weapons merchant, {{=story.getHeroName()}} the mercenary. Not {{=story.getHeroName()}} the hero. Can you live up to this past ? Can you escape it ? Can-
         <div class="next" id="next" onclick="story.turnTo('combat')">Next</div>
+                </div>
         </page>
         <page id="21-2">
-        Whatever it is you wish to fight for -justice, freedom and all that good shit ; yourself and your own-, it fuels you and your body. The previous heaviness lifts from your shoulder. You’re ready. You’re willing. You-
+            <div id="main">
+        Whatever it is you wish to fight for -justice, freedom and all that good shit ; or yourself and your own-, it fuels you and your body. The previous heaviness lifts from your shoulder. You’re ready. You’re willing. You-
         <div class="next" id="next" onclick="story.turnTo('combat')">Next</div>
+                </div>
 </page>
         <page id="21-3">
+            <div id="main">
             Things have changed in five years, and you don’t even know half of it. A reputation to live up to and companions to lead were thrust upon you ; what else will you find out ? How many more responsibilities will weigh on your shoulders ? How-
         <div class="next" id="next" onclick="story.turnTo('combat')">Next</div>
+                </div>
         </page>
-        <page id='combat'><div class="combat">
-        A blow to your chest piece makes you fall backwards. Looking up and at your attacker, you’re met with a snarl.<br><br>“The fuck you’re doing, hero ?”<br><br>Your opponent -the man you spoke to just previously- holds his sword towards your face, standing still.<br><br>
-            <div class="choice" id= "choice1"onclick="story.setenemyname('sbire'), story.startcombat(30, 30, 5, 20, 'special', 5), story.setHeroDefense(), story.setenemyDefense()">1. Get to your feet and fight back.</div>
+        <page id='combat'>
+            <div id="main">
+            <div class="combat">
+        A blow to your chest piece makes you fall backwards. Looking up and at your attacker, you’re met with a snarl.<br><br>“The fuck you’re doing, hero ?”<br><br>Your opponent -the man you spoke to just previously- holds his sword towards your face, standing still.</div>
+                                </div>
+                <div id="options">
+            <div class="choice" id= "choice1"onclick="story.setenemyname('sbire'), story.startcombat(30, 30, 5, 20, 'special', 5), story.setHeroDefense(), story.setenemyDefense(), story.changecss('combat')">1. Get to your feet and fight back.</div>
             {{? story.opmemory1 ==true}}
             <div class="choice" id= "choice2"onclick="story.turnTo('23')"> 2. Skip the fighting and immediately reach for the thigh wound you saw in your memory, hopefully incapacitating him.</div>
             {{??}}
             {{?}}
-</div>
+                    </div>
 
         </page>
-        <page id="22">You fall to the ground with a loud crash.<br> Above you, the man groans. His sword is held above your body, threatening to cut you down.<br><br>“What are you doing ?", you hear him ask. "You're not following the plan. And you're fighting like a pussy, too. You're not the real hero, are you ?"
+        <page id="22">
+            <div id="main">
+            You fall to the ground with a loud crash.<br> Above you, the man groans. His sword is held above your body, threatening to cut you down.<br><br>“What are you doing ?", you hear him ask. "You're not following the plan. And you're fighting like a pussy, too. You're not the real hero, are you ?"
+                </div>
+            <div id="options">
             <div class="choice" id="choice1" onclick="story.turnTo('24')">1. "What plan ? You're my enemy !"</div>
             <div class="choice" id="choice2" onclick="story.turnTo('24')">2. "Yes, the 'plan'. Mind refreshing my memory ?"</div>
             <div class="choice" id="choice3" onclick="story.turnTo('24')">3. "Will you all fuck off with the "hero" thing ? I don't remember any of this."</div>
             <div class="choice" id="choice4" onclick="story.turnTo('24')">4. "I've lost my memory, please spare me !"</div>
+                </div>
         </page>
-        <page id="23"><div id="main">
+        <page id="23">
+            <div id="main">
             You duck beneath his raised sword, knowing exactly where to hit. With your own, two-handed blade, you reach for the wound on his left thigh.<br><br>
             He swears when the point of your blade cuts through bandages and buries itself in the wound. His own weapon finds you as you struggle to move away from him, your sword too heavy, your limbs too awkward.<br><br> His hits at the gaps in your armour draw blood ; too much blood. You don't have the strength to resist the man's next push.
             <div class="next" id="next" onclick="story.turnTo('22')">Next</div>
             </div>
             
             </page>
-        <page id='24'>He stares at you for a moment, his eyes wide. Perhaps unconsciously, he lowers his sword.<br><br>"How come you don't remember ?", he whispers, mostly to himself. His eyes have left you now, focusing on the ground, as if searching for something. A few seconds pass like this, strangely silent admist the battle your companions are still in.<br><br>"You're coming with me", he finally declares, roughly pulling you up by your arm.<br> If you protest, he doesn't hear it ; the man leads you down the trail in a hurry.<br><br>
+        <page id='24'>
+            <div id="main">
+            He stares at you for a moment, his eyes wide. Perhaps unconsciously, he lowers his sword.<br><br>"How come you don't remember ?", he whispers, mostly to himself. His eyes have left you now, focusing on the ground, as if searching for something. A few seconds pass like this, strangely silent admist the battle your companions are still in.<br><br>"You're coming with me", he finally declares, roughly pulling you up by your arm.<br> If you protest, he doesn't hear it ; the man leads you down the trail in a hurry.
+                </div>
+            <div id="options">
             <div class="choice" id="choice1" onclick="story.turnTo('25-1')">1. "Will you tell me about this hero deal if I follow you ?"</div>
             <div class="choice" id="choice2" onclick="story.turnTo('25-2')">2. "Do we know each other ? You mentioned a plan."</div>
             <div class="choice" id="choice3" onclick="story.turnTo('25-3')">3. Attempt to free yourself from the man's grasp.</div>
             <div class="choice" id="choice4" onclick="story.turnTo('25-4')">4. Call your companions for help.</div>
+            </div>
         </page>
         <page id='25-1'>
+            <div id="main">
         "I will if you're the real deal," he starts. "I'll get you to Emrys and he'll know. Might know a way to get you your memory back if you're not bullshitting me, too."<br><br>
             Beaten and dazed as you are, you don't react when the rough man's hand leaves your arm, nor when a pained grunt reaches your ears. You only register what is happening when warm blood sprays onto your face.
              <div class="next" id="next" onclick="story.turnTo('26')">Next</div>
+                </div>
         </page>
         <page id='25-2'>
+            <div id="main">
         {{? story.gender=="male"}}
         "Not really," he starts. "But everyone knows the hero. So if you're him, everyone knows you."<br><br>
         {{??}}
@@ -574,205 +902,299 @@
         He snickers after that and pulls your upper arm more roughly, urging you to go faster.<br><br>
         Beaten and dazed as you are, you don't react when the rough man's hand leaves your arm, nor when a pained grunt reaches your ears. You only register what is happening when warm blood sprays onto your face.
              <div class="next" id="next" onclick="story.turnTo('26')">Next</div>
+                </div>
         </page>
         <page id='25-3'>
+            <div id="main">
         "For fuck's sake, do I have to knock you out ?" the man growls, easily keeping you in his grasp. A punch to your cheekbone stops your attempt.<br><br>
          Beaten and dazed as you are, you don't react when the rough man's hand leaves your arm, nor when a pained grunt reaches your ears. You only register what is happening when warm blood sprays onto your face.
              <div class="next" id="next" onclick="story.turnTo('26')">Next</div>
+            </div>
         </page>
         <page id='25-4'>
+            <div id="main">
         "Shut up !" he yells, quickly covering your mouth. "You dumb cunt. I'm fucking helping you."<br> A painful kick to the shin follows his insult.<br><br>
          Beaten and dazed as you are, you don't react when the rough man's hand leaves your arm, nor when a pained grunt reaches your ears. You only register what is happening when warm blood sprays onto your face.
              <div class="next" id="next" onclick="story.turnTo('26')">Next</div>
+                </div>
         </page>
-        <page id="26">You turn to see Aerona standing behind you, her sword dripping blood onto the trail. At her feet lies the rough man, his throat still spraying blood, a puddle forming at an alarming speed.
-            <div class="choice" id="choice1" onclick="story.turnTo('26-1')">1. "You killed him ! What is wrong with you ?"</div>
+        <page id="26">
+            <div id="main">
+            You turn to see Aerona standing behind you, her sword dripping blood onto the trail. At her feet lies the rough man, his throat still spraying blood, a puddle forming at an alarming speed.
+                </div>
+            <div id="options">
+            <div class="choice" id="choice1" onclick="story.turnTo('26-1'), story.changeportrait('Aeronasad')">1. "You killed him ! What is wrong with you ?"</div>
             <div class="choice" id="choice2" onclick="story.turnTo('26-2')">2. Kneel and press on his throat, hoping to stop the bleeding.</div>
-            <div class="choice" id="choice3" onclick="story.turnTo('26-3')">3. "Thank you so much for saving me."</div>
-            <div class="choice" id="choice4" onclick="story.turnTo('26-4')">4. "He wanted me to follow him somewhere."</div>
+            <div class="choice" id="choice3" onclick="story.turnTo('26-3'), story.changeportrait('Aeronasmile1')">3. "Thank you so much for saving me."</div>
+            <div class="choice" id="choice4" onclick="story.turnTo('26-4'), story.changeportrait('Aeronasad')">4. "He wanted me to follow him somewhere."</div>
+                </div>
         </page>
-        <page id="26-1">She blinks, confused.<br><br>"But he's an enemy. This is what we do."<br><br>She shakes hear head before continuing. "Let's wait for the others. We'll be on our way again."
+        <page id="26-1">
+            <div id="dialogue">
+                <div id="balloon">
+            She blinks, confused.<br><br>"But he's an enemy. This is what we do."She shakes hear head before continuing. "Let's wait for the others. We'll be on our way again."
         <div class="next" id="next" onclick="story.turnTo('28')">Next</div>
+            </div>
+            </div>
         </page>
-        <page id="26-2">As soon as you kneel next to the man, it becomes obvious to you that he's already dead. The blood that soaks into the ground is just too much, more than you've ever seen. You quickly rise up, fleeing this sight.<br><br><div class="next" id="next" onclick="story.turnTo('27')">Next</div>
+        <page id="26-2">
+            <div id="main">
+            As soon as you kneel next to the man, it becomes obvious to you that he's already dead. The blood that soaks into the ground is just too much, more than you've ever seen. You quickly rise up, fleeing this sight.<br><br><div class="next" id="next" onclick="story.turnTo('27'), story.changeportrait('Aeronasad')">Next</div>
+                </div>
         
         </page>
-        <page id="27">"Are you okay ?" the warrior asks, her breath short and trembling. "We killed the others before noticing you were gone. I- I got so scared-"
-            <div class="choice" id="choice1" onclick="story.turnTo('26-1')">1. "You didn't need to kill him !"</div>
-            <div class="choice" id="choice2" onclick="story.turnTo('26-3')">2. "I think so. Thank you."</div>
-            <div class="choice" id="choice3" onclick="story.turnTo('26-4')">3. "He wanted me to follow him somewhere."</div>
+        <page id="27">
+            <div id="dialogue">
+                <div id="balloon">
+            "Are you okay ?" the warrior asks, her breath short and trembling. "We killed the others before noticing you were gone. I- I got so scared-"
+                </div>
+            </div>
+            <div id="options">
+            <div class="choice" id="choice1" onclick="story.turnTo('26-1'), story.changeportrait('Aeronasad')">1. "You didn't need to kill him !"</div>
+            <div class="choice" id="choice2" onclick="story.turnTo('26-3'), story.changeportrait('Aeronasmile1')">2. "I think so. Thank you."</div>
+            <div class="choice" id="choice3" onclick="story.turnTo('26-4'), story.changeportrait('Aeronasad')">3. "He wanted me to follow him somewhere."</div>
+                </div>
         </page>
-        <page id="26-3">The woman breathes a sigh of relief. "I'm so glad."<br><br>She takes a step towards you and you think she might hug you, but she just stands there, her posture awkward.<br><br>"The others will arrive. We'll be on our way."
+        <page id="26-3">
+            <div id="dialogue">
+                <div id="balloon">
+            The woman breathes a sigh of relief. "I'm so glad."<br><br>She takes a step towards you and you think she might hug you, but she just stands there, her posture awkward.<br><br>"The others will arrive. We'll be on our way."
+                    </div>
         <div class="next" id="next" onclick="story.turnTo('28')">Next</div>
+                </div>
         </page>
-        <page id="26-4">"Follow him where ?", she asks, a worried look on her face.<br>Before you can answer, she interrupts : "Actually, keep that for later. The others will arrive, and we'll be on our way."
+        <page id="26-4">
+            <div id="dialogue">
+                <div id="balloon">
+            "Follow him where ?", she asks, a worried look on her face.<br>Before you can answer, she interrupts : "Actually, keep that for later. The others will arrive, and we'll be on our way."
+                    </div>
         <div class="next" id="next" onclick="story.turnTo('28')">Next</div>
+                </div>
         </page>
-        <page id="28"><div id="main">The two of you wait in silence for only a few moments before the rest of your party rushes down the trail. Rhain steps in front of the group and opens his mouth to speak, but soon closes it. His eyes scan your wounded form, widening.</div>
+        <page id="28">
+            <div id="main">The two of you wait in silence for only a few moments before the rest of your party rushes down the trail. Rhain steps in front of the group and opens his mouth to speak, but soon closes it. His eyes scan your wounded form, widening.</div>
         <div id="options">
-            <div class="choice" id="choice1" onclick="story.turnTo('29-1')">1. "That man was strong. I didn't stand a chance."</div>
-            <div class="choice" id="choice2" onclick="story.turnTo('29-2')">2. "I'm badly hurt. Do you have anything to patch me up with ?"</div>
-            <div class="choice" id="choice3" onclick="story.turnTo('29-3')">3. "Hey, you should see the other guy. He's dead."</div>
-            <div class="choice" id="choice4" onclick="story.turnTo('29-4')">4. "Don't be worried. I've been through worse."</div>
+            <div class="choice" id="choice1" onclick="story.turnTo('29-1'), story.changeportrait('Rhainsurprised')">1. "That man was strong. I didn't stand a chance."</div>
+            <div class="choice" id="choice2" onclick="story.turnTo('29-2'), story.changeportrait('Rhainsad')">2. "I'm badly hurt. Do you have anything to patch me up with ?"</div>
+            <div class="choice" id="choice3" onclick="story.turnTo('29-3'), story.changeportrait('Rhainsad')">3. "Hey, you should see the other guy. He's dead."</div>
+            <div class="choice" id="choice4" onclick="story.turnTo('29-4'), story.changeportrait('Rhainsurprised')">4. "Don't be worried. I've been through worse."</div>
             </div>
         </page>
         <page id="29-1">
-        <div id="dialogue">"S-strong ? We'd beaten him earlier, {{=story.getHeroName()}}. He was- they were all just disposable mooks."
-            <div class="next" id="next" onclick="story.turnTo('30')">Next</div></div>
+        <div id="dialogue">
+            <div id="balloon">
+            "S-strong ? We'd beaten him earlier, {{=story.getHeroName()}}. He was- they were all just disposable mooks."
+                </div>
+            <div class="next" id="next" onclick="story.turnTo('30'), story.changeportrait('Aeronasad')">Next</div></div>
         </page>
-        <page id="29-2"><div id="dialogue">"Not on me. Maybe Mabyn could-"
-            <div class="next" id="next" onclick="story.turnTo('29-6')">Next</div></div>
+        <page id="29-2"><div id="dialogue">
+            <div id="balloon">
+            "Not on me. Maybe Mabyn could-"
+                </div>
+            <div class="next" id="next" onclick="story.turnTo('29-6'), story.changeportrait('Mabynneutral')">Next</div></div>
         </page>
-        <page id="29-6"><div id="dialogue">"I can stop the bleeding but not heal you," Mabyn simply states. "We'll have to find a doctor in the next village."
-            <div class="next" id="next" onclick="story.turnTo('30')">Next</div></div>
+        <page id="29-6"><div id="dialogue">
+            <div id="balloon">
+            "I can stop the bleeding but not heal you," Mabyn simply states. "We'll have to find a doctor in the next village."
+                </div>
+            <div class="next" id="next" onclick="story.turnTo('30'), story.changeportrait('Aeronasad')">Next</div></div>
         </page>
         <page id="29-3">
-        <div id="dialogue">He looks at the corpse at the ground before turning his gaze back to you. "You're looking terrible. How did he even-" He shakes his head and frowns, as if angry at himself. "You need healing. Mabyn ?"
-            <div class="next" id="next" onclick="story.turnTo('29-6')">Next</div></div>
+        <div id="dialogue">
+            <div id="balloon">
+            He looks at the corpse at the ground before turning his gaze back to you. "You're looking terrible. How did he even-" He shakes his head and frowns, as if angry at himself. "You need healing. Mabyn ?"
+                </div>
+            <div class="next" id="next" onclick="story.turnTo('29-6'), story.changeportrait('Mabynneutral')">Next</div></div>
         </page>
         <page id="29-4">
-        <div id="dialogue">"Not recently !" he exclaims. "And not at the hands of some - nameless minion !"
-            <div class="next" id="next" onclick="story.turnTo('30')">Next</div>
+        <div id="dialogue">
+            <div id="balloon">
+            "Not recently !" he exclaims. "And not at the hands of some - nameless minion !"
+                </div>
+            <div class="next" id="next" onclick="story.turnTo('30'), story.changeportrait('Aeronasad')">Next</div>
             </div>
         </page>
-        <page id="30"><div id="dialogue">"Whatever caused you to lose your memory must have affected your body as well. There's no way you'd lose like this if you were at your best."</div>
+        <page id="30"><div id="dialogue">
+            <div id="balloon">
+            "Whatever caused you to lose your memory must have affected your body as well. There's no way you'd lose like this if you were at your best."</div>
+            </div>
             <div id="options">
-            <div class="choice" id="choice1" onclick="story.turnTo('31-1')">1. "I don't feel any different physically."</div>
-            <div class="choice" id="choice2" onclick="story.turnTo('31-1')">2. "I do feel like a mess right now."</div>
-            <div class="choice" id="choice3" onclick="story.turnTo('31-3)">3. "There must be a way to reverse this. I can't stay amnesic and weak !" </div>
+            <div class="choice" id="choice1" onclick="story.turnTo('31-1'), story.changeportrait('Rhainsmiling1')">1. "I don't feel any different physically."</div>
+            <div class="choice" id="choice2" onclick="story.turnTo('31-1'), story.changeportrait('Rhainsmiling1')">2. "I do feel like a mess right now."</div>
+            <div class="choice" id="choice3" onclick="story.turnTo('31-2), story.changeportrait('Mabynneutral')">3. "There must be a way to reverse this. I can't stay amnesic and weak !" </div>
             </div></page>
-        <page id="31-1"><div id="dialogue">Rhain smiles reassuringly. "You must just be a bit under the weather. Get a good night's rest at the next village and you'll be fine."
-            <div class="next" id="next" onclick="story.turnTo('31-3')">Next</div>
+        <page id="31-1">
+            <div id="dialogue">
+                <div id="balloon">
+                Rhain smiles reassuringly. "You must just be a bit under the weather. Get a good night's rest at the next village and you'll be fine."
+                    </div>
+            <div class="next" id="next" onclick="story.turnTo('31-3'), story.changeportrait('Aeronaneutral')">Next</div>
             </div></page>
         <page id="31-2">
-        <div id="dialogue">"If there is a way we won't find it here", the old woman begins. "We should assess your condition after a night's rest, in a safe place."
+        <div id="dialogue">
+            <div id="balloon">
+            "If there is a way we won't find it here", the old woman begins. "We should assess your condition after a night's rest, in a safe place."
+                </div>
             <div class="next" id="next" onclick="story.turnTo('32')">Next</div>
             </div></page>
         <page id="31-3">
-        <div id="dialogue">Aerona glances at your best friend pensively. "That's optimistic. But a good night's rest sounds good. We all need it."
+        <div id="dialogue">
+            <div id="balloon">
+            Aerona glances at your best friend pensively. "That's optimistic. But a good night's rest sounds good. We all need it."
             <div class="next" id="next" onclick="story.turnTo('32')">Next</div>
-            </div></page>
-        <page id="32"><div id="main">You sit for a few minutes so that Mabyn can clean and dress your wounds. A few more words travel between your companions, most of which you don't pay attention to. A wave of exhaustion finally reaches you, likely pushed back by the excitement of the fight.<br> <br> Pain hits you along with it. These are not the worst wounds you've suffered -the old woman assures you of it-, but they hurt nonetheless ; and perhaps your pride is hurt, too.<br><br>What a terrible day this has been.
-            <div class="next" id="next" onclick="story.turnTo('33')">Next</div>
+            </div>
+            </div>
+            </page>
+        <page id="32"><div id="main">
+            You sit for a few minutes so that Mabyn can clean and dress your wounds. A few more words travel between your companions, most of which you don't pay attention to. A wave of exhaustion finally reaches you, likely pushed back by the excitement of the fight.<br> <br> Pain hits you along with it. These are not the worst wounds you've suffered -the old woman assures you of it-, but they hurt nonetheless ; and perhaps your pride is hurt, too.<br><br>What a terrible day this has been.
+            <div class="next" id="next" onclick="story.turnTo('33'), story.changecss('nightsky')">Next</div>
             </div> </page>
         <page id="33"><div id="main">Your party begins moving again as the sun begins to set. Your pace has slowed considerably, your companions taking care not to rush your wounded body. The few hours of travel -first through pink-tinted mountain trails, then dark paths lit by flames cast by Rhain- are mostly silent, dialogue limiting itself to enquiries about your health and tiredness, or comments about the gradual loss of light.<br><br>
             The village's gate only enters your sight long after night has fallen, and the gate has closed. A single guard stands near it, using his spear to support himself in his half-sleep.
-            <div class="next" id="next" onclick="story.turnTo('34')">Next</div>
+            <div class="next" id="next" onclick="story.turnTo('34'), story.changecss('nightsky'), story.changeportrait('Woolyneutral')">Next</div>
             </div></page>
-        <page id="34"><div id="dialogue">The goatman gently nudges the man's shoulder and throws you a quick look. He points to you then raises a finger to his lips.
-            <div class="next" id="next" onclick="story.turnTo('35')">Next</div>
+        <page id="34"><div id="dialogue">
+            <div id="balloon">
+            The goatman gently nudges the man's shoulder and throws you a quick look. He points to you then raises a finger to his lips.
+                </div>
+            <div class="next" id="next" onclick="story.turnTo('35'), story.changecss('nightsky')">Next</div>
             </div></page>
-        <page id="35"><div id="main">The guard wakes up with a start, almost dropping his spear. His eyes widen as they fall onto Wooly, then more so as they fall on you.<br><br>"You're back ! We didn't know how long it would take- you beat him, didn't you ?"</div>
+        <page id="35"><div id="main">
+            The guard wakes up with a start, almost dropping his spear. His eyes widen as they fall onto Wooly, then more so as they fall on you.<br><br>"You're back ! We didn't know how long it would take- you beat him, didn't you ?"</div>
             <div id="options">
-                <div class="choice" id="choice1" onclick="story.turnTo('35-1')">1. "I think I did."</div>
-            <div class="choice" id="choice2" onclick="story.turnTo('35-1')">2. "'Him' ? Are you talking about that Ikemma guy ?"</div>
-            <div class="choice" id="choice3" onclick="story.turnTo('35-1)">3. Stay silent. </div>
+                <div class="choice" id="choice1" onclick="story.turnTo('35-1'), story.changecss('nightsky')">1. "I think I did."</div>
+            <div class="choice" id="choice2" onclick="story.turnTo('35-1'), story.changecss('nightsky')">2. "'Him' ? Are you talking about that Ikemma guy ?"</div>
+            <div class="choice" id="choice3" onclick="story.turnTo('35-1), story.changecss('nightsky')">3. Stay silent. </div>
                 </div>
             </page>
         <page id="35-1"><div id="main">Mabyn quickly covers your mouth and gives you a strange look you don't fully understand. Seeming not to want you to address the man, she speaks :
-             <div class="next" id="next" onclick="story.turnTo('36')">Next</div>
+             <div class="next" id="next" onclick="story.turnTo('36'), story.changecss('nightsky'), story.changeportrait('Mabynneutral')">Next</div>
             </div>
         
         </page>
         <page id="36"><div id="dialogue">
+            <div id="balloon">
         {{? story.gender=="male"}}
         "The Hero is tired. Let us in quietly so he can have a night of rest before the villagers celebrate him."<br><br>
         {{??}}
         "The Hero is tired. Let us in quietly so she can have a night of rest before the villagers celebrate her."<br><br>
         {{?}}
-            <div class="next" id="next" onclick="story.turnTo('37')">Next</div>
+            </div>
+            <div class="next" id="next" onclick="story.turnTo('37'), story.changecss('nightsky')">Next</div>
         </div></page>
-        <page id="37"><div id="main">"O-of course !" the guard stammers. "Should I take you to the inn ? There's a messenger there I need to warn-"<br><br> He reaches for a heavy keyring and begins to fumble with the gate's lock.<br><br>"I won't tell him you're here, but he needs to know you beat Ikemma so he can run to the next village and tell them." He turns to you slightly, not quite meeting your gaze. "N-not that we didn't trust you'd do it. We were just waiting for your return."
-             <div class="next" id="next" onclick="story.turnTo('38')">Next</div>
+        <page id="37"><div id="main">
+            "O-of course !" the guard stammers. "Should I take you to the inn ? There's a messenger there I need to warn-"<br><br> He reaches for a heavy keyring and begins to fumble with the gate's lock.<br><br>"I won't tell him you're here, but he needs to know you defeated Ikemma so he can run to the next village and tell them." He turns to you slightly, not quite meeting your gaze. "N-not that we didn't trust you'd do it. We were just waiting for your return."
+             <div class="next" id="next" onclick="story.turnTo('38'), story.changecss('nightsky')">Next</div>
             </div></page>
         <page id="38"><div id="main">The guard pushes the gate open.<br><br>"Here you go, hero. We'll enter the inn through the kitchens so nobody notices you."<br><br> Your companions thank the man and follow him through the small, empty village. Few windows are even lit by the flames of candles, only the inn -which you quickly reach- casts light on the dusty ground.<br><br>As promised, the man takes you to back of the inn and pushes open the kitchen doors.
-            <div class="next" id="next" onclick="story.turnTo('39')">Next</div>
+            <div class="next" id="next" onclick="story.turnTo('39'), story.changecss('innnight'), story.changeportrait('Mabynneutral')">Next</div>
             </div>
         </page>
-        <page id="39"><div id="dialogue">"Unlocked doors ? You villagers sure feel safe."
-            <div class="next" id="next" onclick="story.turnTo('40')">Next</div>
+        <page id="39">
+            <div id="dialogue">
+            <div id="balloon">
+            "Unlocked doors ? You villagers sure feel safe."
+                </div>
+            <div class="next" id="next" onclick="story.turnTo('40'), story.changecss('innnight')">Next</div>
             </div></page>
-        <page id="40"><div id="main">"This is a small village. Everyone knows and trusts each other."<br><br>You walk through the small kitchen and into the main room, stopping before stairs leading up.<br><br>"The rooms you've asked for are upstairs. No one else is here but the messenger I mentioned," the guard explains.<br><br>His eyes scan your form. "Should I call a healer ?"</div>
+        <page id="40">
+            <div id="main">"This is a small village. Everyone knows and trusts each other."<br><br>You walk through the small kitchen and into the main room, stopping before stairs leading up.<br><br>"The rooms you've asked for are upstairs. No one else is here but the messenger I mentioned," the guard explains.<br><br>His eyes scan your form. "Should I call a healer ?"</div>
             <div id="options">
-            <div class="choice" id="choice1" onclick="story.turnTo('40-1')">1. "Yes please."</div>
-            <div class="choice" id="choice2" onclick="story.turnTo('40-2')">2. "I'd rather sleep now and get healed tomorrow."</div>
-            <div class="choice" id="choice3" onclick="story.turnTo('40-3)">3. Turn to your companions questioningly.</div>
+            <div class="choice" id="choice1" onclick="story.turnTo('40-1'), story.changecss('innnight')">1. "Yes please."</div>
+            <div class="choice" id="choice2" onclick="story.turnTo('40-2'), story.changecss('innnight')">2. "I'd rather sleep now and get healed tomorrow."</div>
+            <div class="choice" id="choice3" onclick="story.turnTo('40-3, story.changeportrait('Mabynneutral'), story.changecss('innnight')">3. Turn to your companions questioningly.</div>
                 </div>
         </page>
         <page id="40-1"><div id="main">He nods. "We have a devout of Trystin who tends to her shrine here. I'll fetch him and get him here for you."
-             <div class="next" id="next" onclick="story.turnTo('40-3')">Next</div>
+             <div class="next" id="next" onclick="story.turnTo('40-3'), story.changecss('innnight'), story.changeportrait('Mabynneutral')">Next</div>
             </div></page>
         <page id="40-2">
         <div id="main">"You know what's best for you, hero. We have a devout of Trystin who stays at her shrine near the main gate. He should be able to help if you visit him."
-             <div class="next" id="next" onclick="story.turnTo('41')">Next</div>
+             <div class="next" id="next" onclick="story.turnTo('41-1'), story.changecss('innnight')">Next</div>
             </div>
         </page>
         <page id="40-3">
-         <div id="dialogue">"No need. We'll handle that come morning. Your wounds aren't too serious, and resting will help."
-             <div class="next" id="next" onclick="story.turnTo('41-1')">Next</div>
+         <div id="dialogue">
+             <div id="balloon">
+             "No need. We'll handle that come morning. Your wounds aren't too serious, and resting will help."
+                 </div>
+             <div class="next" id="next" onclick="story.turnTo('41-1'), story.changecss('innnight')">Next</div>
             </div></page>
         <page id="41-1"><div id="main">Your companions motion for you to follow them upstairs, but the guard interrupts. "Hero, if you don't mind... Is it really over ? Did you really defeat the Villain ?"</div>
            <div id="options">
-            <div class="choice" id="choice1" onclick="story.turnTo('41-2')">1. "Of course. It's over now."</div>
-            <div class="choice" id="choice2" onclick="story.turnTo('41-3')">2. "It might not be. There's something strange going on."</div>
-            <div class="choice" id="choice3" onclick="story.turnTo('41-4)">3. "Honestly, I don't have a clue."</div>
-            <div class="choice" id="choice4" onclick="story.turnTo('41-5)">4. Ignore the man and go upstairs to your room.</div>
+            <div class="choice" id="choice1" onclick="story.turnTo('41-2'), story.changecss('innnight')">1. "Of course. It's over now."</div>
+            <div class="choice" id="choice2" onclick="story.turnTo('41-3'), story.changecss('innnight')">2. "It might not be. There's something strange going on."</div>
+            <div class="choice" id="choice3" onclick="story.turnTo('41-4), story.changecss('innnight')">3. "Honestly, I don't have a clue."</div>
+            <div class="choice" id="choice4" onclick="story.turnTo('41-5), story.changecss('innnight')">4. Ignore the man and go upstairs to your room.</div>
         </div>
         </page>
         <page id="41-2"><div id="main">The guard smiles, seeming to trust your statement completely. <br><br>"Thank you, hero. We owe you everything."
-             <div class="next" id="next" onclick="story.turnTo('41-5')">Next</div>
+             <div class="next" id="next" onclick="story.turnTo('41-5'), story.changecss('innnight')">Next</div>
             </div></page>
         <page id="41-3">
         <div id="main">His brows furrow and he nods solemnly.<br><br> "Whatever it is, it doesn't stand a chance against you, hero."
-             <div class="next" id="next" onclick="story.turnTo('41-5')">Next</div>
+             <div class="next" id="next" onclick="story.turnTo('41-5'), story.changecss('innnight')">Next</div>
             </div>
         </page>
         <page id="41-4">
             <div id="main">His face falls.<br><br> "I- I see. You should rest. You'll be more certain in the morning."
-             <div class="next" id="next" onclick="story.turnTo('41-5')">Next</div>
+             <div class="next" id="next" onclick="story.turnTo('41-5'), story.changecss('innnight')">Next</div>
             </div>
         </page>
-        <page id="41-5"><div main="id">Rhain leads you upstairs with a smile as the warrior lingers, speaking words you can't quite catch to the guard. Your other two companions follow, and you all enter a corridor. Three open doors stand in front of you, as well as another, closed one.
-            <div class="next" id="next" onclick="story.turnTo('42')">Next</div></div>
+        <page id="41-5"><div id="main">Rhain leads you upstairs with a smile as the warrior lingers, speaking words you can't quite catch to the guard. Your other two companions follow, and you all enter a corridor. Three open doors stand in front of you, as well as another, closed one.
+            <div class="next" id="next" onclick="story.turnTo('42'), story.changeportrait('Rhainneutral'), story.changecss('innnight')">Next</div></div>
         </page>
-        <page id="42"><div id="dialogue">"Those three rooms are ours. We can split them as usual." He thinks for a moment, then frowns embarrassedly. "No, actually, you'll get your own room. Mabyn and Aerona can share, and I'll share with Wooly."</div>
+        <page id="42"><div id="dialogue">
+            <div id="balloon">
+            "Those three rooms are ours. We can split them as usual." He thinks for a moment, then frowns embarrassedly. "No, actually, you'll get your own room. Mabyn and Aerona can share, and I'll share with Wooly."</div>
+            </div>
         <div id="options">
-            <div class="choice" id="choice1" onclick="story.turnTo('42-1')">1. "How do we usually split ?"</div>
-            <div class="choice" id="choice2" onclick="story.turnTo('42-2')">2. "Who put you in charge suddenly ?"</div>
-            <div class="choice" id="choice3" onclick="story.turnTo('42-3)">3. "Could you stay with me ? I don't want to be alone right now."</div>
-            <div class="choice" id="choice4" onclick="story.turnTo('42-4)">4. "All right."</div>
-            </div></page>
-        <page id="42-1"><div id="dialogue">"Come on, that's not important right now. You're barely standing up."
-             <div class="next" id="next" onclick="story.turnTo('42')">Next</div>
+            <div class="choice" id="choice1" onclick="story.turnTo('42-1'), story.changeportrait('Rhainsad'), story.changecss('innnight')">1. "How do we usually split ?"</div>
+            <div class="choice" id="choice2" onclick="story.turnTo('42-2'), story.changeportrait('Rhainsad'), story.changecss('innnight')">2. "Who put you in charge suddenly ?"</div>
+            <div class="choice" id="choice3" onclick="story.turnTo('42-3'), story.changeportrait('Rhainsmiling1'), story.changecss('innnight')">3. "Could you stay with me ? I don't want to be alone right now."</div>
+            <div class="choice" id="choice4" onclick="story.turnTo('42-4'), story.changecss('bedroomnight')">4. "All right."</div>
+            </div>
+        </page>
+        <page id="42-1"><div id="dialogue">
+            <div id="balloon">
+            "Come on, that's not important right now. You're barely standing up."
+                </div>
+             <div class="next" id="next" onclick="story.turnTo('42'), story.changecss('innnight'), story.changeportrait('Rhainneutral')">Next</div>
             </div></page>
         <page id="42-2">
-        <div id="dialogue">He grimaces slightly but doesn't seem surprised by your question. <br><br> "I'm just trying to help you. You're still the boss."
-             <div class="next" id="next" onclick="story.turnTo('42')">Next</div>
+        <div id="dialogue">
+            <div id="balloon">
+            He grimaces slightly but doesn't seem surprised by your question. <br><br> "I'm just trying to help you. You're still the boss."
+                </div>
+             <div class="next" id="next" onclick="story.turnTo('42'), story.changecss('innnight')">Next</div>
             </div>
         </page>
         <page id="42-3">
-         <div id="dialogue">"You need a large bed to yourself and some space to rest and heal. But I'll be right next door if you need me, {{=story.getHeroName()}}."
-             <div class="next" id="next" onclick="story.turnTo('42')">Next</div>
+         <div id="dialogue">
+             <div id="balloon">
+             "You need a large bed to yourself and some space to rest and heal. But I'll be right next door if you need me, {{=story.getHeroName()}}."
+                 </div>
+             <div class="next" id="next" onclick="story.turnTo('42'), story.changecss('innnight')">Next</div>
             </div>
         </page>
         <page id="42-4"><div id="main">You walk into one of the rooms and sit on the double bed, laying down your bags. You don't even know what's in them, apart from the parts of your armour you removed when Mabyn took care of your wounds.<br><br>
             You begin to undo the straps of whatever parts she didn't remove, freeing the thick brigandine underneath. Soon you remove that too, finding yourself sitting in strange silken clothes.<br><br> You faintly hear your companions settling in their rooms, as well as Aerona coming up the stairs. She passes your door and enters another room, letting the corridor fall silent.<br><br>You're finally alone.
-            <div class="next" id="next" onclick="story.turnTo('43')">Next</div>
+            <div class="next" id="next" onclick="story.turnTo('43'), story.changecss('bedroomnight')">Next</div>
             </div>
         
         </page>
         <page id="43"><div id="main">You look around the small room. Its relative emptiness and lack of decoration reminds you of the room you rented after you left the cult - the last residence you remember having.<br><br>Your eyelids droop from time to time, your eyes desperate to close. The mattress beneath you feels comfortable and inviting.</div>
         <div id="options">
-            <div class="choice" id="choice1" onclick="story.turnTo('43-1')">1. Look through your bags for any clue as to what you've been doing in the past years.</div>
-            <div class="choice" id="choice2" onclick="story.turnTo('43-2')">2. Look at your wounds.</div>
-            <div class="choice" id="choice3" onclick="story.turnTo('44)">3. Lay down and sleep.</div>
+            <div class="choice" id="choice1" onclick="story.turnTo('43-1'), story.changecss('bedroomnight')">1. Look through your bags for any clue as to what you've been doing in the past years.</div>
+            <div class="choice" id="choice2" onclick="story.turnTo('43-2'), story.changecss('bedroomnight')">2. Look at your wounds.</div>
+            <div class="choice" id="choice3" onclick="story.turnTo('44), story.changecss('bedroomnight')">3. Lay down and sleep.</div>
             </div>
         </page>
         <page id="lookarmour"><div main='id'>
             The armour is heavy, shiny plate. Likely something that's been commissioned - and very costly. You've never owned anything like it.
             </div>
         <div id="options">
-             <div class="choice" id="choice1" onclick="story.turnTo('43-1')">1. Look at something else.</div>
+             <div class="choice" id="choice1" onclick="story.turnTo('43-1'), story.changecss('bedroomnight')">1. Look at something else.</div>
             </div>
         </page>
         <page id="looktoiletry">
@@ -780,7 +1202,7 @@
             You open the pouch to reveal a small towel, nail file, soap bar and other toiletry items. The soap smells nice.
             </div>
         <div id="options">
-             <div class="choice" id="choice1" onclick="story.turnTo('43-1')">1. Look at something else.</div>
+             <div class="choice" id="choice1" onclick="story.turnTo('43-1'), story.changecss('bedroomnight')">1. Look at something else.</div>
             </div>
         </page>
         <page id="lookpouches">
@@ -788,7 +1210,7 @@
             You pull the strings of the pouches and find gold, more than you've ever seen in your life. You don't even dare to start counting it.
             </div>
         <div id="options">
-             <div class="choice" id="choice1" onclick="story.turnTo('43-1')">1. Look at something else.</div>
+             <div class="choice" id="choice1" onclick="story.turnTo('43-1'), story.changecss('bedroomnight')">1. Look at something else.</div>
             </div>
         </page>
         <page id="lookleatherbag">
@@ -796,16 +1218,16 @@
             The rough bag contains a few colourful vials you can't identify, as well as a dagger. You draw it and balance it on your fingers. It seems to be high quality.<br><br>Behind the dagger, you find some neatly folder parchment -a luxurious item-, a vial of ink and a quill. The paper is blank.
             </div>
         <div id="options">
-             <div class="choice" id="choice1" onclick="story.turnTo('43-1')">1. Look at something else.</div>
+             <div class="choice" id="choice1" onclick="story.turnTo('43-1'), story.changecss('bedroomnight')">1. Look at something else.</div>
             </div>
         </page>
         <page id="43-1">
         <div id="main">Fighting your exhaustion, you reach for the two bags you've just set down next to the bed. Both are sturdy, heavy sacks.<br><br>
-            The first one contains the <turn to="lookarmour">pieces of your armour</turn> you previously took off, as well as <turn to="looktoiletry">a medium-size pouch seeming to contain various objects.</turn><br><br>
-            The second bag contains <turn to="lookpouches">several small and heavy pouches</turn> and a <turn to="lookleatherbag">rough leather bag.</turn>
+            The first one contains the <a onclick= "story.turnTo('lookarmour'), story.changecss('bedroomnight')">pieces of your armour</a> you previously took off, as well as <a onclick= "story.turnTo('looktoiletry'), story.changecss('bedroomnight')">a medium-size pouch seeming to contain various objects.</a><br><br>
+            The second bag contains <a onclick= "story.turnTo('lookpouches'), story.changecss('bedroomnight')">several small and heavy pouches</a> and a <a onclick= "story.turnTo('lookleatherbag'), story.changecss('bedroomnight')">rough leather bag.</a>
             </div>
             <div id="options">
-             <div class="choice" id="choice1" onclick="story.turnTo('43')">1. Stop looking at the bags.</div>
+             <div class="choice" id="choice1" onclick="story.turnTo('43'), story.changecss('bedroomnight')">1. Stop looking at the bags.</div>
             </div>
         </page>
         <page id="43-2">
@@ -813,7 +1235,7 @@
             You look at your bandaged wounds. You feel them sting and pull when you move your limbs, but the pain isn't the worst you've felt. 
             </div>
         <div id="options">
-             <div class="choice" id="choice1" onclick="story.turnTo('43-1')">1. Stop looking at your wounds.</div>
+             <div class="choice" id="choice1" onclick="story.turnTo('43-1'), story.changecss('bedroomnight')">1. Stop looking at your wounds.</div>
             </div>
         </page>
         <page id="44">
@@ -821,43 +1243,122 @@
             You lay down on the unfamiliar bed in your unfamiliar clothes. You suspect the mattress is little more than hay in a sheet, but in your current state it feels exquisite.<br><br>
             Sleep hits you quickly and with no warning. Before it takes you entirely, you have one last thought :</div>
             <div id="options">
-                <div class="choice" id="choice1" onclick="story.turnTo('45-1')">1. This "hero" thing terrifies me. What have I gotten myself into ?</div>
-                <div class="choice" id="choice2" onclick="story.turnTo('45-2')">2. Everyone knows who I am and admires me. I like that. </div>
-                <div class="choice" id="choice3" onclick="story.turnTo('45-3')">3. I don't know what to think about all of this.</div>
-                <div class="choice" id="choice4" onclick="story.turnTo('45-4')">4. I just want to sleep.</div>
+                <div class="choice" id="choice1" onclick="story.turnTo('45-1'), story.changecss('sleep')">1. This "hero" thing terrifies me. What have I gotten myself into ?</div>
+                <div class="choice" id="choice2" onclick="story.turnTo('45-2'), story.changecss('sleep')">2. Everyone knows who I am and admires me. I like that. </div>
+                <div class="choice" id="choice3" onclick="story.turnTo('45-3'), story.changecss('sleep')">3. I don't know what to think about all of this.</div>
+                <div class="choice" id="choice4" onclick="story.turnTo('45-4'), story.changecss('sleep')">4. I just want to sleep.</div>
             
             </div>
         </page>
         <page id="45-1">
         <div id="main">
-            
-            <div class="next" id="next" onclick="story.turnTo('46')">Next</div>
+            Images come to you. A house shivers and cracks through flames. Your skin is sticky with sweat, your throat full of smoke, but you push on into the fire. You find the child on the floor, unconscious, and quickly take her into your arms. <br> Relief washes over the mother's face when you escape the burning wreckage, and your arms become empty as her own, ash-marred limbs hold her child.<br><br>"You're a hero," she says.
+            <div class="next" id="next" onclick="story.turnTo('secondcheckpoint'), story.checkpoint(), story.changecss('title')">Next</div>
             </div>
         </page>
         <page id="45-2">
         <div id="main">
-            
-            <div class="next" id="next" onclick="story.turnTo('46')">Next</div>
+            Images come to you. People rush to your side, surround you, open hands reaching for you. No matter where you turn, wherever you look, your eyes fall onto their hopeful faces. Fanatical, even.<br><br>"Hero !" they scream. "Hero !" they yell. Your ears are filled with the name, your eyes filled with a vision of the crowd, and you cannot escape.
+            <div class="next" id="next" onclick="story.turnTo('secondcheckpoint'), story.checkpoint(), story.changecss('title')">Next</div>
             </div>
         </page>
         <page id="45-3">
         <div id="main">
-            
-            <div class="next" id="next" onclick="story.turnTo('46')">Next</div>
+            Images come to you. You stand in a featureless room among featureless people. They cling to you, scared and unsure, dependent on your certainty.<br><br>"You'll be fine," you tell them. "We'll be fine," they repeat. "The Hero is there for us."
+            <div class="next" id="next" onclick="story.turnTo('secondcheckpoint'), story.checkpoint(), story.changecss('title')">Next</div>
             </div>
         </page>
         <page id="45-4">
         <div id="main">
-            
-            <div class="next" id="next" onclick="story.turnTo('46')">Next</div>
+            Your sleep is uninterrupted by dreams ; until it is.
+            <div class="next" id="next" onclick="story.turnTo('secondcheckpoint'), story.checkpoint(), story.changecss('title')">Next</div>
             </div>
+        </page>
+        <page id="secondcheckpoint">
+        <div id="main"></div>
+            (You've reached a checkpoint. You will return here if you close the game, re-open it and choose "continue" in the starting menu.)
+            <div class="next" id="next" onclick="story.turnTo('46'), story.changecss('memory')">Next</div>
         </page>
         <page id="46">
-        <div id="main">
-            
-            <div class="next" id="next" onclick="story.turnTo('46')">Next</div>
+            <div id="main">
+            You are now in a small, empty room. The dream washes out its features ; you only see two opposite door. In your mind, you know they respectively lead west and east.
+            </div>
+            <div id="options">
+            <div class="choice" id="choice1" onclick="story.turnTo('46west')">1. Go west.</div>
+            <div class="choice" id="choice2" onclick="story.turnTo('46east')">2. Go east.</div>
+                </div>
+        </page>
+        <page id="46west">
+            <div id="main">
+            You find yourself in a short corridor. Only two identical doors stand in front of you : one leads north, the other west. </div>
+            <div id="options">
+            <div class="choice" id="choice1" onclick="story.turnTo('46west')">1. Go north.</div>
+            <div class="choice" id="choice2" onclick="story.turnTo('46east')">2. Go west.</div>
+            <div class="choice" id="choice3" onclick="story.turnTo('46east')">3. Go back east.</div>
             </div>
         </page>
+        <page id="46east">
+        <div id="main">You enter a corridor, just as featureless as the previous room. A single door stands to the north-west.</div>
+            <div id="options">
+            <div class="choice" id="choice1" onclick="story.turnTo('46east-west')">1. Go north-west.</div>
+            <div class="choice" id="choice2" onclick="story.turnTo('46')">2. Go back west.</div>
+            </div>
+        </page>
+        <page id="46west-north">
+        <div id="main">
+            You enter a small room ; it barely has enough room for you to step inside. As if waiting for you, a large key rests on the floor, shining under a sourceless light.
+            {{story.firstdreamkey = true;}}
+            </div>
+            <div id="options">
+            <div class="choice" id="choice1" onclick="story.turnTo('46west')">1. Take the key and go back south.
+            </div>
+            </div>
+        </page>
+        <page id="46west-west">
+        <div id="main">
+            You enter an empty room. There is nothing here ; no ceiling, no floor, no lights. Just whiteness.<br><br>Something in your mind feels uncomfortable. It feels as if this room should not be this way, but you don't know why you're sure of this.
+            </div>
+        <div id="options">
+            <div class="choice" id="choice1" onclick="story.turnTo('46west')">1. Go back east.
+            </div>
+            </div>
+        </page>
+        <page id="46east-west">
+        <div id="main">
+            {{? story.firstdreamkey = false}}
+            This door is strangely detailed : you see yourself reach for its round, golden doorknob. The wooden door doesn't give way when you pull it. You can see a keyhole beneath the doorknob. Perhaps you can find the corresponding key in another room.
+            {{??}}
+            You push the key into the keyhole and turn it. The lock gives way easily and the door opens onto a white light.
+            {{?}}
+            </div>
+            <div id="options">
+            <div class="choice" id="choice1" onclick="story.turnTo('46')">1. Go back west.</div>
+            {{? story.firstdreamkey = true}}
+            <div class="choice" id="choice2" onclick="story.turnTo('47')">2. Enter the room.</div>
+            {{??}}
+            {{?}}
+            </div>
+        </page>
+        <page id="47">
+        <div id="main">
+        As you step into it, the white light turns into colours, shapes and forms.<br><br>You find yourself in a large, extensively decorated room. Its cream-coloured walls bear sculptures, trophies and paintings of various kinds. The wooden floor is largely covered by a round carpet, an intricate pattern woven through its red and golden threads. Light enters through several large windows, sending warmth into the room.<br><br>A large desk rests in front of such a window. Someone sits in front of it, writing and reading. Their long black hair mostly conceals their back, only letting you catch glimpses of the red silk they wear and the white shoulders it reveals.
+            <div class="next" id="next" onclick="story.turnTo('48')">Next</div>
+        </div>
+        </page>
+        <page id="48">
+        <div id="main">
+            You approach the figure without wishing to, as if moved by someone else's will. You touch an exposed shoulder with your fingertips, but the figure doesn't turn towards you.<br><br>
+            "Let me finish this sentence, dear {{=story.getHeroName()}}."
+            <div class="next" id="next" onclick="story.turnTo('49'), story.changecss('bedroomday')">Next</div>
+            </div>
+        </page>
+        <page id="49">
+        <div id="main">
+            
+            </div>
+        </page>
+
+        
 
 
 
