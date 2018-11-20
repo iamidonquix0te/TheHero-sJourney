@@ -231,6 +231,7 @@ story.skillcheck = function(attribute, difficulty) {
     }
 }
 story.currentpage;
+story.journalenable = false;
 story.aeronaRom = 0;
 story.rhainRom = 0;
 story.emrysRom =0;
@@ -298,13 +299,13 @@ story.removecompanion = function(companion){
 }
 story.changecss = function(type) {
     if (type == "sleep") {
-        $("body").css({"background-color":"black", "color":"floralwhite"})
+        $("body").css({"background-color":"#1E1E21", "color":"floralwhite"})
         $("#header").css({"border-color":"white"})
         $("#header").css("backgroundImage", "url(images/sleepheader.png)")
         $("#main").css({"border-color":"white"})
         $("#options").css({"border-color":"white"})
-        $('#balloon').css({"background":"493A78"})
-        $('#balloon:after').css({"border-right-color":"493A78"})
+        $('#balloon').css({"background":"#493A78"})
+        $('#balloontail').css({"border-right-color":"#493A78"})
         
     }
     if (type=="combat") {
@@ -328,33 +329,34 @@ story.changecss = function(type) {
         $("#header").css({"border-color":"black"})
     }
     if (type=="nightsky") {
-         $("body").css({"background-color":"black", "color":"floralwhite"})
+         $("body").css({"background-color":"#1E1E21", "color":"floralwhite"})
         $("#header").css({"border-color":"white"})
         $("#header").css("backgroundImage", "url(images/nightskyheader.png)")
         $("#main").css({"border-color":"white"})
         $("#options").css({"border-color":"white"})
         $('#balloon').css({"background":"#493A78"})
-        $('#balloon:after').css({"border-right-color":"#493A78"})
-        $('#dialog').css({"border-color":"white"})
+        $('#balloontail').css({"border-right-color":"#493A78"})
+        $('#dialogue').css({"border-color":"white"})
     }
     if (type=="innnight") {
         $("#header").css("backgroundImage", "url(images/innheader.png)")
-        $("body").css({"background-color":"black", "color":"floralwhite"})
+        $("body").css({"background-color":"#1E1E21", "color":"floralwhite"})
         $("#header").css({"border-color":"white"})
         $("#main").css({"border-color":"white"})
         $("#options").css({"border-color":"white"})
         $('#balloon').css({"background":"#493A78"})
-        $('#balloon:after').css({"border-right-color":"#493A78"})
-        $('#dialog').css({"border-color":"white"})
+        $('#balloontail').css({"border-right-color":"#493A78"})
+        $('#dialogue').css({"border-color":"white"})
     }
     if (type=="bedroomnight") {
          $("#header").css("backgroundImage", "url(images/bedroomNightheader.png)")
-        $("body").css({"background-color":"black", "color":"floralwhite"})
+        $("body").css({"background-color":"#1E1E21", "color":"floralwhite"})
         $("#header").css({"border-color":"white"})
         $("#main").css({"border-color":"white"})
         $("#options").css({"border-color":"white"})
         $('#balloon').css({"background":"#493A78"})
-        $('#balloon:after').css({"border-right-color":"#493A78"})
+        $('#balloontail').css({"border-right-color":"#493A78"})
+        $('#dialogue').css({"border-color":"white"})
     }
     if (type=="bedroomday") {
         $("#header").css("backgroundImage", "url(images/bedroomDayheader.png)")
@@ -387,6 +389,16 @@ window.onkeyup = function(event) {
     }
     if(event.which == 13) {
          document.getElementById("next").click();
+    }
+    if(event.which ==74) {
+        if (story.journalenable == "true") {
+        if(story.getCurrentPageId() !== "journal"){
+            story.openjournal()
+        }
+        if(story.getCurrentPageId() == "journal"){
+            story.closejournal()
+        }
+        }
     }
 }
 story.opmemory1 =false;
@@ -425,6 +437,7 @@ story.checkpoint = function() {
     localStorage.setItem("ikemmaRom", story.ikemmaRom)
     localStorage.setItem("date", story.date)
     localStorage.setItem("opMem1", story.opmemory1)
+    localStorage.setItem("journal", story.journalenable)
 }
 story.loadcheckpoint = function() {
     if (localStorage.currentpage != undefined) {
@@ -447,6 +460,7 @@ story.loadcheckpoint = function() {
     story.ikemmaRom = localStorage.ikemmaRom
     story.date = localStorage.date
     story.opmemory1 = localStorage.opMem1
+    story.journalenable = localStorage.journal
         }
     if (localStorage.currentpage == undefined) {
         window.alert('No checkpoint found')
@@ -461,6 +475,7 @@ story.newgame = function() {
         story.changecss('sleep')
         console.log(story.getCurrentPageId())
         story.name;
+        localStorage.clear();
         story.heroLevel = 1;
         story.strength = 0;
         story.agility = 0;
@@ -470,6 +485,7 @@ story.newgame = function() {
         story.aeronaRom = 0;
         story.rhainRom = 0;
         story.emrysRom =0;
+        story.journalenable =false;
         story.ikemmaRom =false;
         story.villainousPath = 0;
         story.redeemedPath = 0;

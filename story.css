@@ -60,6 +60,7 @@
     border-style : solid;
     border-width: thin;
     background-repeat: no-repeat;
+    align-content:  inline-block; 
         
 }
 #balloon {
@@ -72,7 +73,7 @@
     padding-top    : 10px;
     padding-bottom : 10px;
 }
-#balloon:after {
+#balloontail {
     content: '';
 	position: absolute;
 	left: 0;
