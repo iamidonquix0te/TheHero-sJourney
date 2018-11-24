@@ -348,6 +348,12 @@ story.changecss = function(type) {
         $('#balloontail').css({"border-right-color":"#493A78"})
         $('#dialogue').css({"border-color":"white"})
     }
+    if(type=="innday") {
+        $("#header").css("backgroundImage", "url(images/innheader.png)")
+        $("body").css({"background-color":"floralwhite", "color":"black"})
+        $("#header").css({"border-color":"black"})
+        $('#dialogue').css({"border-color":"black"})
+    }
     if (type=="bedroomnight") {
          $("#header").css("backgroundImage", "url(images/bedroomNightheader.png)")
         $("body").css({"background-color":"#1E1E21", "color":"floralwhite"})
@@ -362,7 +368,24 @@ story.changecss = function(type) {
         $("#header").css("backgroundImage", "url(images/bedroomDayheader.png)")
         $("body").css({"background-color":"floralwhite", "color":"black"})
         $("#header").css({"border-color":"black"})
-        $('#dialog').css({"border-color":"white"})
+        $('#dialogue').css({"border-color":"black"})
+    }
+    if(type=="villagenight") {
+        $("#header").css("backgroundImage", "url(images/villagenightheader.png)")
+        $("body").css({"background-color":"#1E1E21", "color":"floralwhite"})
+        $("#header").css({"border-color":"white"})
+        $("#main").css({"border-color":"white"})
+        $("#options").css({"border-color":"white"})
+        $('#balloon').css({"background":"#493A78"})
+        $('#balloontail').css({"border-right-color":"#493A78"})
+        $('#dialogue').css({"border-color":"white"})
+    }
+    if(type=="villageday") {
+        $("#header").css("backgroundImage", "url(images/villagedayheader.png)")
+        $("body").css({"background-color":"floralwhite", "color":"black"})
+        $("#header").css({"border-color":"black"})
+        $('#dialogue').css({"border-color":"black"})
+        
     }
 }
 story.changeportrait = function(name) {
@@ -387,6 +410,9 @@ window.onkeyup = function(event) {
     if(event.which ==54 || event.which ==102) {
          document.getElementById("choice6").click();
     }
+    if(event.which ==55 || event.which ==102) {
+         document.getElementById("choice7").click();
+    } 
     if(event.which == 13) {
          document.getElementById("next").click();
     }
@@ -402,13 +428,28 @@ window.onkeyup = function(event) {
     }
 }
 story.opmemory1 =false;
+story.opmemory2 =false;
 story.firstdreamkey = false;
-story.date = "day 1"
+story.date = 1;
+story.addjournalentry = function() {
+    if (story.date ==1) {
+        $('#main').append("<div class='choice'onclick='story.turnTo('entry1')>Day 2 : at the inn</div>")
+    }
+    if (story.date ==2) {"<div class='choice'onclick='story.turnTo('entry2')>Test</div>"
+        
+    }
+}
+;
 story.openjournal = function() {
     story.currentpage = story.getCurrentPageId()
     console.log(story.currentpage)
     story.turnTo("journal")
+    story.changecss('title')
     console.log(story.getCurrentPageId())
+        var i;
+    for (i =story.date; i >0; i--) {
+        story.addjournalentry()
+    }
 }
 story.closejournal = function() {
     console.log(story.currentpage)
@@ -465,7 +506,8 @@ story.loadcheckpoint = function() {
     if (localStorage.currentpage == undefined) {
         window.alert('No checkpoint found')
     }
-} //remember not to put a checkpoint in the middle of a section with a change in your party ; put it right before you choose the party
+} 
+//remember not to put a checkpoint in the middle of a section with a change in your party ; put it right before you choose the party
 story.newgame = function() {
     var txt;
     var n = confirm('This will delete any saved checkpoint. Do you want to proceed anyway ?')

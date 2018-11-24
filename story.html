@@ -80,6 +80,20 @@
         <page id= "Firstpage" class ="first">
         
         </page>
+        <page id="journal"></page>
+        <page id="entry1">
+        <div id="main">
+            I woke up yesterday with no memory of the last five years. I am a hero, apparently, with loyal companions, a villain I just defeated and many fans. I remember none of these people save for Rhain.<br><br>We're at an inn in a small village for now, and I'm on bed rest after I got beaten up yesterday. A healer will come soon.<br><br>
+        {{? story.opmemory2 == true}}
+            I sneaked out the inn and into the village and remembered a merchant I think I used to know, who sold marked up, low quality goods.
+        {{??}}
+        {{?}}
+            
+            </div>
+        </page>
+        <page id="entry2">
+        <div id='main'>test</div>
+        </page>
         <page id="second"> 
             <div id="dialogue">
             <div id="balloon">
@@ -1235,7 +1249,7 @@
         <div id="options">
             <div class="choice" id="choice1" onclick="story.turnTo('43-1'), story.changecss('bedroomnight')">1. Look through your bags for any clue as to what you've been doing in the past years.</div>
             <div class="choice" id="choice2" onclick="story.turnTo('43-2'), story.changecss('bedroomnight')">2. Look at your wounds.</div>
-            <div class="choice" id="choice3" onclick="story.turnTo('44), story.changecss('bedroomnight')">3. Lay down and sleep.</div>
+            <div class="choice" id="choice3" onclick="story.turnTo('44'), story.changecss('bedroomnight')">3. Lay down and sleep.</div>
             </div>
         </page>
         <page id="lookarmour"><div main='id'>
@@ -1373,7 +1387,7 @@
         </page>
         <page id="46east-west">
         <div id="main">
-            {{? story.firstdreamkey = false}}
+            {{? story.firstdreamkey == false}}
             This door is strangely detailed : you see yourself reach for its round, golden doorknob. The wooden door doesn't give way when you pull it. You can see a keyhole beneath the doorknob. Perhaps you can find the corresponding key in another room.
             {{??}}
             You push the key into the keyhole and turn it. The lock gives way easily and the door opens onto a white light.
@@ -1381,7 +1395,7 @@
             </div>
             <div id="options">
             <div class="choice" id="choice1" onclick="story.turnTo('46')">1. Go back west.</div>
-            {{? story.firstdreamkey = true}}
+            {{? story.firstdreamkey == true}}
             <div class="choice" id="choice2" onclick="story.turnTo('47')">2. Enter the room.</div>
             {{??}}
             {{?}}
@@ -1701,7 +1715,7 @@
         <div id="dialogue">
             <div id="balloon">
             <div id="balloontail"></div>
-                {{story.aeronaRom+=1}}
+                {{ story.aeronaRom+=1;}}
              "Your charm didn't disappear with your memories, I see." Her smiles disappears after a few seconds, replaced with a more sombre expression. "I hope you're not too overwhelmed. I can't imagine how it feels not to remember how you became the hero."
             </div>
             </div>
@@ -2119,7 +2133,7 @@
         <page id="62">
         <div id="dialogue">
             <div id="balloon">
-                <div id="ballontail"></div>
+                <div id="balloontail"></div>
                     "I got this custom-made for you, to celebrate the end of our quest. It's not the same like this, but- you should still have it." She hands you the heavy book and explains : "you kept a journal for the past years. You ran out of pages recently, so I figured you'd like a replacement."
             </div>
             </div>
@@ -2132,7 +2146,7 @@
         <page id="62-1">
             <div id="dialogue">
             <div id="balloon">
-                <div id="ballontail"></div>
+                <div id="balloontail"></div>
                     "I-I don't know where it is. You usually kept it in your bags when we travelled, but you didn't take it for this trip since it was filled out. You must have left it at home."
             </div>
                 <div class="next" id="next" onclick="story.turnTo('63')">Next</div>
@@ -2142,7 +2156,7 @@
         <page id="62-2">
             <div id="dialogue">
             <div id="balloon">
-                <div id="ballontail"></div>
+                <div id="balloontail"></div>
                     "Do you think so ? You write a lot when we're travelling. You didn't take your journal for this trip since it was filled out, though. You must have left it at home."
             </div>
                 <div class="next" id="next" onclick="story.turnTo('63')">Next</div>
@@ -2169,30 +2183,775 @@
         </page>
         <page id="64-1">
             <div id="main">
-                "And you're the hero. What an honour to meet you," the middle-aged man excitedly says.
+                "And you're the hero. Should we get to it ?" the middle-aged man says.
             </div>
-                        <div class="next" id="next" onclick="story.turnTo('65'), story.changeportrait('Aerona')">Next</div>
+                        <div class="next" id="next" onclick="story.turnTo('65'), story.changeportrait('Aeronaneutral')">Next</div>
         </page>
         <page id="64-2">
         <div id="dialogue">
             <div id="balloon">
-                <div id="ballontail"></div>
+                <div id="balloontail"></div>
+                "Of course, {{=story.getHeroName()}}." 
             </div>
-                <div class="next" id="next" onclick="story.turnTo('65')">Next</div>
+                <div class="next" id="next" onclick="story.turnTo('65'), story.changeportrait('Aeronaneutral')">Next</div>
             </div>
         </page>
         <page id="64-3">
         <div id="dialogue">
             <div id="balloon">
-                <div id="ballontail"></div>
+                <div id="balloontail"></div>
+                "Ooh, I'd love to. But let's have Brynmor here examine you first."
             </div>
-                <div class="next" id="next" onclick="story.turnTo('65')">Next</div>
+                <div class="next" id="next" onclick="story.turnTo('65'), story.changeportrait('Aeronaneutral')">Next</div>
             </div>
         </page>
-        <page id="64-4"></page>
-
-
-        <!-->talk to healer, very quick chat with Rhain (just about where you're going next and that he lives in the same town as you so you'll be together, if you ask to talk more he asks you to rest as the healer said and says you'll have a lot of time to talk on the way there), spend some time in the inn before leaving OR sneak out (which means more fans, alone, harder checks), fans swarm you, escape, end demo</!-->
+        <page id="64-4">
+               <div id="main">
+                The middle-aged shrugs. "Your friend here didn't think it necessary to knock."
+            </div>
+                        <div class="next" id="next" onclick="story.turnTo('65'), story.changeportrait('Aeronaneutral')">Next</div>
+        </page>
+        <page id="65">
+            <div id="dialogue">
+            <div id="balloon">
+                <div id="balloontail"></div>
+                                "Let's go, Rhain."
+            </div>
+                <div class="next" id="next" onclick="story.turnTo('66'), story.changeportrait('Rhainneutral')">Next</div>
+            </div>
+        </page>
+        <page id="66">
+             <div id="dialogue">
+            <div id="balloon">
+                <div id="balloontail"></div>
+                "I'd rather stay. In case Brynmor needs help."
+            </div>
+                <div class="next" id="next" onclick="story.turnTo('66')">Next</div>
+            </div>
+        </page>
+        <page id="67">
+            <div id="main">
+                The healer, Brynmor, has already sat down and began to slowly unwrap some of your bandages. <br><br>"Yes, I'd like to show you how you should take care of the wounds afterwards. You can stay too, lady."
+            </div>
+            <div class="next" id="next" onclick="story.turnTo('68'), story.changeportrait('Aeronaneutral')">Next</div>
+        </page>
+        <page id="68">
+            <div id="dialogue">
+            <div id="balloon">
+                <div id="balloontail"></div>
+                "All right." You notice that she throws a quick but piercing look at Rhain.
+            </div>
+                <div class="next" id="next" onclick="story.turnTo('69')">Next</div>
+            </div>
+        </page>
+        <page id="69">
+            <div id="main">
+                Silence falls after this, only interrupted by the few explanations the healer gives to your companions. To every one of your wounds he applies a cold salve, as well as his hands. Having called onto devouts of Trystin for healing before, you recognise the familiar tingling of their magic. The sensation of your wounds closing is a strange, somewhat painful one.<br><br> His work finished, he leaves you without bandages, your wounds having turned to scars. "They'll fade eventually, as long as you keep them moisturised." He rises from his chair before continuing : "that'll be a hundred and fifty golds."<br><br> In other words, a year of your salary as a mercenary.
+            </div>
+            <div id="options">
+                <div class="choice" id="choice1" onclick="story.turnTo('69-1')">1. "Do I not get a discount for saving the world ?" </div>
+                <div class="choice" id="choice2" onclick="story.turnTo('70'), story.changeportrait('Rhainsmiling1')">2. "Uhh..."</div>
+                <div class="choice" id="choice3" onclick="story.turnTo('69-2')">3. "That's' insane. I've never had a healing cost so much."</div>
+            </div>
+        </page>
+        <page id="69-1">
+            <div id="main">
+                Brynmor furrows his brows. "You do. I normally charge over two hundred golds for this."
+                                <div class="next" id="next" onclick="story.turnTo('70'), story.changeportrait('Rhainsmiling1')">Next</div>
+            </div>
+        </page>
+        <page id="69-2">
+            <div id="main">
+                The man frowns, seeming to be offended.<br><br>"Haven't you ? You must have gotten cheap and unstable healing, then. With mine, your wounds won't re-appear, nor will they continue to hurt."
+                                <div class="next" id="next" onclick="story.turnTo('70'), story.changeportrait('Rhainsmiling1')">Next</div>
+            </div>
+        </page>
+        <page id="70">
+            <div id="dialogue">
+            <div id="balloon">
+                <div id="balloontail"></div>
+                "Here you go," Rhain interrupts, handing a small and heavy-looking pouch to the man. "Thank you very much for your service. And your discretion."
+            </div>
+                <div class="next" id="next" onclick="story.turnTo('71')">Next</div>
+            </div>
+        </page>
+        <page id="71">
+        <div id="main">
+            The healer seems pleasantly surprised with the weight of the pouch. <br><br> "Yes, my discretion. Of course." He turns to face you. "Then, I bid you goodbye, hero. You should rest well to ensure the healing isn't compromised."<br><br> As abruptly as he appeared, the man leaves your room, leaving you alone with your two companions.
+            </div>
+            <div id="options">
+                <div class="choice" id="choice1" onclick="story.turnTo('71-1'), story.changeportrait('Rhainneutral')">1. "I feel a lot better." </div>
+                <div class="choice" id="choice2" onclick="story.turnTo('71-2'), story.changeportrait('Aeronaneutral')">2. "I thought everyone was supposed to worship me ? He was barely respectful."</div>
+                <div class="choice" id="choice3" onclick="story.turnTo('71-3'), story.changeportrait('Rhainneutral')">3. "That was way too much money."</div>
+                <div class="choice" id="choice4" onclick="story.turnTo('73'), story.changeportrait('Rhainsmiling1')">4. "Well then, I'll rest now."</div>
+            </div>
+        </page>
+        <page id="71-1">
+            <div id="dialogue">
+            <div id="balloon">
+                <div id="balloontail"></div>
+                "That's great, considering the price. We got a bit ripped off, but I didn't want to argue and anger him. He could go and tell everyone you're here if he wanted."
+            </div>
+                <div class="choice" id="choice1" onclick="story.turnTo('71-4'), story.changeportrait('Aeronaneutral')">1. "That's terrible." </div>
+                <div class="choice" id="choice2" onclick="story.turnTo('71-2'), story.changeportrait('Aeronaneutral')">2. "Why would he rip me off ? I'm the hero."</div>
+                <div class="choice" id="choice3" onclick="story.turnTo('71-4'), story.changeportrait('Aeronaneutral')">3. "You shouldn't have given in."</div>
+                <div class="choice" id="choice4" onclick="story.turnTo('73'), story.changeportrait('Rhainsmiling1')">4. "Well then, I'll rest now."</div>
+            </div>
+        </page>
+        <page id="71-2">
+             <div id="dialogue">
+            <div id="balloon">
+                <div id="balloontail"></div>
+                "Some people don't so much admire you as they try to take advantage of your status. This is why you should keep your memory loss a secret. It makes you vulnerable."
+            </div>
+                 <div class="next" id="next" onclick="story.turnTo('72'), story.changeportrait('Rhainneutral')">Next</div>
+            </div>
+        </page>
+        <page id="71-3">
+            <div id="dialogue">
+            <div id="balloon">
+                <div id="balloontail"></div>
+                "Yeah," the blacksmit admits. "He definitely inflated the price knowing you could afford it, and that we didn't want him to give out your location to your fans. It was subtle blackmail, really."
+            </div>
+                <div class="choice" id="choice1" onclick="story.turnTo('71-4'), story.changeportrait('Aeronaneutral')">1. "That's terrible." </div>
+                <div class="choice" id="choice2" onclick="story.turnTo('71-2'), story.changeportrait('Aeronaneutral')">2. "Why would he rip me off ? I'm the hero."</div>
+                <div class="choice" id="choice3" onclick="story.turnTo('71-4'), story.changeportrait('Aeronaneutral')">3. "You shouldn't have given in."</div>
+                <div class="choice" id="choice4" onclick="story.turnTo('73'), story.changeportrait('Rhainsmiling1')">4. "Well then, I'll rest now."</div>
+            </div>
+        </page>
+        <page id="71-4">
+             <div id="dialogue">
+            <div id="balloon">
+                <div id="balloontail"></div>
+                "It's nothing to worry about. We can afford it."
+            </div>
+                 <div class="next" id="next" onclick="story.turnTo('72'), story.changeportrait('Rhainneutral')">Next</div>
+            </div>
+        </page>
+        <page id="72">
+            <div id="dialogue">
+            <div id="balloon">
+                <div id="balloontail"></div>
+                "Now that this is done, we should leave you to rest. We've got a long journey ahead of us."
+            </div>
+            </div>
+            <div id="options">
+                <div class="choice" id="choice1" onclick="story.turnTo('72-1'), story.changeportrait('Aeronaneutral')">1. "To where ?" </div>
+                <div class="choice" id="choice2" onclick="story.turnTo('72-1'), story.changeportrait('Aeronaneutral')">2. "I'm guessing I don't live in my little rented room any more."</div>
+                <div class="choice" id="choice3" onclick="story.turnTo('72-2'), story.changeportrait('Rhainneutral')">3. "Finally. I'm already sick of being here."</div>
+                <div class="choice" id="choice4" onclick="story.turnTo('74'), story.changeportrait('Aeronaneutral')">4. "All right."</div>
+                </div>
+        </page>
+        <page id="73">
+            <div id="dialogue">
+            <div id="balloon">
+                <div id="balloontail"></div>
+                "Yes, we should leave you to rest. We've got a long journey ahead of us."
+            </div>
+            </div>
+            <div id="options">
+                <div class="choice" id="choice1" onclick="story.turnTo('72-1'), story.changeportrait('Aeronaneutral')">1. "To where ?" </div>
+                <div class="choice" id="choice2" onclick="story.turnTo('72-1'), story.changeportrait('Aeronaneutral')">2. "I'm guessing I don't live in my little rented room any more."</div>
+                <div class="choice" id="choice3" onclick="story.turnTo('72-2'), story.changeportrait('Rhainneutral')">3. "Finally. I'm already sick of being here."</div>
+                <div class="choice" id="choice4" onclick="story.turnTo('74'), story.changeportrait('Aeronaneutral')">4. "All right."</div>
+                </div>
+        </page>
+        <page id="72-1">
+            <div id="dialogue">
+            <div id="balloon">
+                <div id="balloontail"></div>
+                "Your old room was no longer an option once you became well-known. You bought a house in a village near the western coast, called Brynarth. It's very secluded."
+            </div>
+                <div class="next" id="next" onclick="story.turnTo('74'), story.changeportrait('Aeronaneutral')">Next</div>
+            </div>
+        </page>
+        <page id="72-2">
+            <div id="dialogue">
+            <div id="balloon">
+                <div id="balloontail"></div>
+                "I know what you mean. It feels so frustrating being locked up here when we could be at home, celebrating."
+            </div>
+                <div class="next" id="next" onclick="story.turnTo('74'), story.changeportrait('Aeronaneutral')">Next</div>
+            </div>
+        </page>
+        <page id="74">
+        <div id="dialogue">
+            <div id="balloon">
+                <div id="balloontail"></div>
+                "Anyway, we'll leave you alone. It's very important for you to rest now, so the healing can take its full effect. Have some food and sleep, okay ?"
+            </div>
+                <div class="next" id="next" onclick="story.turnTo('74'), story.changeportrait('Aeronaneutral')">Next</div>
+            </div>
+        </page>
+        <page id="75">
+        <div id="main">
+            Your two companions leave. For the first time in this short morning, their departure isn't followed by another person's entrance. You are truly alone, with nothing to do but wait. Your pastries remain uneaten and your body feels immensely better than it did when you woke up. Apart from a slight uncomfortableness, you feel as good as new.<br><br>It almost feels like a waste to rest in this state.
+            </div>
+            <div id="options">
+                <div class="choice" id="choice1" onclick="story.turnTo('75-1')">1. But I need the rest. I'll just eat and try to sleep. </div>
+                <div class="choice" id="choice2" onclick="story.turnTo('75-2')">2. And it would be. Would it really be so bad if I sneaked out for a bit ?</div>
+            </div>
+        </page>
+        <page id="75-1">
+            <div id="main">
+                You reach for the tray left by Aerona and begin to eat. The pastries still taste fresh and buttery, likely made by the inn's staff in the early morning.<br><br>After eating to your heart's content, you lay back on the bed. Though your body no longer feels painful, an overall heaviness has found its way into your limbs. Heavy and full, you slowly sink into a dreamless sleep.
+                <div class="next" id="next" onclick="story.turnTo('76'), story.changecss('bedroomnight')">Next</div>
+            </div>
+        </page>
+        <page id="75-2">
+        <div id="main">
+            You look around your room, searching for a way out. The front door is out of the question ; your companions have made it clear you're not to go out, and they'd stop you and your fun.<br><br>The window is the sole option. You're only on the first floor, fortunately.
+            <div class="next" id="next" onclick="story.turnTo('77')">Next</div>
+            </div>
+        </page>
+        <page id="76">
+            <div id="main">
+                You're woken up by a hand gently touching your shoulder. Your eyes open to find a dark room, only lit up by the candle Rhain carries in his hand.
+                <div class="next" id="next" onclick="story.turnTo('76-1'), story.changeportrait('Rhainsmiling1'), story.changecss('bedroomnight')">Next</div>
+            </div>
+        </page>
+        <page id="76-1">
+        <div id="dialogue">
+            <div id="balloon">
+                <div id="balloontail"></div>
+                "I hope you got plenty of rest. We're about to leave."
+            </div>
+            <div class="next" id="next" onclick="story.turnTo('76-2'), story.changecss('innnight')">Next</div>
+            </div>
+        </page>
+        <page id="76-2">
+        <div id="main">
+            Rhain gives you a few minutes to put on your armour and gather your things. Once you're done you walk downstairs, finding your companions gathered near the stairs.<br><br>They quickly explain to you that you'll leave through the kitchens and make your way to the gate, which the guard already knows to open for you. You'll meet the merchants you're set to travel with outside of the village. The plan seems perfect.
+            <div class="next" id="next" onclick="story.turnTo('76-3'), story.changecss('villagenight')">Next</div>
+            </div>
+        </page>
+        <page id="76-3">
+         <div id="main">
+            You leave the inn after Aerona finishes her short conversation wtih the inkeeper. You only briefly saw the man and he seemed to want to talk to you, but your companions kept him away, finding reasons to take him into another room. They haven't explained why.<br><br>You take the same short path you travelled when you arrived here. When the gate is in your sight, you realise that a small crowd has amassed in front of it. The warrior immediately freezes and turns to your companions.
+             <div class="next" id="next" onclick="story.turnTo('76-4'), story.changecss('villagenight')">Next</div>
+            </div>
+        </page>
+        <page id="76-4">
+            <div id="dialogue">
+                <div id="balloon">
+                    <div id="balloontail"></div>
+            "Rhain and I will go disperse them. Mabyn and Wooly, you protect {{=story.getHeroName()}}.</div>
+                <div class="next" id="next" onclick="story.turnTo('76-5'), story.changecss('villagenight')">Next</div>
+                </div>
+        </page>
+        <page id="76-5">
+            <div id="main">
+                Your companions nod and begin acting without any need for further explanations, and without giving you any. This seems to be a habit they have.<br><br>Aerona's armoured body pushes through the crowd, and she commands in a loud voice :
+                <div class="next" id="next" onclick="story.turnTo('76-6'), story.changecss('villagenight'), story.changeportrait('Aeronaneutral')">Next</div>
+            </div>
+        </page>
+        <page id="76-6">
+             <div id="dialogue">
+            <div id="balloon">
+                <div id="balloontail"></div>
+                "A suspicious looking group has been spotted travelling in our direction. We're going to need all of you to go into your homes and lock your doors.
+            </div>
+            <div class="next" id="next" onclick="story.turnTo('76-7'), story.changecss('villagenight')">Next</div>
+            </div>
+        </page>
+        <page id="76-7">
+            <div id="main">
+                Whispered and spoken objections travel through the crowd.<br><br>"Could it be Ikemma's minions ?"<br>"Isn't this woman..."<br>"But the Hero is supposed to come here-"<br>"Sounds like a lie-"<br><br>Even from afar, you can see Aerona's face fall and her posture change as her lie gets called out. Rhain seems to try and help, but the crowd is now agitated.
+                <div class="next" id="next" onclick="story.turnTo('76-8'), story.changecss('villagenight')">Next</div>
+            </div>
+        </page>
+        <page id="76-8">
+            <div id='main'>
+                It isn't long before someone in the crowd looks past the two's distraction and at your little trio. As soon as they notice you, they loudly call out your title. This makes every head in the crowd suddenly whip around and in your direction. Gasps travel through the group and it rushes towards you, pushing your companions away through their sheer number and combined weight. Dozens of them surround you.<br><br> Hands reach out and pull on your armour, on your hair, on your skin. Nails dig into you, as if wanting to take away a piece of your flesh.<br><br>"Hero !" the crowd yells. Something rages in their eyes ; despair, passion, need.
+            </div>
+            <div id="options">
+                 <div class="choice" id="choice1" onclick="story.turnTo('76-9'), story.changecss('villagenight')">1. "Please let me go !" </div>
+                <div class="choice" id="choice2" onclick="story.turnTo('76-10'), story.changecss('villagenight')">2. [AGILITY] Slip through the crowd and escape.</div>
+                <div class="choice" id="choice3" onclick="story.turnTo('76-11'), story.changecss('villagenight')">3. [STRENGTH] Push through the crowd and escape. </div>
+                <div class="choice" id="choice4" onclick="story.turnTo('76-12'), story.changecss('villagenight')">4. Escape at any cost ; even if you have to hurt them.</div>
+                <div class="choice" id="choice5" onclick="story.turnTo('76-13'), story.changecss('villagenight')">5. Give up.</div>
+            </div>
+        </page>
+        <page id="76-9">
+        <div id="main">
+            "Hero !" is your only answer. Like possessed, they don't seem to register your plea.
+            <div class="next" id="next" onclick="story.turnTo('76-8'), story.changecss('villagenight')">Next</div>
+            </div>
+        </page>
+        <page id="76-10">
+            <div id="main">
+        {{? story.skillcheck('agility', 'easy')}}
+             Though the people surrounding you are numerous and relentless, you are quick enough to push through. Shielding your head with your arms, you slip through small gaps in the crowd, ducking when hands reach for your hair, contorting your body to avoid being caught. Once you are out of their reach you break into a run towards the gate, some of your fans attempting to follow.
+                <div class="next" id="next" onclick="story.turnTo('76-14'), story.changecss('villagenight')">Next</div>
+        {{??}}
+              You attempt to slip through a gap in the crowd, but it immediately closes on you, trapping you between fans. Their hands grasp your limbs, holding you in place. Sweat begins to bead on your forehead and you can't seem to breathe in enough air.
+                <div class="next" id="next" onclick="story.turnTo('76-8'), story.changecss('villagenight')">Next</div>
+        {{?}}
+            </div>
+        </page>
+        <page id="76-11">
+        <div id="main">
+        {{? story.skillcheck('strength', 'easy')}}
+               Though the people surrounding you are numerous and relentless, you are strong enough to push through. Your arms raised in front of you, you push a member of the crowd and everyone behind him, creating a small gap in the crowd you manage to slip through. Once you are out of their reach you break into a run towards the gate, some of your fans attempting to follow.
+                <div class="next" id="next" onclick="story.turnTo('76-14'), story.changecss('villagenight')">Next</div>
+        {{??}}
+              You attempt to push a weak-looking member of the crowd, but the great wall of fans around him doesn't give. Their hands grasp your limbs, holding you in place. Sweat begins to bead on your forehead and you can't seem to breathe in enough air.
+                <div class="next" id="next" onclick="story.turnTo('76-8'), story.changecss('villagenight')">Next</div>
+        {{?}}
+            </div>
+        </page>
+        <page id="76-12">
+             <div id="main">
+            {{story.villainousPath=+1;}}
+            Whether it is out of fear or annoyance, you can no longer stand to be here. You pick a fan somewhat at random, punching an adult man who was seizing you shoulder right in the left orbit. A great collective "gasp" is heard in the crowd as the man falls, holding his wounded eye. Some of your fans disperse or rush to his aid ; others quickly shake the shock off and continue to hound you, as if nothing had happened. Nonetheless, you have enough room to break into a run, escaping the mad crowd.
+            <div class="next" id="next" onclick="story.turnTo('76-14'), story.changecss('villagenight')">Next</div>
+            </div>
+        </page>
+        <page id="76-13">
+        <div id="main">
+            Your entire body feels like it shrinks as you give up on escaping. You feel small in the face of this crowd, your voice unheard, covered by theirs.<br><br>You are thankful for the protection of your armour, which serves a wall against the touch of your rabid fans. Every part of you that isn't covered, however, is at their mercy. <br><br>They fight each other for your touch, to see your face, to call your name. Some pull out some of your hairs, not caring for your pain. Are they not supposed to love you ? Worship you ?
+                <div class="next" id="next" onclick="story.turnTo('76-15'), story.changecss('villagenight')">Next</div>
+            </div>
+        </page>
+        <page id="76-14">
+            <div id="main">
+                You find that all your companions save Aerona have already crossed the gate and wait beyond it. A panicked look on her face, she takes hold of your wrist and roughly pulls you beyond the gate, so quickly you almost stumble.
+                <div class="next" id="next" onclick="story.turnTo('76-16'), story.changecss('nightsky')">Next</div>
+            </div>
+        </page>
+        <page id="76-15">
+            <div id="main">
+                    You don't immediately register the disappearance of the hands, still feeling their lingering touch. Only after a second do you realise the crowd has been dispersed by vines sprouting out of the ground, pushing or tangling your fans. They create a gap for you to slip through.
+                <div class="next" id="next" onclick="story.turnTo('76-14'), story.changecss('villagenight'), story.changeportrait('Aeronaangry')">Next</div>
+            </div>
+        </page>
+        <page id="76-16">
+            <div id="dialogue">
+                <div id="balloon">
+                    <div id="balloontail"></div>
+            "Close the gate !" Aerona yells.
+                <div class="next" id="next" onclick="story.turnTo('76-17'), story.changecss('nightsky')">Next</div>
+                </div>
+            </div>
+        </page>
+        <page id="76-17">
+            <div id="main">
+                The gate closes onto the few people who tried to follow, pushed by the guard.<br><br>"Wow," he sighs. "That was intense. Are things always like this for you ?"
+                <div class="next" id="next" onclick="story.turnTo('76-18'), story.changecss('nightsky'), story.changeportrait('Mabynneutral')">Next</div>
+            </div>
+        </page>
+        <page id="76-18">
+            <div id="dialogue">
+                <div id="balloon">
+                    <div id="balloontail"></div>
+            "It happens. Thanks for the help."
+                <div class="next" id="next" onclick="story.turnTo('76-19'), story.changecss('nightsky'), story.changeportrait('Aeronasad')">Next</div>
+                </div>
+            </div>
+        </page>
+        <page id="76-19">
+            <div id="dialogue">
+                <div id="balloon">
+                    <div id="balloontail"></div>
+                    Aerona turns to you, catching her breath. "I'm sorry. I failed to keep them away from you."
+                </div>
+            </div>
+            <div id="options">
+                 <div class="choice" id="choice1" onclick="story.turnTo('76-20'), story.changeportrait('Aeronaneutral')">1. "It's not your fault. These people are to blame." </div>
+                <div class="choice" id="choice2" onclick="story.turnTo('76-20'), story.changeportrait('Aeronaneutral')">2. "You should have been more careful. This was horrible !"</div>
+                <div class="choice" id="choice3" onclick="story.turnTo('76-20'), story.changeportrait('Aeronaneutral')">3. "They were insane. These people are my fans ?"</div>
+                <div class="choice" id="choice4" onclick="story.turnTo('76-20'), story.changeportrait('Aeronaneutral')">4. Remain silent.</div>
+            </div>
+        </page>
+        <page id="76-20">
+             <div id="dialogue">
+                <div id="balloon">
+                    <div id="balloontail"></div>
+                    "I should have warned you this could happen." The warrior wipes her brow with a handkerchief, then continues. "Your fans are... forceful."
+                </div>
+                 <div class="next" id="next" onclick="story.turnTo('76-21'), story.changecss('nightsky'), story.changeportrait('Woolyneutral')">Next</div>
+            </div>
+        </page>
+        <page id="76-21">
+            <div id="dialogue">
+            <div id="balloon">
+                    <div id="balloontail"></div>
+                The goatman gently pats your shoulder, likely intending to comfort you.
+            </div>
+            <div class="next" id="next" onclick="story.turnTo('87'), story.changecss('nightsky')">Next</div>
+            </div>
+        </page>
+        <page id="77">
+            <div id="main">
+            You put on your brigandine and boots before starting your escape, but leave your armour in your bags. There's no doubt it would be noticed, perhaps even recognised as yours.<br><br>After making your way to the window once more, you examine the outside wall. Your path is easy to find : rain gutters, other window sills and uneven rocks in the inn's wall can lead you all the way down. They almost seem designed for that very purpose.<br><br>Taking a few belongings -one of your bags and some of your seemingly infinite gold-, you open the window and push a first leg through it and onto the window sill.<br><br>How will you approach this ?
+                </div>
+            <div id="options">
+                 <div class="choice" id="choice1" onclick="story.turnTo('77-1'), story.changecss('villageday')">1. [AGILITY] Rely on your flexibility and reflexes. </div>
+                <div class="choice" id="choice2" onclick="story.turnTo('77-2'), story.changecss('villageday')">2. [RESOLVE] Rely on your steadfast muscles and mind.</div>
+            </div>
+        </page>
+        <page id="77-1">
+            <div id="main">
+        {{? story.skillcheck('agility', 'easy')}}
+                You gracefully climb down the wall, having no trouble reaching for each grip on the wall. You let go of the last stone once you are close enough to the ground, your feet finding the floor with ease. No one has even noticed your quick descent.
+        {{??}}
+                You stand on the window sill, extending your arm to your next grip, a nearby raingutter. It proves to be out of your reach, and the effort you put into tilting your body closer is enough to make you lose your balance. Your feet leave the window sill and you fall onto the ground, the shock somewhat lessened by the thickness of your brigandine.<br><br>You're lucky the first floor wasn't higher up, and that no one was on the street to see your "heroic" failure.
+        {{?}}
+                <div class="next" id="next" onclick="story.turnTo('78')">Next</div>
+                </div>
+        </page>
+        <page id="77-2">
+            <div id="main">
+        {{? story.skillcheck('resolve', 'easy')}}
+                You slowly but surely climb down the wall, your strong sense of balance and endurance keeping you safe. You reach the ground without much trouble, finding yourself alone in the small street.
+        {{??}}
+                You stand on the window sill, extending your arm to your next grip, a nearby raingutter. It proves to be out of your reach, and the effort you put into tilting your body closer is enough to make you lose your balance. Your feet leave the window sill and you fall onto the ground, the shock somewhat lessened by the thickness of your brigandine.<br><br>You're lucky the first floor wasn't higher up, and that no one was on the street to see your "heroic" failure.
+        {{?}}
+                <div class="next" id="next" onclick="story.turnTo('78')">Next</div>
+        </div>
+        </page>
+        <page id="78">
+            <div id="main">
+                You walk through the small village. There is little to see that you didn't already find the night before : your path takes you around houses, and little else. You eventually reach the main gate, in front of which stand a few stalls. They are barely visible through the large crowd that surrounds them.<br><br>"Get your hero's medal !" you hear. "Two silvers for a hero's medal ! Get two for three silvers !"
+                 <div class="next" id="next" onclick="story.turnTo('79')">Next</div>
+            </div>
+        </page>
+        <page id="79">
+        <div id="main">
+            Numerous men and women hand silvers to the merchant, desperate for a -likely overpriced- medal. What an ingenious scam this is, taking advantage of your victory to sell expensive garbage to your fans.
+            </div>
+             <div class="next" id="next" onclick="story.turnTo('80')">Next</div>
+        </page>
+        <page id="80">
+        <div id="main">
+            The thought summons an image. A smirking man, his hands full of goods and coins. "Great quality," he claims. "Uniquely made", he labels them. He buys them in bulk, gives them a coat of varnish and sells them for ten times the original price. He calls you a friend.
+            <br><br>
+        (You've regained an optional memory. It'll open up new opportunities.)
+            {{story.opmemory2 = true;}}
+            <br><br>A hand on your shoulder draws you out of your daze.<br><br>"Interested in a hero's medal, traveller ?"
+            </div>
+            <div class="next" id="next" onclick="story.turnTo('81')">Next</div>
+        </page>
+        <page id="81">
+            <div id="main">
+                You turn to see a short woman, her arms full of the trinkets. They look just as cheap as you suspected : the small metal circles bare a carving of your smug-looking face. Below it, letters spell out the date.<br><br>The woman's face falls as her eyes reach your face. "H-hero ?"
+            </div>
+            <div id="options">
+                 <div class="choice" id="choice1" onclick="story.turnTo('82')">1. "Yes, it's me." </div>
+                <div class="choice" id="choice2" onclick="story.turnTo('82')">2. "You're mistaken."</div>
+                <div class="choice" id="choice3" onclick="story.turnTo('82')">3. Pretend you didn't hear her.</div>
+                <div class="choice" id="choice4" onclick="story.turnTo('82')">4. Walk away.</div>
+            </div>
+        </page>
+        <page id="82">
+        <div id="main">
+            "It's the hero !" she exclaims. Every head in the crowd suddenly whips around and in your direction. Medals fall to the ground as bodies suddenly shuffle and surround you. Hands reach out and pull on your brigandine, on your hair, on your skin. Nails dig into you, as if wanting to take away a piece of your flesh.<br><br>"Hero !" the crowd yells. Something rages in their eyes ; despair, passion, need. There are too many of them for you to even begin to count them.
+            </div>
+            <div id="options">
+                 <div class="choice" id="choice1" onclick="story.turnTo('82-1')">1. "Please let me go !" </div>
+                <div class="choice" id="choice2" onclick="story.turnTo('82-2')">2. [AGILITY] Slip through the crowd and escape.</div>
+                <div class="choice" id="choice3" onclick="story.turnTo('82-3')">3. [STRENGTH] Push through the crowd and escape. </div>
+                <div class="choice" id="choice4" onclick="story.turnTo('82-4')">4. Escape at any cost ; even if you have to hurt them.</div>
+                <div class="choice" id="choice5" onclick="story.turnTo('82-5')">5. Give up.</div>
+            </div>
+        </page>
+        <page id="82-1">
+        <div id="main">
+            "Hero !" is your only answer. Like possessed, they don't seem to register your plea.
+            <div class="next" id="next" onclick="story.turnTo('82')">Next</div>
+            </div>
+        </page>
+        <page id="82-2">
+            <div id="main">
+         {{? story.skillcheck('agility', 'average')}}
+             Though the people surrounding you are numerous and relentless, you are quick enough to push through. Shielding your head with your arms, you slip through small gaps in the crowd, ducking when hands reach for your hair, contorting your body to avoid being caught. Once you are out of their reach you break into a run, some of your fans attempting to follow.
+                <div class="next" id="next" onclick="story.turnTo('83')">Next</div>
+        {{??}}
+              You attempt to slip through a gap in the crowd, but it immediately closes on you, trapping you between fans. Their hands grasp your limbs, holding you in place. Sweat begins to bead on your forehead and you can't seem to breathe in enough air.
+                <div class="next" id="next" onclick="story.turnTo('82')">Next</div>
+        {{?}}
+                </div>
+        </page>
+        <page id="82-3">
+            <div id="main">
+        {{? story.skillcheck('strength', 'average')}}
+               Though the people surrounding you are numerous and relentless, you are strong enough to push through. Your arms raised in front of you, you push a member of the crowd and everyone behind him, creating a small gap in the crowd you manage to slip through. Once you are out of their reach you break into a run, some of your fans attempting to follow.
+                <div class="next" id="next" onclick="story.turnTo('83')">Next</div>
+        {{??}}
+              You attempt to push a weak-looking member of the crowd, but the great wall of fans around him doesn't give. Their hands grasp your limbs, holding you in place. Sweat begins to bead on your forehead and you can't seem to breathe in enough air.
+                <div class="next" id="next" onclick="story.turnTo('82')">Next</div>
+        {{?}}
+            </div>
+        </page>
+        <page id="82-4">
+        <div id="main">
+            {{story.villainousPath=+1;}}
+            Whether it is out of fear or annoyance, you can no longer stand to be here. You pick a fan somewhat at random, punching an adult man who was seizing you shoulder right in the left orbit. A great collective "gasp" is heard in the crowd as the man falls, holding his wounded eye. Some of your fans disperse or rush to his aid ; others quickly shake the shock off and continue to hound you, as if nothing had happened. Nonetheless, you have enough room to break into a run, escaping the mad crowd.
+            <div class="next" id="next" onclick="story.turnTo('83')">Next</div>
+            </div>
+        </page>
+        <page id="82-5">
+        <div id="main">
+            Your entire body feels like it shrinks as you give up on escaping. You feel small in the face of this crowd, your voice unheard, covered by theirs.<br><br>You are thankful for the thickness of your brigandine, which serves a wall against the touch of your rabid fans. Every part of you that isn't covered, however, is at their mercy. <br><br>They fight each other for your touch, to see your face, to call your name. Some pull out some of your hairs, not caring for your pain. Are they not supposed to love you ? Worship you ?
+                <div class="next" id="next" onclick="story.turnTo('82-6')">Next</div>
+            </div>
+        </page>
+        <page id="82-6">
+            <div id="main">
+                It doesn't end. You don't know how long it lasts ; things begin to fade out when you close your eyes. Their assaulting hands become less violent, their voices less piercing. Both your body and mind go numb.<br><br>Yet they don't stop. They never stop.<br><br>It will never end.
+                <div class="next" id="next" onclick="story.turnTo('82-7')">Next</div>
+            </div>
+        </page>
+        <page id="82-7">
+        A voice you know well sounds in your left ear, cutting through the crowd.
+        <div class="next" id="next" onclick="story.turnTo('82-8'), story.changeportrait('Rhainangry')">Next</div>
+        </page>
+        <page id="82-8">
+            <div id="dialogue">
+                <div id="balloon">
+                    <div id="balloontail"></div>
+                    "Everyone back off NOW", Rhain commands, a fireball twirling in his hand.
+                    <div class="next" id="next" onclick="story.turnTo('82-9')">Next</div>
+                </div>
+            </div>
+        </page>
+        <page id="82-9">
+        <div id="main">
+            Some hands finally leave you, while some take more convincing. Aerona's armoured body pushes through the crowd, dispersing the rest of it. Her gauntlet wraps around your hand and hurriedly pulls you away, and your companion follows. You notice that Mabyn has summoned a wall of thorns behind you, blocking the path of whoever you follow.
+            </div>
+            <div id="options">
+                 <div class="choice" id="choice1" onclick="story.turnTo('84'), story.changeportrait('Aeronaneutral')">1. "What just happened ?" </div>
+                <div class="choice" id="choice2" onclick="story.turnTo('84'), story.changeportrait('Aeronaneutral')">2. "Thank you for saving me again."</div>
+                <div class="choice" id="choice3" onclick="story.turnTo('84'), story.changeportrait('Aeronaneutral')">3. "They were insane. These people are my fans ?"</div>
+                <div class="choice" id="choice4" onclick="story.turnTo('84'), story.changeportrait('Aeronaneutral')">4. Remain silent.</div>
+            </div>
+        </page>
+        <page id="83">
+            <div id="main">
+                You don't get far ; your companions are just a few metres away, seeming relieved to have found you. With a simple movement of her hand Mabyn summons a wall of thorns behind you, blocking the path of anyone who'd follow.<br><br>You have no time to catch your breath before Aerona takes hold of your wrist and hurriedly pulls you back to the inn.
+            </div>
+            <div id="options">
+                 <div class="choice" id="choice1" onclick="story.turnTo('84'), story.changeportrait('Aeronaneutral')">1. "They wouldn't let me go. I barely escaped." </div>
+                <div class="choice" id="choice2" onclick="story.turnTo('84'), story.changeportrait('Aeronaneutral')">2. "I'm sorry I sneaked out."</div>
+                <div class="choice" id="choice3" onclick="story.turnTo('84'), story.changeportrait('Aeronaneutral')">3. "They were insane. These people are my fans ?"</div>
+                <div class="choice" id="choice4" onclick="story.turnTo('84'), story.changeportrait('Aeronaneutral')">4. Remain silent.</div>
+            </div>
+        </page>
+        <page id="84">
+            <div id="dialogue">
+                <div id="balloon">
+                    <div id="balloontail"></div>
+            "Now you know why you have to be wary of your fans. We asked you to stay in your room for a reason."</div>
+                </div>
+            <div id="options">
+                 <div class="choice" id="choice1" onclick="story.turnTo('84-1'), story.changeportrait('Aeronaneutral')">1. "You should have told me this would happen." </div>
+                <div class="choice" id="choice2" onclick="story.turnTo('84-2'), story.changeportrait('Aeronaneutral')">2. "I'm sorry."</div>
+                <div class="choice" id="choice3" onclick="story.turnTo('84-3'), story.changeportrait('Aeronaneutral')">3. "This isn't normal ! They can't just do this to me !"</div>
+                <div class="choice" id="choice4" onclick="story.turnTo('85'), story.changeportrait('Woolyneutral')">4. Remain silent.</div>
+            </div>
+        </page>
+        <page id="84-1">
+            <div id="dialogue">
+            <div id="balloon">
+                    <div id="balloontail"></div>
+                Her voices shakes slightly as she answers. "I'm sorry. I should have."
+            </div>
+                <div class="next" id="next" onclick="story.turnTo('85'), story.changeportrait('Woolyneutral')">Next</div>
+            </div>
+        </page>
+        <page id="84-2">
+            <div id="dialogue">
+            <div id="balloon">
+                    <div id="balloontail"></div>
+                "No, I'm sorry. You're not to blame for this. I shouldn't make it sound like you are."
+            </div>
+                <div class="next" id="next" onclick="story.turnTo('85'), story.changeportrait('Woolyneutral')">Next</div>
+            </div>
+        </page>
+        <page id="84-3">
+        <div id="dialogue">
+            <div id="balloon">
+                    <div id="balloontail"></div>
+                "You're right. But they do anyway."
+            </div>
+            <div class="next" id="next" onclick="story.turnTo('85'), story.changeportrait('Woolyneutral')">Next</div>
+            </div>
+        </page>
+        <page id="85">
+        <div id="dialogue">
+            <div id="balloon">
+                    <div id="balloontail"></div>
+                The goatman gently pats your shoulder, likely intending to comfort you.
+            </div>
+            <div class="next" id="next" onclick="story.turnTo('86')">Next</div>
+            </div>
+        </page>
+        <page id="86">
+        <div id="main">
+            You all continue on your path back to the inn, where you'll wait until night falls. This time, your companions take turns to stay with you in your rooms. You don't know if they mean to comfort you after this terrible experience or make sure you don't sneak out again.
+            <div class="next" id="next" onclick="story.turnTo('86-1'), story.changecss('villagenight')">Next</div>
+            </div>
+        </page>
+        <page id="86-1">
+            <div id="main">
+                You rest for a few hours until time has come to leave and your party has made certain there is no crowd in your way to the gate. You cross it with no trouble. You've already had your share.
+                <div class="next" id="next" onclick="story.turnTo('87'), story.changecss('nightsky')">Next</div>
+            </div>
+        </page>
+        <page id="87">
+            <div id="main">
+                You follow your companions on a small trail, lighting the way with Rhain's spells. It isn't long before you can spot a group of people, their horses and the carts they pull.<br><br>"Hero, you're right on time. We'll be leaving soon."
+            </div>
+            <div id="options">
+                 <div class="choice" id="choice1" onclick="story.turnTo('87-1'), story.changecss('nightsky')">1. "We'll be travelling at night ?" </div>
+                <div class="choice" id="choice2" onclick="story.turnTo('87-2'), story.changecss('nightsky')">2. "How long will the journey take ?"</div>
+                <div class="choice" id="choice3" onclick="story.turnTo('87-3'), story.changecss('nightsky')">3. "How can we be sure no one will recognise me ?" </div>
+                <div class="choice" id="choice4" onclick="story.turnTo('88'), story.changecss('nightsky')">4. "All right."</div>
+            </div>
+        </page>
+        <page id="87-1">
+        <div id="main">
+            The merchant who greeted you, an older man currently sifting through items in his cart, nods.<br><br>"It's what we agreed on, isn't it ? Fewer people on the roads. And if any shady character is out there, they won't last long against you."
+                <div class="next" id="next" onclick="story.turnTo('87-5'), story.changecss('nightsky'), story.changeportrait('Rhainneutral')">Next</div>
+            </div>
+        </page>
+        <page id="87-2">
+            <div id="main">
+                "We got some nice, healthy horses with the advance you gave us last time, so it shouldn't take longer than five days." <br><br>You look at the horses ; they seem young and healthy indeed. The carts seem new as well, free of any damage or sign of use. The advance you gave them must have been sizeable.
+                <div class="next" id="next" onclick="story.turnTo('87'), story.changecss('nightsky')">Next</div>
+            </div>
+        </page>
+        <page id="87-3">
+            <div id="main">
+                "That's what the dark is for, hero. We've got tents for when we need to stop and sleep, so we won't need to enter any towns." <br><br>He points to one of the carts as he speaks, where you see several rolled up tents, some pillows and blankets.
+                <div class="next" id="next" onclick="story.turnTo('87'), story.changecss('nightsky')">Next</div>
+            </div>
+        </page>
+        <page id="87-5">
+        <div id="dialogue">
+            <div id="balloon">
+                    <div id="balloontail"></div>
+                "Don't worry. You can sleep as we travel if you'd like. We'll be sitting in the carts, so you should be comfortable enough."
+            </div>
+            <div class="next" id="next" onclick="story.turnTo('87'), story.changecss('nightsky')">Next</div>
+            </div>
+        </page>
+        <page id="88">
+            <div id="main">
+                "You can climb in a cart and make yourself comfortable. Plenty of pillows and blankets to share."<br><br>You do so, laying down your bags in the cart and beginning to take off your armour. Rhain soon joins you.
+                <div class="next" id="next" onclick="story.turnTo('89'), story.changecss('nightsky'), story.changeportrait('Rhainsmiling1')">Next</div>
+            </div>
+        </page>
+        <page id="89">
+            <div id="dialogue">
+            <div id="balloon">
+                    <div id="balloontail"></div>
+                "Let me help you." Without waiting for your answer, he begins to undo the straps on your shoulders.
+            </div>
+            <div class="next" id="next" onclick="story.turnTo('90'), story.changecss('nightsky'), story.changeportrait('Rhainneutral')">Next</div>
+            </div>
+        </page>
+        <page id="90">
+            <div id="dialogue">
+            <div id="balloon">
+                    <div id="balloontail"></div>
+                "Things have been difficult since yesterday, haven't they ?" He sighs. "I was looking forward to finally settling down in Brynarth and spending the rest of my days spending gold, making armour for myself and hanging out with you guys. You were looking forward to it too." 
+            </div>
+                            </div>
+                <div id="options">
+                 <div class="choice" id="choice1" onclick="story.turnTo('90-1'), story.changecss('nightsky'), story.changeportrait('Rhainsmiling1')">1. "We can still do that." </div>
+                <div class="choice" id="choice2" onclick="story.turnTo('90-2'), story.changecss('nightsky'), story.changeportrait('Rhainsad')">2. "I'm sorry I can't remember."</div>
+                <div class="choice" id="choice3" onclick="story.turnTo('90-3'), story.changecss('nightsky'), story.changeportrait('Rhainsmiling1')">3. "We'll get my memories back. I'm sure of it."</div>
+                <div class="choice" id="choice4" onclick="story.turnTo('90-4'), story.changecss('nightsky'), story.changeportrait('Rhainneutral')">4. "Settling down was never my style. I want to adventure some more."</div>
+            </div>
+        </page>
+        <page id="90-1">
+            <div id="dialogue">
+            <div id="balloon">
+                    <div id="balloontail"></div>
+                "Of course," he says, removing the armour on your left arm. "I don't mean that we can't do that. It just feels a bit... bittersweet, I guess."
+            </div>
+                <div class="next" id="next" onclick="story.turnTo('91'), story.changecss('nightsky'), story.changeportrait('Rhainneutral')">Next</div>
+            </div>
+        </page>
+        <page id="90-2">
+            <div id="dialogue">
+            <div id="balloon">
+                    <div id="balloontail"></div>
+                "No, it's not your fault. I don't want you to feel like it is. You defeated Ikemma all by yourself. You saved everyone. You're really the best."
+            </div>
+                <div class="next" id="next" onclick="story.turnTo('91'), story.changecss('nightsky'), story.changeportrait('Rhainneutral')">Next</div>
+            </div>
+        </page>
+        <page id="90-3">
+         <div id="dialogue">
+            <div id="balloon">
+                    <div id="balloontail"></div>
+                "If you're sure, then I am too. I believe in you."
+            </div>
+                <div class="next" id="next" onclick="story.turnTo('91'), story.changecss('nightsky'), story.changeportrait('Rhainneutral')">Next</div>
+            </div>
+        </page>
+        <page id="90-4">
+         <div id="dialogue">
+            <div id="balloon">
+                    <div id="balloontail"></div>
+                "I guess. You did buy a house, but nothing's stopping you from wandering once in a while. But take me with you, will you ?"
+            </div>
+                <div class="next" id="next" onclick="story.turnTo('91'), story.changecss('nightsky'), story.changeportrait('Rhainneutral')">Next</div>
+            </div>
+        </page>
+        <page id="91">
+             <div id="dialogue">
+            <div id="balloon">
+                    <div id="balloontail"></div>
+                A few more minutes pass and your armour is fully removed, laying in the cart next to you. "There. Nothing to do but wait now."
+            </div>
+                <div class="next" id="next" onclick="story.turnTo('92'), story.changecss('nightsky')">Next</div>
+            </div>
+        </page>
+        <page id="92">
+            <div id="main">
+                Rhain sighs and begins to take off his own armour. Aerona then climbs into the cart, laying down her own burdens.
+                <div class="next" id="next" onclick="story.turnTo('93'), story.changecss('nightsky'), story.changeportrait('Rhainsmiling1')">Next</div>
+            </div>
+        </page>
+        <page id="93">
+            <div id="dialogue">
+                <div id="balloon">
+                    <div id="balloontail"></div>
+                "Make yourself comfortable and take the armour off, Aerona. We'll be there for a while."
+                    </div>
+                <div class="next" id="next" onclick="story.turnTo('94'), story.changecss('nightsky'), story.changeportrait('Aeronaneutral')">Next</div>
+            </div>
+        </page>
+        <page id="94">
+            <div id="dialogue">
+                <div id="balloon">
+                    <div id="balloontail"></div>
+                "I'll keep it on for now. You never know who might try to ambush us."
+                    </div>
+                <div class="next" id="next" onclick="story.turnTo('95'), story.changecss('nightsky')">Next</div>
+            </div>
+        </page>
+        <page id="95">
+            <div id="main">
+                You don't catch Rhain's answer, covered as it is by the merchant's sudden exclamation : "We're good to go !" <br><br> Your cart begins to move as the driver motions for the horse to go. The cart in which Mabyn and Wooly sit lets you pass it so you may be first on the road ; the older woman waves at you as it does so, as if this were goodbye. The village, which you could still vaguely see in the distance, quickly disappears. One journey ends ; another begins.
+                <div class="next" id="next" onclick="story.turnTo('checkpoint3'), story.changecss('title'), story.checkpoint()">Next</div>
+            </div>
+        </page>
+        <page id="checkpoint3">
+            <div id="main">
+                (You've reached a checkpoint. You will return here if you reload or close and re-open the game and choose "continue" in the starting menu.)
+                <div class="next" id="next" onclick="story.turnTo('96')">Next</div>
+            </div>
+        </page>
+        <page id="96">
+        <div id="main">
+            This is the end of the demo. Thank you very much for playing !
+            </div>
+        </page>
+        <!-->After this : date ++, add journal entry<!-->
 
 
     </div>
