@@ -50,7 +50,7 @@
     border-width: thin;
 }
 #dialogue {
-    width          : 680px;
+    width          : 690px;
     height : 110px;
     padding-right : 10px;
     padding-left : 0px;
@@ -92,10 +92,41 @@
     width          : 680px;
     height : 50%;
     padding-right : 10px;
+    margin-left : 100px;
     padding-left : 10px;
     padding-top    : 10px;
     padding-bottom : 10px;
     border-color : black;
     border-style : solid;
     border-width: thin;
+    display : none;
+}
+#journaldivbox {
+    margin-left: 700px;
+    margin-top: 20px;
+    width: 100px;
+    padding-top    : 10px;
+    padding-bottom : 10px;
+    border-color : black;
+    border-style : solid;
+    border-width: thin;
+    display: none;
+}
+.journaldiv {
+    text-align: center;
+    font-weight: bold;
+    color:gray;
+}
+.journaldiv:hover {
+    color: darksalmon;
+}
+#insidejournal {
+    padding-top    : 10px;
+    padding-bottom : 10px;
+    text-align: center;
+}
+#entries {
+    padding-top    : 10px;
+    padding-bottom : 10px;
+    text-align: center;
 }

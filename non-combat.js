@@ -337,6 +337,8 @@ story.changecss = function(type) {
         $('#balloon').css({"background":"#493A78"})
         $('#balloontail').css({"border-right-color":"#493A78"})
         $('#dialogue').css({"border-color":"white"})
+        $('#journaldivbox').css({"border-color":"white"})
+        $('#journal').css({"border-color":"white"})
     }
     if (type=="innnight") {
         $("#header").css("backgroundImage", "url(images/innheader.png)")
@@ -347,6 +349,8 @@ story.changecss = function(type) {
         $('#balloon').css({"background":"#493A78"})
         $('#balloontail').css({"border-right-color":"#493A78"})
         $('#dialogue').css({"border-color":"white"})
+        $('#journaldivbox').css({"border-color":"white"})
+        $('#journal').css({"border-color":"white"})
     }
     if(type=="innday") {
         $("#header").css("backgroundImage", "url(images/innheader.png)")
@@ -363,6 +367,8 @@ story.changecss = function(type) {
         $('#balloon').css({"background":"#493A78"})
         $('#balloontail').css({"border-right-color":"#493A78"})
         $('#dialogue').css({"border-color":"white"})
+        $('#journaldivbox').css({"border-color":"white"})
+        $('#journal').css({"border-color":"white"})
     }
     if (type=="bedroomday") {
         $("#header").css("backgroundImage", "url(images/bedroomDayheader.png)")
@@ -371,7 +377,7 @@ story.changecss = function(type) {
         $('#dialogue').css({"border-color":"black"})
     }
     if(type=="villagenight") {
-        $("#header").css("backgroundImage", "url(images/villagenightheader.png)")
+        $("#header").css("backgroundImage", "url(images/villagenightheader..png)")
         $("body").css({"background-color":"#1E1E21", "color":"floralwhite"})
         $("#header").css({"border-color":"white"})
         $("#main").css({"border-color":"white"})
@@ -379,6 +385,8 @@ story.changecss = function(type) {
         $('#balloon').css({"background":"#493A78"})
         $('#balloontail').css({"border-right-color":"#493A78"})
         $('#dialogue').css({"border-color":"white"})
+        $('#journaldivbox').css({"border-color":"white"})
+        $('#journal').css({"border-color":"white"})
     }
     if(type=="villageday") {
         $("#header").css("backgroundImage", "url(images/villagedayheader.png)")
@@ -387,7 +395,7 @@ story.changecss = function(type) {
         $('#dialogue').css({"border-color":"black"})
         
     }
-}
+} //need to apply changes to both journaldiv and journal
 story.changeportrait = function(name) {
          $("#dialogue").css("backgroundImage", "url(/images/" + name +".png")
     }
@@ -417,45 +425,79 @@ window.onkeyup = function(event) {
          document.getElementById("next").click();
     }
     if(event.which ==74) {
-        if (story.journalenable == "true") {
-        if(story.getCurrentPageId() !== "journal"){
-            story.openjournal()
-        }
-        if(story.getCurrentPageId() == "journal"){
-            story.closejournal()
-        }
-        }
+           document.getElementById("journaldiv").click()
     }
-}
+} 
 story.opmemory1 =false;
 story.opmemory2 =false;
 story.firstdreamkey = false;
 story.date = 1;
-story.addjournalentry = function() {
-    if (story.date ==1) {
-        $('#main').append("<div class='choice'onclick='story.turnTo('entry1')>Day 2 : at the inn</div>")
-    }
-    if (story.date ==2) {"<div class='choice'onclick='story.turnTo('entry2')>Test</div>"
-        
+story.entryindex = function() {
+    console.log(story.date)
+    if (story.date >=1) {
+            console.log("entryindex gets called")
+        $('#insidejournal').append("<div class='choice' onclick='story.addentry(&quot;entry1&quot;)'>Day 2 : at the inn</div>")
     }
 }
-;
-story.openjournal = function() {
-    story.currentpage = story.getCurrentPageId()
-    console.log(story.currentpage)
-    story.turnTo("journal")
-    story.changecss('title')
-    console.log(story.getCurrentPageId())
+story.addentry = function(entryname)  {
+    $('#insidejournal').hide()
+    if (entryname == "entry1") {
+        $('#entries').append("I woke up yesterday on a mountain with no memory of the last five years. I am a hero, apparently, with loyal companions, a villainous enemy I just defeated and many fans. I remember none of these people save for Rhain.<br><br>We're at an inn in a small village, and I'm on bed rest after I got beaten up yesterday. A healer will come soon.<br><br> I learned a few things from my discussion with Aerona ; I'm engaged to her and I have returned to the cult of Meagan. I've been fighting the 'villain', Ikemma, for almost three years, which earned me the adoration of many.<br><br>I had a dream about some vague location in which there was a heavily decorated room inhabited by a black-haired person -male ? female ? I couldn't tell- who called me by name. I don't know if this is a memory.")
+        if (story.opmemory2 == true) {
+            $('#entries').append("I snuck out the inn and into the village and remembered a merchant I think I used to know, who sold marked up, low quality goods.")
+        }
+    }
+    if (entryname == "entry2") {}
+    $('#entries').append("<div class='next' id='next' onclick='story.returnjournal()'>Return</div>")
+}
+story.showjournaldiv = function(enabledisable) {
+    if (enabledisable == "enable") {
+        document.getElementById("journaldivbox").style.display = "block"
+    }
+    if (enabledisable == "disable") {
+        document.getElementById("journaldivbox").style.display = "none"
+    }
+}
+story.returnjournal = function() {
+    $('#entries').empty()
+    $('#insidejournal').show()
+}
+story.openclosejournal = function() {
+if (story.journalenable == true) {
+        var j = document.getElementById("journal");
+        var m = document.getElementById("main");
+        var o = document.getElementById("options");
+        var d = document.getElementById("dialogue");
+    if (j.style.display == "none") {
+        j.style.display = "block"
+        if (m !=null) {
+            m.style.display = "none"
+        }
+        if (o !=null) {
+        o.style.display = "none"
+        }
+        if (d !=null) {
+        d.style.display = "none"
+        }
+        console.log(story.date)
         var i;
-    for (i =story.date; i >0; i--) {
-        story.addjournalentry()
+        for (i =story.date; i >0; i--) {
     }
-}
-story.closejournal = function() {
-    console.log(story.currentpage)
-    console.log(story.getCurrentPageId())
-    story.turnTo(story.currentpage)
-    console.log(story.getCurrentPageId())
+    } else {
+        j.style.display = "none"
+        if (m !=null) {
+            m.style.display = "block"
+        }
+        if (o !=null) {
+        o.style.display = "block"
+        }
+        if (d !=null) {
+        d.style.display = "block"
+        }
+    }
+    $("#insidejournal").empty()
+    story.entryindex()
+    }
 }
 story.checkpoint = function() {
     localStorage.setItem("currentpage", story.getCurrentPageId())
@@ -482,6 +524,11 @@ story.checkpoint = function() {
 }
 story.loadcheckpoint = function() {
     if (localStorage.currentpage != undefined) {
+    var j = document.getElementById("journal");
+    j.style.display = "none"
+        if (story.journalenable == true) {
+            story.showjournaldiv('enable')
+        }
     story.turnTo(localStorage.currentpage)
     console.log(story.getCurrentPageId())
     story.name = localStorage.name
@@ -513,6 +560,8 @@ story.newgame = function() {
     var n = confirm('This will delete any saved checkpoint. Do you want to proceed anyway ?')
         console.log(n)
     if (n == true) {
+        var j = document.getElementById("journal");
+        j.style.display = "none"
         story.turnTo("intro1")
         story.changecss('sleep')
         console.log(story.getCurrentPageId())
@@ -534,7 +583,7 @@ story.newgame = function() {
         story.advantage18 = false;
         story.heroclass = 'no-class';
         story.opmemory1 =false;
-        story.date = "day 1"
+        story.date = 1;
             }
     else {
         console.log(n)

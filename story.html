@@ -80,20 +80,6 @@
         <page id= "Firstpage" class ="first">
         
         </page>
-        <page id="journal"></page>
-        <page id="entry1">
-        <div id="main">
-            I woke up yesterday with no memory of the last five years. I am a hero, apparently, with loyal companions, a villain I just defeated and many fans. I remember none of these people save for Rhain.<br><br>We're at an inn in a small village for now, and I'm on bed rest after I got beaten up yesterday. A healer will come soon.<br><br>
-        {{? story.opmemory2 == true}}
-            I sneaked out the inn and into the village and remembered a merchant I think I used to know, who sold marked up, low quality goods.
-        {{??}}
-        {{?}}
-            
-            </div>
-        </page>
-        <page id="entry2">
-        <div id='main'>test</div>
-        </page>
         <page id="second"> 
             <div id="dialogue">
             <div id="balloon">
@@ -1252,7 +1238,7 @@
             <div class="choice" id="choice3" onclick="story.turnTo('44'), story.changecss('bedroomnight')">3. Lay down and sleep.</div>
             </div>
         </page>
-        <page id="lookarmour"><div main='id'>
+        <page id="lookarmour"><div id='main'>
             The armour is heavy, shiny plate. Likely something that's been commissioned - and very costly. You've never owned anything like it.
             </div>
         <div id="options">
@@ -1260,7 +1246,7 @@
             </div>
         </page>
         <page id="looktoiletry">
-        <div main='id'>
+        <div id='main'>
             You open the pouch to reveal a small towel, nail file, soap bar and other toiletry items. The soap smells nice.
             </div>
         <div id="options">
@@ -1268,7 +1254,7 @@
             </div>
         </page>
         <page id="lookpouches">
-        <div main='id'>
+        <div id='main'>
             You pull the strings of the pouches and find gold, more than you've ever seen in your life. You don't even dare to start counting it.
             </div>
         <div id="options">
@@ -1276,7 +1262,7 @@
             </div>
         </page>
         <page id="lookleatherbag">
-        <div main='id'>
+        <div id='main'>
             The rough bag contains a few colourful vials you can't identify, as well as a dagger. You draw it and balance it on your fingers. It seems to be high quality.<br><br>Behind the dagger, you find some neatly folder parchment -a luxurious item-, a vial of ink and a quill. The paper is blank.
             </div>
         <div id="options">
@@ -1293,7 +1279,7 @@
             </div>
         </page>
         <page id="43-2">
-        <div main='id'>
+        <div id='main'>
             You look at your bandaged wounds. You feel them sting and pull when you move your limbs, but the pain isn't the worst you've felt. 
             </div>
         <div id="options">
@@ -1337,9 +1323,10 @@
             </div>
         </page>
         <page id="secondcheckpoint">
-        <div id="main"></div>
+        <div id="main">
             (You've reached a checkpoint. You will return here if you reload or close and re-open the game and choose "continue" in the starting menu.)
             <div class="next" id="next" onclick="story.turnTo('46'), story.changecss('memory')">Next</div>
+            </div>
         </page>
         <page id="46">
             <div id="main">
@@ -1354,9 +1341,9 @@
             <div id="main">
             You find yourself in a short corridor. Only two identical doors stand in front of you : one leads north, the other west. </div>
             <div id="options">
-            <div class="choice" id="choice1" onclick="story.turnTo('46west')">1. Go north.</div>
-            <div class="choice" id="choice2" onclick="story.turnTo('46east')">2. Go west.</div>
-            <div class="choice" id="choice3" onclick="story.turnTo('46east')">3. Go back east.</div>
+            <div class="choice" id="choice1" onclick="story.turnTo('46west-north')">1. Go north.</div>
+            <div class="choice" id="choice2" onclick="story.turnTo('46west-west')">2. Go west.</div>
+            <div class="choice" id="choice3" onclick="story.turnTo('46')">3. Go back east.</div>
             </div>
         </page>
         <page id="46east">
@@ -1367,7 +1354,8 @@
             </div>
         </page>
         <page id="46west-north">
-        <div id="main">
+            {{? story.firstdreamkey == false}}
+                    <div id="main">
             You enter a small room ; it barely has enough room for you to step inside. As if waiting for you, a large key rests on the floor, shining under a sourceless light.
             {{story.firstdreamkey = true;}}
             </div>
@@ -1375,6 +1363,15 @@
             <div class="choice" id="choice1" onclick="story.turnTo('46west')">1. Take the key and go back south.
             </div>
             </div>
+                {{??}}
+                    <div id="main">
+                This room has nothing more to offer.
+            </div>
+                <div id="options">
+            <div class="choice" id="choice1" onclick="story.turnTo('46west')">1. Go back south.
+            </div>
+                                </div>
+                {{?}}
         </page>
         <page id="46west-west">
         <div id="main">
@@ -1482,13 +1479,13 @@
             <div id="balloontail"></div>
                 "Word spread that you'd beaten Ikemma, so everyone in the nearby villages came here to look for you. We need to hide you until they calm down a little."
             </div>
+                        </div>
             <div id="options">
               <div class="choice" id="choice1" onclick="story.turnTo('50-5'), story.changeportrait('Mabynneutral')">1. "Why ? I'd love to meet them."</div>
                 <div class="choice" id="choice2" onclick="story.turnTo('50-6'), story.changeportrait('Mabynneutral')">2. "That makes sense."</div>
                 <div class="choice" id="choice3" onclick="story.turnTo('50-7'), story.changeportrait('Mabynneutral')">3. "I'll just go and tell them to fuck off."</div>
                 <div class="choice" id="choice4" onclick="story.turnTo('50-8'), story.changeportrait('Mabynneutral')">3. "I have fans ?"</div>
                 </div>
-            </div>
         </page>
         <page id="50-2">
             <div id="dialogue">
@@ -1580,7 +1577,7 @@
         <div id="dialogue">
             <div id="balloon">
             <div id="balloontail"></div>
-                The old woman looks down. "Of course, {{=story.getHeroName()}}"
+                The old woman looks down. "Of course, {{=story.getHeroName()}}."
             </div>
             <div class="next" id="next" onclick="story.turnTo('50'), story.changeportrait('Mabynneutral')">Next</div>
             </div>
@@ -1674,7 +1671,7 @@
             </div>
             <div id="options">
                 <div class="choice" id="choice1" onclick="story.turnTo('54-3'), story.changeportrait('Aeronasad')">1. "This must be very hard for you."</div>
-                <div class="choice" id="choice2" onclick="story.turnTo('53-4'), story.changeportrait('Aeronasmile')">2. "I sure have good taste."</div>
+                <div class="choice" id="choice2" onclick="story.turnTo('53-4'), story.changeportrait('Aeronasmile1')">2. "I sure have good taste."</div>
                 <div class="choice" id="choice3" onclick="story.turnTo('53-5'), story.changeportrait('Aeronasurprised')">3. "But I don't like women."</div>
                 <div class="choice" id="choice4" onclick="story.turnTo('53-6'), story.changeportrait('Aeronasad')">4. "Oh. Okay."</div>
             </div>
@@ -1687,10 +1684,10 @@
             </div>
             </div>
             <div id="options">
-                <div class="choice" id="choice1" onclick="story.turnTo('53-5'), story.changeportrait('Aeronasad')">1. "This must be very hard for you."</div>
-                <div class="choice" id="choice2" onclick="story.turnTo('53-6'), story.changeportrait('Aeronasmile')">2. "I sure have good taste."</div>
-                <div class="choice" id="choice3" onclick="story.turnTo('53-7'), story.changeportrait('Aeronasad')">3. "But I don't like women."</div>
-                <div class="choice" id="choice4" onclick="story.turnTo('53-8'), story.changeportrait('Aeronasad')">4. "Oh. Okay."</div>
+                <div class="choice" id="choice1" onclick="story.turnTo('54-3'), story.changeportrait('Aeronasad')">1. "This must be very hard for you."</div>
+                <div class="choice" id="choice2" onclick="story.turnTo('53-4'), story.changeportrait('Aeronasmile1')">2. "I sure have good taste."</div>
+                <div class="choice" id="choice3" onclick="story.turnTo('53-5'), story.changeportrait('Aeronasurprised')">3. "But I don't like women."</div>
+                <div class="choice" id="choice4" onclick="story.turnTo('53-6'), story.changeportrait('Aeronasad')">4. "Oh. Okay."</div>
             </div>
             </page>
         <page id="53-3">
@@ -1739,7 +1736,6 @@
              "W-what ? But you-" she seems to panic for a second, her face going pale. "I-I'm sorry. I shouldn't care about this right now. I have to answer your questions."
             </div>
             </div>
-            <div id="options">
                <div id="options">
                 <div class="choice" id="choice1" onclick="story.turnTo('54-1'), story.changeportrait('Aeronaneutral')">1. "How did we meet ?"</div>
                 <div class="choice" id="choice2" onclick="story.turnTo('54-2'), story.changeportrait('Aeronaneutral')">2. "Mabyn said you'd know why I'm weaker now."</div>
@@ -1748,8 +1744,6 @@
                 <div class="choice" id="choice5" onclick="story.turnTo('54-5'), story.changeportrait('Aeronaneutral')">5. "Tell me about our companions."</div>
                 <div class="choice" id="choice6" onclick="story.turnTo('54-6'), story.changeportrait('Aeronaneutral')">6. "I had a strange dream..."</div>
                 <div class="choice" id="choice7" onclick="story.turnTo('54-7'), story.changeportrait('Aeronaneutral')">7. "That's enough questions for now."</div>
-                
-            </div>
             </div>
         </page>
         <page id="53-6">
@@ -1820,7 +1814,7 @@
             <div id="dialogue">
                 <div id="balloon">
                         <div id="balloontail"></div>
-                    "There wasn't a single event, really." Aerona pauses, thinking. "I guess people started noticing you when you saved the mayor of that village who'd been kidnapped by Ikemma's minions. Then there was the series of fires in Briar's forest, which you put an end to. And you retrieved the egg of this sacred bird that Ikemma stole..."
+                    "There wasn't a single event." Aerona pauses, thinking. "I think people started noticing you when you saved that mayor that Ikemma's minions had captured. Then you put an end to the fires in Briar's forest. And you retrieved the egg of this sacred bird that Ikemma stole..."
                 </div>
             </div>
              <div id="options">
@@ -1841,7 +1835,8 @@
                 <div class="choice" id="choice1" onclick="story.turnTo('56-12'), story.changeportrait('Aeronaneutral')">1. "Why did no one stop him ?"</div>
                 <div class="choice" id="choice2" onclick="story.turnTo('56-13'), story.changeportrait('Aeronaneutral')">2. "Why did you never meet him ?"</div>
                 <div class="choice" id="choice3" onclick="story.turnTo('56-14'), story.changeportrait('Aeronaneutral')">3. "That sounds overly simple."</div>
-                <div class="choice" id="choice4" onclick="story.turnTo('55'), story.changeportrait('Aeronaneutral')">4. "I see".</div>
+                <div class="choice" id="choice4" onclick="story.turnTo('56-20'), story.changeportrait('Aeronaneutral')">4. "What can you tell me about his minions ? The one from yesterday was talking about a plan..."</div>
+                <div class="choice" id="choice5" onclick="story.turnTo('55'), story.changeportrait('Aeronaneutral')">5. "I see".</div>
                 </div>
         </page>
         <page id="54-5">
@@ -1869,13 +1864,13 @@
                 <div id="balloon">
                         <div id="balloontail"></div>
                     "You can ask me anything anytime, okay ? Don't be afraid to ask for my help. I... I don't want to put any pressure on you. But I'm here for you."
+                                    </div>
                 </div>
                     <div id="options">
                 <div class="choice" id="choice1" onclick="story.turnTo('57-1'), story.changeportrait('Aeronasmile')">1. "Thank you. I really appreciate it."</div>
                 <div class="choice" id="choice2" onclick="story.turnTo('57-2'), story.changeportrait('Aeronasad')">2. "I'm still a bit uncomfortable knowing we're engaged."</div>
                 <div class="choice" id="choice3" onclick="story.turnTo('57-3'), story.changeportrait('Aeronasad')">3. "Don't worry, I'll just ask Rhain."</div>
-                <div class="choice" id="choice4" onclick="story.turnTo('57-4'), story.changeportrait('Aeronansad')">4. "I don't need any help.".</div>
-                </div>
+                <div class="choice" id="choice4" onclick="story.turnTo('57-4'), story.changeportrait('Aeronasad')">4. "I don't need any help.".</div>
                 </div>
         </page>
         <page id="56-1">
@@ -1909,7 +1904,7 @@
         <div id="dialogue">
                 <div id="balloon">
                         <div id="balloontail"></div>
-                    "I'm sorry. But it was your choice : you managed to overcome your disagreements with the cult and they accepted you back in as an instructor, partly because of my recommendation. Like any higher-ranked member of the cult you swore an oath to Meagan, and you received her favour. I suspect that losing your memory of that oath took the favour away."
+                    "I'm sorry. But it was your choice : you overcame your disagreements with the cult and they accepted you back in as an instructor. Like any higher-ranked member of the cult, you swore an oath to Meagan and received her favour. I suspect that forgetting that oath cancelled it."
                 </div>      
                 </div>
             <div id="options">
@@ -1923,7 +1918,7 @@
         <div id="dialogue">
                 <div id="balloon">
                         <div id="balloontail"></div>
-                    "You managed to overcome your disagreements with the cult and they accepted you back in as an instructor, partly because of my recommendation. Like any higher-ranked member of the cult you swore an oath to Meagan, and you received her favour. I suspect that losing your memory of that oath took the favour away."
+                    "You overcame your disagreements with the cult and they accepted you back in as an instructor. Like any higher-ranked member of the cult you swore an oath to Meagan and received her favour. I suspect that forgetting the oath took it away."
                 </div>      
                 </div>
             <div id="options">
@@ -1993,16 +1988,16 @@
                         <div id="balloontail"></div>
                     "You did. You were fighting his minions from the very start. I guess others tried to copy you - wannabe adventurers, mostly. But they weren't as skilled as you are. Many of them died."
                 </div>
-            <div class="next" id="next" onclick="story.turnTo('55'), story.changeportrait('Aeronaneutral')">Next</div>
+            <div class="next" id="next" onclick="story.turnTo('54-4'), story.changeportrait('Aeronaneutral')">Next</div>
                 </div>
         </page>
         <page id="56-13">
             <div id="dialogue">
                 <div id="balloon">
                         <div id="balloontail"></div>
-                    "You only met him twice yourself : two years ago and yesterday." Aerona's expression changes to something darker. "He captured you two years ago, when you first became really known. You were gone for four days. I didn't sleep for any of them." Just as you think she might start crying, she  shakes her head and  tries to smile. "You escaped all by yourself. We'd just found out where you were and were about to go rescue you, but you found us first. That's just like you."
+                    "You met him twice yourself : two years ago and yesterday." Aerona's expression changes to something darker. "He captured you two years ago. You were gone for four days." Just as you think she might start crying, she shakes her head and  tries to smile. "You escaped all by yourself. We'd just found out where you were and were about to go rescue you, but you found us first. That's just like you."
                 </div>
-            <div class="next" id="next" onclick="story.turnTo('55'), story.changeportrait('Aeronaneutral')">Next</div>
+            <div class="next" id="next" onclick="story.turnTo('54-4'), story.changeportrait('Aeronaneutral')">Next</div>
                 </div>
         </page>
         <page id="56-14">
@@ -2011,7 +2006,16 @@
                         <div id="balloontail"></div>
                     She sighs. "It does sound silly when I say it out loud. Maybe he would have given more complex reasons if asked, but that's how it was for all of us. Just one evil man spreading chaos.
                 </div>
-            <div class="next" id="next" onclick="story.turnTo('55'), story.changeportrait('Aeronaneutral')">Next</div>
+            <div class="next" id="next" onclick="story.turnTo('54-4'), story.changeportrait('Aeronaneutral')">Next</div>
+                </div>
+        </page>
+        <page id="56-20">
+            <div id="dialogue">
+                <div id="balloon">
+                        <div id="balloontail"></div>
+                    "I'm not sure what to tell you about them. They're all just nameless thugs." She pauses, seeming to think for a second. "I imagine they didn't expect you to defeat their master. So when you did, whatever plan they had crumbled."
+                </div>
+            <div class="next" id="next" onclick="story.turnTo('54-4'), story.changeportrait('Aeronaneutral')">Next</div>
                 </div>
         </page>
         <page id="56-15">
@@ -2037,12 +2041,12 @@
                 <div id="balloon">
                         <div id="balloontail"></div>
                     She suddenly seems uncomfortable. "He's your best friend. I can't tell you anything new about him."
+                                    </div>
                 </div>
                 <div id="options">
                 <div class="choice" id="choice1" onclick="story.turnTo('56-18'), story.changeportrait('Aeronaneutral')">1.[CHARISMA] "I want to know what you think of him."</div>
                 <div class="choice" id="choice2" onclick="story.turnTo('54-5'), story.changeportrait('Aeronaneutral')">2. "You're right."</div>
             </div>
-                </div>
         </page>
         <page id="56-18">
              <div id="dialogue">
@@ -2121,14 +2125,8 @@
         <page id="60">
         <div id="main">
             You do as she asks -not that you could do anything else-, hearing her footsteps through the corridor and into a nearby room. She reappears as quickly as was promised, holding a leatherbound book.
-            </div>
-            <div class="next" id="next" onclick="story.turnTo('61'), story.changeportrait('Aeronasad')">Next</div>
-        </page>
-        <page id="61">
-            <div id="main">
-            You do as she asks -not that you could do anything else-, hearing her footsteps through the corridor and into a nearby room. She reappears as quickly as was promised, holding a leatherbound book.
-            </div>
-            <div class="next" id="next" onclick="story.turnTo('61'), story.changeportrait('Aeronasad')">Next</div>
+            <div class="next" id="next" onclick="story.turnTo('62'), story.changeportrait('Aeronasad')">Next</div>
+                       </div>
         </page>
         <page id="62">
         <div id="dialogue">
@@ -2159,14 +2157,14 @@
                 <div id="balloontail"></div>
                     "Do you think so ? You write a lot when we're travelling. You didn't take your journal for this trip since it was filled out, though. You must have left it at home."
             </div>
-                <div class="next" id="next" onclick="story.turnTo('63')">Next</div>
+                <div class="next" id="next" onclick="story.turnTo('63'), story.showjournaldiv('enable')">Next</div>
             </div>
         </page>
         <page id="63">
         <div id="main">
             {{story.journalenable = true;}}
             You run your fingers over the cover of this new journal. The irony of receiving this blank journal isn't lost on you. But consigning your thoughts and plans to these pages might help you ; if it doesn't bring your lost memories back, it'll at least save the current ones.
-            <br><br>(You can press "J" to consult your journal.)
+            <br><br>(You can press "J" or click "journal" to consult it.)
             <div class="next" id="next" onclick="story.turnTo('64')">Next</div>
             </div>
         </page>
@@ -2184,8 +2182,8 @@
         <page id="64-1">
             <div id="main">
                 "And you're the hero. Should we get to it ?" the middle-aged man says.
-            </div>
                         <div class="next" id="next" onclick="story.turnTo('65'), story.changeportrait('Aeronaneutral')">Next</div>
+                         </div>
         </page>
         <page id="64-2">
         <div id="dialogue">
@@ -2207,9 +2205,9 @@
         </page>
         <page id="64-4">
                <div id="main">
-                The middle-aged shrugs. "Your friend here didn't think it necessary to knock."
-            </div>
+                The middle-aged man shrugs. "Your friend here didn't think it necessary to knock."
                         <div class="next" id="next" onclick="story.turnTo('65'), story.changeportrait('Aeronaneutral')">Next</div>
+                               </div>
         </page>
         <page id="65">
             <div id="dialogue">
@@ -2226,14 +2224,14 @@
                 <div id="balloontail"></div>
                 "I'd rather stay. In case Brynmor needs help."
             </div>
-                <div class="next" id="next" onclick="story.turnTo('66')">Next</div>
+                <div class="next" id="next" onclick="story.turnTo('67')">Next</div>
             </div>
         </page>
         <page id="67">
             <div id="main">
                 The healer, Brynmor, has already sat down and began to slowly unwrap some of your bandages. <br><br>"Yes, I'd like to show you how you should take care of the wounds afterwards. You can stay too, lady."
-            </div>
             <div class="next" id="next" onclick="story.turnTo('68'), story.changeportrait('Aeronaneutral')">Next</div>
+                         </div>
         </page>
         <page id="68">
             <div id="dialogue">
@@ -2251,7 +2249,7 @@
             <div id="options">
                 <div class="choice" id="choice1" onclick="story.turnTo('69-1')">1. "Do I not get a discount for saving the world ?" </div>
                 <div class="choice" id="choice2" onclick="story.turnTo('70'), story.changeportrait('Rhainsmiling1')">2. "Uhh..."</div>
-                <div class="choice" id="choice3" onclick="story.turnTo('69-2')">3. "That's' insane. I've never had a healing cost so much."</div>
+                <div class="choice" id="choice3" onclick="story.turnTo('69-2')">3. "That's insane. I've never had a healing cost so much."</div>
             </div>
         </page>
         <page id="69-1">
@@ -2291,12 +2289,14 @@
             <div id="balloon">
                 <div id="balloontail"></div>
                 "That's great, considering the price. We got a bit ripped off, but I didn't want to argue and anger him. He could go and tell everyone you're here if he wanted."
+                            </div>
             </div>
+                <div id="options">
                 <div class="choice" id="choice1" onclick="story.turnTo('71-4'), story.changeportrait('Aeronaneutral')">1. "That's terrible." </div>
                 <div class="choice" id="choice2" onclick="story.turnTo('71-2'), story.changeportrait('Aeronaneutral')">2. "Why would he rip me off ? I'm the hero."</div>
                 <div class="choice" id="choice3" onclick="story.turnTo('71-4'), story.changeportrait('Aeronaneutral')">3. "You shouldn't have given in."</div>
                 <div class="choice" id="choice4" onclick="story.turnTo('73'), story.changeportrait('Rhainsmiling1')">4. "Well then, I'll rest now."</div>
-            </div>
+                    </div>
         </page>
         <page id="71-2">
              <div id="dialogue">
@@ -2313,11 +2313,13 @@
                 <div id="balloontail"></div>
                 "Yeah," the blacksmit admits. "He definitely inflated the price knowing you could afford it, and that we didn't want him to give out your location to your fans. It was subtle blackmail, really."
             </div>
+            </div>
+                <div id="options">
                 <div class="choice" id="choice1" onclick="story.turnTo('71-4'), story.changeportrait('Aeronaneutral')">1. "That's terrible." </div>
                 <div class="choice" id="choice2" onclick="story.turnTo('71-2'), story.changeportrait('Aeronaneutral')">2. "Why would he rip me off ? I'm the hero."</div>
                 <div class="choice" id="choice3" onclick="story.turnTo('71-4'), story.changeportrait('Aeronaneutral')">3. "You shouldn't have given in."</div>
                 <div class="choice" id="choice4" onclick="story.turnTo('73'), story.changeportrait('Rhainsmiling1')">4. "Well then, I'll rest now."</div>
-            </div>
+                    </div>
         </page>
         <page id="71-4">
              <div id="dialogue">
@@ -2380,7 +2382,7 @@
                 <div id="balloontail"></div>
                 "Anyway, we'll leave you alone. It's very important for you to rest now, so the healing can take its full effect. Have some food and sleep, okay ?"
             </div>
-                <div class="next" id="next" onclick="story.turnTo('74'), story.changeportrait('Aeronaneutral')">Next</div>
+                <div class="next" id="next" onclick="story.turnTo('75'), story.changeportrait('Aeronaneutral')">Next</div>
             </div>
         </page>
         <page id="75">
@@ -2428,7 +2430,7 @@
         <page id="76-3">
          <div id="main">
             You leave the inn after Aerona finishes her short conversation wtih the inkeeper. You only briefly saw the man and he seemed to want to talk to you, but your companions kept him away, finding reasons to take him into another room. They haven't explained why.<br><br>You take the same short path you travelled when you arrived here. When the gate is in your sight, you realise that a small crowd has amassed in front of it. The warrior immediately freezes and turns to your companions.
-             <div class="next" id="next" onclick="story.turnTo('76-4'), story.changecss('villagenight')">Next</div>
+             <div class="next" id="next" onclick="story.turnTo('76-4'), story.changecss('villagenight'), story.changeportrait('Aeronaneutral')">Next</div>
             </div>
         </page>
         <page id="76-4">
@@ -2516,7 +2518,7 @@
         <page id="76-14">
             <div id="main">
                 You find that all your companions save Aerona have already crossed the gate and wait beyond it. A panicked look on her face, she takes hold of your wrist and roughly pulls you beyond the gate, so quickly you almost stumble.
-                <div class="next" id="next" onclick="story.turnTo('76-16'), story.changecss('nightsky')">Next</div>
+                <div class="next" id="next" onclick="story.turnTo('76-16'), story.changecss('nightsky'), story.changeportrait('Aeronaneutral')">Next</div>
             </div>
         </page>
         <page id="76-15">
@@ -2529,9 +2531,9 @@
             <div id="dialogue">
                 <div id="balloon">
                     <div id="balloontail"></div>
-            "Close the gate !" Aerona yells.
-                <div class="next" id="next" onclick="story.turnTo('76-17'), story.changecss('nightsky')">Next</div>
+            "Close the gate !" Aerona yells.>
                 </div>
+                                <div class="next" id="next" onclick="story.turnTo('76-17'), story.changecss('nightsky')">Next</div>
             </div>
         </page>
         <page id="76-17">
@@ -2557,10 +2559,10 @@
                 </div>
             </div>
             <div id="options">
-                 <div class="choice" id="choice1" onclick="story.turnTo('76-20'), story.changeportrait('Aeronaneutral')">1. "It's not your fault. These people are to blame." </div>
-                <div class="choice" id="choice2" onclick="story.turnTo('76-20'), story.changeportrait('Aeronaneutral')">2. "You should have been more careful. This was horrible !"</div>
-                <div class="choice" id="choice3" onclick="story.turnTo('76-20'), story.changeportrait('Aeronaneutral')">3. "They were insane. These people are my fans ?"</div>
-                <div class="choice" id="choice4" onclick="story.turnTo('76-20'), story.changeportrait('Aeronaneutral')">4. Remain silent.</div>
+                 <div class="choice" id="choice1" onclick="story.turnTo('76-20'), story.changeportrait('Aeronaneutral'), story.changecss('nightsky')">1. "It's not your fault. These people are to blame." </div>
+                <div class="choice" id="choice2" onclick="story.turnTo('76-20'), story.changeportrait('Aeronaneutral'), story.changecss('nightsky')">2. "You should have been more careful. This was horrible !"</div>
+                <div class="choice" id="choice3" onclick="story.turnTo('76-20'), story.changeportrait('Aeronaneutral'), story.changecss('nightsky')">3. "They were insane. These people are my fans ?"</div>
+                <div class="choice" id="choice4" onclick="story.turnTo('76-20'), story.changeportrait('Aeronaneutral'), story.changecss('nightsky')">4. Remain silent.</div>
             </div>
         </page>
         <page id="76-20">
@@ -2619,8 +2621,8 @@
         <page id="79">
         <div id="main">
             Numerous men and women hand silvers to the merchant, desperate for a -likely overpriced- medal. What an ingenious scam this is, taking advantage of your victory to sell expensive garbage to your fans.
-            </div>
              <div class="next" id="next" onclick="story.turnTo('80')">Next</div>
+                        </div>
         </page>
         <page id="80">
         <div id="main">
@@ -2629,8 +2631,8 @@
         (You've regained an optional memory. It'll open up new opportunities.)
             {{story.opmemory2 = true;}}
             <br><br>A hand on your shoulder draws you out of your daze.<br><br>"Interested in a hero's medal, traveller ?"
-            </div>
             <div class="next" id="next" onclick="story.turnTo('81')">Next</div>
+                        </div>
         </page>
         <page id="81">
             <div id="main">
@@ -2959,9 +2961,20 @@
         <div id="title">The Hero's Journey</div>
     <div id="header"></div>
         <div id="host"></div>
+        <div id="journal">
+            <div id="insidejournal">
+    
+                                </div>
+                <div id="entries"></div>
+    </div>
+    <div id ="journaldivbox">
+    <div class="journaldiv" id="journaldiv" onclick="story.openclosejournal()">Journal</div>
+            </div>
     </div>
     <div id="interactionHost"></div>
 
+    <div id="footer">
+    </div>
     <script>
         $(function () {
             new DedalusWeb({

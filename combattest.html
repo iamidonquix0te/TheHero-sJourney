@@ -23,6 +23,7 @@
             </page>
         <page id="Firstpage" class ="first">
             <div class="combat">
+                {{story.journalenable = true;}}
            Choose your enemy.
             <div class = 'choice' onclick ="story.setenemyname('sbire'), story.startcombat(30, 30, 5, 20, 'special', 5), story.setHeroDefense(), story.setenemyDefense(), story.setHeroAttribute('strength', 25), story.setHeroAttribute('agility', 15), story.setHeroAttribute('resolve', 5)">First enemy of the game, henchman of the antagonist (special options and non-melee attacks are locked, not all companions are available. This is meant to introduce the combat system to the player but also make them feel very weak ; this fight can't be won)</div>
             <div class ='choice' onclick="story.setenemyname('testenemy'), story.turnTo('second')">Test enemy. This isn't a real enemy and will have mostly placeholder writing, but it has all the mechanics of the combat system</div>
@@ -44,9 +45,6 @@
             <div class="choice" onclick="story.setheroclass('Trystin'), story.startcombat(25, 20, 5, 10, 'special', 5), story.setHeroDefense(), story.setenemyDefense(), story.setHeroAttribute('intelligence', 25), story.setHeroAttribute('strength', 15), story.setHeroAttribute('charisma', 5)">Follower of Trystin, goddess of love. 25 Intelligence, 15 Strength, 5 Charisma. Melee and magic attacks. Special : "Heal self"</div>
             </div>
             </page>
-        <page id="journal">this is the journal
-            <div class= "choice" onclick="story.closejournal()">Close the journal</div>
-            </page>
         <page id="third">
             <div class="choice" onclick="story.loadcheckpoint()">Load</div>
             </page>
@@ -55,6 +53,22 @@
         <div id="title">The Hero's Journey</div>
 
         <div id="host"></div>
+                        <div id="journal">
+            <div id="insidejournal">
+            {{? story.date >= 1}}
+                <div class='choice'onclick="story.addentry('entry1')">Day 2 : at the inn</div>
+            {{??}}
+            {{?}}
+            {{? story.date >= 2 }}
+                <div class='choice'onclick="story.addentry('entry2')">Day 3 : on the road</div>
+            {{??}}
+            {{?}}
+                <div id="entries"></div>
+                </div>
+    </div>
+    <div id ="journaldivbox">
+    <div class="journaldiv" id="journaldiv" onclick="story.openclosejournal()">Journal</div>
+            </div>
     </div>
 </div>
     <div id="interactionHost"></div>
